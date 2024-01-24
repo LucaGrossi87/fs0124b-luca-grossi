@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.4em;
+    color: aliceblue;
+}
+
+header {
+    background-image: linear-gradient(to bottom right, black, lightslategray);
+    width: 100vw;
+    position: sticky;
+    top: 0;
+}
+
+h1, .logo, .recipe-video {
+    width: fit-content;
+    margin: auto;
+}
+
+.recipe-video {
+    margin-top: 20px;
+}
+
+figcaption {
+    text-align: center;
+    border-top: solid 3px white;
+    border-bottom: solid 3px white;
+}
+
+#hrtitle {
+    border: solid 1px rgb(255, 136, 0);
+}
+
+#subheading, blockquote {
+    background-color: rgba(255, 253, 205, 0.8);
+    padding: 10px;
+    color: black;
+}
+
+#subheading {
+    text-align: center;
+}
+
+main, footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: solid 2px yellow;
+    border-radius: 5px;
+    margin: auto;
+    width: 40vw;
+    padding:  10px;
+}
+
+h1 {
+    margin: 50px;    
+    border-top: dashed 3px black;
+    border-bottom: dashed 3px black;
+    text-shadow: 7px 7px 5px lightslategray, 7px 7px 5px rgb(238, 240, 128);
+}
+
+blockquote {
+    color: brown;
+    border: solid 3px orange;
+    border-radius: 3px;
+    margin: 50px 0;
+}
+
+article {
+    line-height: 50px;
+}
+
+.hrmain {
+    border: solid 1px rgb(0, 191, 255);
+}
+
+ul {
+    line-height: 40px;
+}
+
+li::first-letter:not(ol li) {
+    color: deeppink;
+    text-transform: uppercase;
+}
+
+ol p {
+    line-height: normal;
+}
+
+footer a:hover {
+    color: crimson;
+}
+
+footer a:link, footer a:visited, footer a:active {
+    color: white;
+}
