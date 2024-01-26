@@ -100,6 +100,7 @@ article>div>section>h4 {
 .right-column, .left-column {
     width: 45vw;
     display: inline-block;
+    vertical-align: top;
 }
 
 .left-column {
@@ -149,15 +150,19 @@ aside>a {
     color: #393d41;
     display: inline-block;
     width: 25%;
-    margin: 0 20px;
+    min-width: 500px;
+    margin: 0 50px;
+    border: solid 1px #dee1e3;
+    margin-bottom: 30px;
+    vertical-align: top;
+    height: 500px;
 }
 
-.aside-img {
-    height: 400px;
+aside>a>.aside-img {
+    height: 350px;
     width: 100%;
+    background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top;
 }
 
 #aside-img-1 {
@@ -172,15 +177,10 @@ aside>a {
     background-image: url(../images/foto3.jpg);
 }
 
-aside>a>div {
-    border: solid 1px #dee1e3;
-    margin: auto;
-    margin-bottom: 30px;
-}
-
 .aside-content {
     font-size: 0.9rem;
     margin: 5%;
+    ;
 }
 
 .aside-content>h4 {
