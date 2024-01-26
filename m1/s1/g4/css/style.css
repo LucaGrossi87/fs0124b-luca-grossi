@@ -116,6 +116,10 @@ main {
 
 /* ELEMENTI NEL MAIN - ARTICLE */
 
+.color-text {
+    color: blueviolet;
+}
+
 .highlight {
     background-color: lightgray;
     border: solid 1px grey;
