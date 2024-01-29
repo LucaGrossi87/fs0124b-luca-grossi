@@ -13,11 +13,11 @@ REGOLE
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
-  var numero = 1;
-  var stringa = 'parola';
-  var bool = true;
-  var array = [];
-  var object = {};
+  var numero = 1; //numeri "matematici"
+  var stringa = 'parola'; //sequenze di lettere e/o parole
+  var bool = true; //vero o falso
+  var array = []; //un gruppo di diverse variabili
+  var object = {}; //diversi valori di una variabile
 
 /* ESERCIZIO 2
  Crea una variable chiamata "myName" e assegna ad essa il tuo nome, sotto forma di stringa.
@@ -54,16 +54,20 @@ REGOLE
 
   myName = 'Grossi';
 
-  const pippo = 4;
-  //pippo = 5;
+  const PIPPO = 4;
+  //PIPPO = 5;
 
-  console.log(myName + ' ' + pippo)
+  console.log(myName + ' ' + PIPPO)
 
 /* ESERCIZIO 6
  Esegui una sottrazione tra i numeri 4 e la variable "x" appena dichiarata (che contiene il numero 12).
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+  console.log(4 - x)
+
+  //oppure
+
   let y = 4;
   console.log(y - x);
 
