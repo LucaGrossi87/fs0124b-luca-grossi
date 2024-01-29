@@ -15,7 +15,7 @@ REGOLE
 
   var numero = 1; //numeri "matematici"
   var stringa = 'parola'; //sequenze di lettere e/o parole
-  var bool = true; //vero o falso
+  var bool = true; //boolean: vero o falso
   var array = []; //un gruppo di diverse variabili
   var object = {}; //diversi valori di una variabile
 
