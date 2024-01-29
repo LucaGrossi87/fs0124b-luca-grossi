@@ -15,7 +15,7 @@ REGOLE
 
   var numero = 1;
   var stringa = 'parola';
-  var boolean = true;
+  var bool = true;
   var array = [];
   var object = {};
 
