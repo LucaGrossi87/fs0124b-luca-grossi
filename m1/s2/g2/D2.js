@@ -70,15 +70,11 @@ if(totalShoppingCart > 50){
 
 let discount=0.8;
 
-let prezzoFinale;
 if(totalShoppingCart > 50){
-    console.log("Prezzo finale : " + (prezzoFinale = totalShoppingCart));
+    console.log("Prezzo finale : " +  (totalShoppingCart*discount));
   } else {
-    console.log("Prezzo finale: " + (prezzoFinale = (totalShoppingCart+SHIPPING_FEE)));
+    console.log("Prezzo finale: " + (totalShoppingCart*discount+SHIPPING_FEE));
   }
-
-console.log ("Prezzo scontato : " + (prezzoFinale*discount))
-
 
 
 /* ESERCIZIO 7
