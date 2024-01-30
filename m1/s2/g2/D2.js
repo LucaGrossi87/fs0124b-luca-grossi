@@ -43,7 +43,9 @@ let f=3;
 if(e === 8 || f === 8){
     console.log("Uno dei valori vale 8");
   } else if(e+f === 8){
-    console.log("La somma devi valori è 8");
+    console.log("La somma dei valori è 8");
+  } else if(e-f === 8 || f-e === 8){
+    console.log("La sottrazione dei valori è 8");
   }
 
 /* ESERCIZIO 5
