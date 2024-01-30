@@ -199,5 +199,5 @@ console.log(array);
   Scrivi del codice per sostituire l'ultimo elemento dell'array, ovvero il valore 10, con il valore 100.
 */
 
-array[array.length - 1]=100;
+array.splice(array.length - 1, 1, 100);
 console.log(array);
