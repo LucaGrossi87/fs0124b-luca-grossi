@@ -113,8 +113,8 @@ let charactersNames = []
   Come risultato dovresti ottenere qualcosa di simile: ["Luke Skywalker", "C-3PO", "R2-D2", etc..]
 */
 {
-  for (let char of starWarsCharacters) {
-    let names = char.name;
+  for (let character of starWarsCharacters) {
+    let names = character.name;
     charactersNames.push(names);
   }
 
@@ -126,9 +126,9 @@ console.log(charactersNames);
 
 let femaleCharacters = []
 
-for (let char of starWarsCharacters){
-  if (char.gender === 'female') {
-    femaleCharacters.push(char.name);
+for (let character of starWarsCharacters){
+  if (character.gender === 'female') {
+    femaleCharacters.push(character.name);
   }
 }
 
@@ -152,22 +152,22 @@ eyeColor = {
   Utilizza uno switch statement per inserire uno ad uno gli oggetti dei personaggi di "starWarsCharacters" negli array relativi al colore degli occhi precedentemente creati.
   Ogni personaggio dovrà finire nell'array corrispondente al suo colore degli occhi (al valore della sua proprietà "eye_color").
 */
-for (let char of starWarsCharacters){
-  switch (char.eye_color) {
+for (let character of starWarsCharacters){
+  switch (character.eye_color) {
     case 'blue':
-      eyeColor.blue.push(char.name)
+      eyeColor.blue.push(character.name)
       break;
     case 'yellow':
-      eyeColor.yellow.push(char.name)
+      eyeColor.yellow.push(character.name)
       break;
     case 'brown':
-      eyeColor.brown.push(char.name)
+      eyeColor.brown.push(character.name)
       break;
     case 'red':
-      eyeColor.red.push(char.name)
+      eyeColor.red.push(character.name)
       break;
     case 'blue-gray':
-      eyeColor.bluegray.push(char.name)
+      eyeColor.bluegray.push(character.name)
       break;
     default:
       break;
@@ -219,9 +219,9 @@ if (crewMass < 500) {
   Usa un for loop per cambiare il valore della proprietà "gender" di alcuni personaggi dal valore "n/a" a "robot" (Tip: puoi effettuare la riassegnazione del valore corrispondente o creare un nuovo array)
 */
 {
-  for (let char of starWarsCharacters) {
-    if (char.gender == 'n/a'){
-      char.gender = 'robot'
+  for (let character of starWarsCharacters) {
+    if (character.gender == 'n/a'){
+      character.gender = 'robot'
     }
   }
 
@@ -232,16 +232,18 @@ console.log(starWarsCharacters);
   Utilizzando gli elementi presenti nell'array "femaleCharacters" rimuovi dall'array "charactersNames" le stringhe corrispondenti a personaggi con lo stesso nome.
   Una volta fatto crea un console.log per controllare la proprietà length di "charactersNames" prima e dopo l'operazione.
 */
+
+let charactersNamesCopy = [...charactersNames]
 {
-  for (let i=0; i<charactersNames.length; i++){
+  for (let i=0; i<charactersNamesCopy.length; i++){
     for (let femChar of femaleCharacters){
-      if (charactersNames[i] === femChar) {
-        charactersNames.splice(i,1)
+      if (charactersNamesCopy[i] === femChar) {
+        charactersNamesCopy.splice(i,1)
       }
     }
   }
 
-console.log(charactersNames);
+console.log(charactersNamesCopy);
 }
 
 /* --EXTRA-- ESERCIZIO 10
@@ -250,4 +252,4 @@ console.log(charactersNames);
 
 let randomCharacter = starWarsCharacters[Math.floor(Math.random() * starWarsCharacters.length)]
 
-console.log ("il nome è " + randomCharacter.name + ", è un/una " + randomCharacter.gender + " e ha gli ogghi color " + randomCharacter.eye_color)
+console.log ("il nome è " + randomCharacter.name + ", è un/una " + randomCharacter.gender + " e ha gli occhi color " + randomCharacter.eye_color)
