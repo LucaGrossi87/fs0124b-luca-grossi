@@ -128,7 +128,7 @@ let femaleCharacters = []
 
 for (let character of starWarsCharacters){
   if (character.gender === 'female') {
-    femaleCharacters.push(character.name);
+    femaleCharacters.push(character);
   }
 }
 
