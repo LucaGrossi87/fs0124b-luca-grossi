@@ -218,6 +218,8 @@ if (crewMass < 500) {
 /* ESERCIZIO 8
   Usa un for loop per cambiare il valore della proprietà "gender" di alcuni personaggi dal valore "n/a" a "robot" (Tip: puoi effettuare la riassegnazione del valore corrispondente o creare un nuovo array)
 */
+
+
 {
   for (let character of starWarsCharacters) {
     if (character.gender == 'n/a'){
@@ -237,7 +239,7 @@ let charactersNamesCopy = [...charactersNames]
 {
   for (let i=0; i<charactersNamesCopy.length; i++){
     for (let femChar of femaleCharacters){
-      if (charactersNamesCopy[i] === femChar) {
+      if (charactersNamesCopy[i] === femChar.name) {
         charactersNamesCopy.splice(i,1)
       }
     }
