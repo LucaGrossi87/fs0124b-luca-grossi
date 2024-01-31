@@ -252,4 +252,4 @@ console.log(charactersNamesCopy);
 
 let randomCharacter = starWarsCharacters[Math.floor(Math.random() * starWarsCharacters.length)]
 
-console.log ("il nome è " + randomCharacter.name + ", è un/una " + randomCharacter.gender + " e ha gli occhi color " + randomCharacter.eye_color)
+console.log (`il nome è ${randomCharacter.name}, è un/una ${randomCharacter.gender} e ha gli occhi color ${randomCharacter.eye_color}`)
