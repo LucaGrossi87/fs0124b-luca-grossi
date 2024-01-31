@@ -112,14 +112,14 @@ let charactersNames = []
   Dovrai accedere alla proprietà "name" di ogni oggetto in esso contenuto, e inserirla nell'array "charactersNames" creato precedentemente.
   Come risultato dovresti ottenere qualcosa di simile: ["Luke Skywalker", "C-3PO", "R2-D2", etc..]
 */
-
-for (let char of starWarsCharacters) {
-  let names = char.name;
-  charactersNames.push(names);
-}
+{
+  for (let char of starWarsCharacters) {
+    let names = char.name;
+    charactersNames.push(names);
+  }
 
 console.log(charactersNames);
-
+}
 /* ESERCIZIO 3
   Seguendo i passaggi precedenti crea un nuovo array chiamato "femaleCharacters" e inserisci al suo interno tutti gli oggetti femminili.
 */
@@ -218,30 +218,31 @@ if (crewMass < 500) {
 /* ESERCIZIO 8
   Usa un for loop per cambiare il valore della proprietà "gender" di alcuni personaggi dal valore "n/a" a "robot" (Tip: puoi effettuare la riassegnazione del valore corrispondente o creare un nuovo array)
 */
-
-for (let char of starWarsCharacters) {
-  if (char.gender == 'n/a'){
-    char.gender = 'robot'
+{
+  for (let char of starWarsCharacters) {
+    if (char.gender == 'n/a'){
+      char.gender = 'robot'
+    }
   }
-}
 
 console.log(starWarsCharacters);
-
+}
 
 /* --EXTRA-- ESERCIZIO 9
   Utilizzando gli elementi presenti nell'array "femaleCharacters" rimuovi dall'array "charactersNames" le stringhe corrispondenti a personaggi con lo stesso nome.
   Una volta fatto crea un console.log per controllare la proprietà length di "charactersNames" prima e dopo l'operazione.
 */
-
-for (let i=0; i<charactersNames.length; i++){
-  for (let femChar of femaleCharacters){
-    if (charactersNames[i] === femChar) {
-      delete charactersNames[i]
+{
+  for (let i=0; i<charactersNames.length; i++){
+    for (let femChar of femaleCharacters){
+      if (charactersNames[i] === femChar) {
+        charactersNames.splice(i,1)
+      }
     }
   }
-}
 
 console.log(charactersNames);
+}
 
 /* --EXTRA-- ESERCIZIO 10
   Crea una funzionalità che selezioni un elemento casuale dall'array "starWarsCharacters" e ne stampi in console le proprietà in modo discorsivo (a tuo piacimento).
