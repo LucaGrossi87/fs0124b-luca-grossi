@@ -104,17 +104,16 @@ console.log(reverseString ('gianfranco'));
 
 function upperFirst (a) {
     if (typeof(a) === 'string'){
-            let wordPool = a.split(" ")
-            for (let i=0; i<wordPool.length; i++){
-                let wordLetters = wordPool[i].split("")
-                for (let i=0; i<wordLetters; i++){
-                    let uppFirst = wordLetters[0].toUpperCase()
-                    let result = wordLetters.join("")
-                }
-                return result
+        let wordPool = a.split(" ")
+        for (let i=0; i<wordPool.length; i++){
+            let wordLetters = wordPool[i].split("")
+            let uppFirst = wordLetters[0].toUpperCase()
+            wordLetters[0] = uppFirst
+            wordPool[i] = wordLetters.join("")
             }
-        }
+        return wordPool.join(" ")
     }
+}
 
 console.log(upperFirst ('parola amici ciao'));
 
