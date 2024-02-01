@@ -58,7 +58,7 @@ console.log(boundary (99))
 
 function epify (a) {
     if (typeof(a) === 'string') {
-        if (a==='EPICODE') {
+        if (a.startsWith('EPICODE')) {
             return a
         } else {
         return 'EPICODE ' + a
