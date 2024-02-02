@@ -137,92 +137,70 @@ while (x<numericArray.length){
 */
 const charactersArray = ['g', 'n', 'u', 'z', 'd']
 let numberChar = []
-let position
 for (i=0;i<charactersArray.length;i++){
     switch (charactersArray[i]){
       case charactersArray[i]='a':
-        position = 1;
-        numberChar.push(position)
+        numberChar.push(1)
         break;
       case charactersArray[i]='b':
-        position = 2;
-        numberChar.push(position)
+        numberChar.push(2)
         break;
       case charactersArray[i]='c':
-        position = 3;
-        numberChar.push(position)
+        numberChar.push(3)
         break;
       case charactersArray[i]='d':
-        position = 4;
-        numberChar.push(position)
+        numberChar.push(4)
         break;
       case charactersArray[i]='e':
-        position = 5;
-        numberChar.push(position)
+        numberChar.push(5)
         break;
       case charactersArray[i]='f':
-        position = 6;
-        numberChar.push(position)
+        numberChar.push(6)
         break;
       case charactersArray[i]='g':
-        position = 7;
-        numberChar.push(position)
+        numberChar.push(7)
         break;
       case charactersArray[i]='h':
-        position = 8;
-        numberChar.push(position)
+        numberChar.push(8)
         break;
       case charactersArray[i]='i':
-        position = 9;
-        numberChar.push(position)
+        numberChar.push(9)
         break;
       case charactersArray[i]='l':
-        position = 10;
-        numberChar.push(position)
+        numberChar.push(10)
         break;
       case charactersArray[i]='m':
-        position = 11;
-        numberChar.push(position)
+        numberChar.push(11)
         break;
       case charactersArray[i]='n':
-        position = 12;
-        numberChar.push(position)
+        numberChar.push(12)
         break;
       case charactersArray[i]='o':
-        position = 13;
-        numberChar.push(position)
+        numberChar.push(13)
         break;
       case charactersArray[i]='p':
-        position = 14;
-        numberChar.push(position)
+        numberChar.push(14)
         break;
       case charactersArray[i]='q':
-        position = 15;
-        numberChar.push(position)
+        numberChar.push(15)
         break;
       case charactersArray[i]='r':
-        position = 16;
-        numberChar.push(position)
+        numberChar.push(16)
         break;
       case charactersArray[i]='s':
-        position = 17;
-        numberChar.push(position)
+        numberChar.push(17)
         break;
       case charactersArray[i]='t':
-        position = 18;
-        numberChar.push(position)
+        numberChar.push(18)
         break;
       case charactersArray[i]='u':
-        position = 19;
-        numberChar.push(position)
+        numberChar.push(19)
         break;
       case charactersArray[i]='v':
-        position = 20;
-        numberChar.push(position)
+        numberChar.push(20)
         break;
       case charactersArray[i]='z':
-        position = 21;
-        numberChar.push(position)
+        numberChar.push(21)
         break;
     }
 }
