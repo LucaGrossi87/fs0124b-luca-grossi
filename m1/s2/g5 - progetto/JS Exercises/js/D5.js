@@ -20,25 +20,20 @@ for (i=0; i<pets.length; i++) {
     Scrivi del codice per ordinare alfabeticamente gli elementi dell'array "pets".
 */
 
-let sortedPets = pets.sort()
-
-console.log(sortedPets);
+console.log(pets.sort());
 
 /* ESERCIZIO 3
     Scrivi del codice per stampare nuovamente in console gli elementi dell'array "pets", questa volta in ordine invertito.
 */
 
-let reversePets = sortedPets.reverse()
-
-console.log(reversePets)
+console.log(pets.reverse())
 
 /* ESERCIZIO 4
     Scrivi del codice per spostare il primo elemento dall'array "pets" in ultima posizione.
 */
 
-let movedPet = pets.slice(0,1)
-pets.shift()
-pets.push(movedPet[0])
+let movedPet = pets.shift()
+pets.push(movedPet)
 
 console.log(pets);
 
@@ -67,8 +62,7 @@ const cars = [
 ]
 
 for (i=0;i<cars.length;i++){
-  let licenseNumber = 'ABCD'+i.toString().padStart(4, 0)
-  cars[i].licensePlate=licenseNumber
+  cars[i].licensePlate='ABCD'+i.toString().padStart(4, 0)
 }
 
 console.log(cars);
