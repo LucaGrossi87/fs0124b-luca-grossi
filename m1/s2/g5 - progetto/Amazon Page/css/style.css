@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/*generali*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #e9edee;
+}
+
+header, footer {
+    background-color: #222f3f;
+
+}
+
+a, a:visited, a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.white-text {
+    color: white;
+}
+
+.highlight-block{
+    text-align: center;
+    background-color: #f76500;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.2rem;
+    display: inline-block;
+    margin: 15px 0;
+}
+
+/*header*/
+
+nav {
+    background-color: #364759;
+    padding: 10px 30px;
+}
+
+nav a {
+    margin-right: 20px;
+}
+
+#logo-head {
+    width: 150px;
+    margin: 10px 30px;
+}
+
+/*main*/
+
+main {
+    width: 95vw;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.section-title {
+    background-image: url(../img/bg-image.png);
+    line-height: 50px;
+    padding: 50px;
+    margin-bottom: 20px;
+}
+
+.categories {
+    background-color: white;
+    padding-bottom: 30px;
+}
+
+.categories .categ-title{
+    text-align: left;
+}
+
+.categ-title {
+    padding: 10px;
+}
+
+.categ-preview {
+    display: inline-block;
+    margin: 0 15px 15px 15px;
+    width: calc(25% - 35px);
+    min-width: 300px;
+    height: 600px;
+    border-radius: 5%;
+    box-shadow: 5px 5px 5px rgb(120, 120, 120);
+    background-size: cover;
+    background-position: center;
+}
+
+.preview-1{
+    background-image: url(../img/img_1.jpg);
+}
+
+.preview-2{
+    background-image: url(../img/img_2.jpg);
+}
+
+.preview-3{
+    background-image: url(../img/img_3.jpg);
+}
+
+.preview-4{
+    background-image: url(../img/img_4.jpg);
+}
+
+.categ-title a, .special-offer a {
+    color: #0b686d;
+    font-weight: 700;
+    margin-left: 15px;
+}
+
+.special-offer {
+    min-width: 300px;
+}
+
+.offer-1 {
+    background-image: url(../img/img_9.png);
+    margin-top: 30px;
+}
+
+.offer-2 {
+    background-image: url(../img/img_10.png);
+}
+
+.offerpic {
+    height: 600px;
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+/*footer*/
+
+footer {
+    text-align: center;
+}
+
+#logo-foot {
+    width: 200px;
+    margin: 50px;
+}
+
+footer>nav>a {
+    text-decoration: underline;
+    font-weight: 700;
+}
