@@ -105,7 +105,9 @@
       */
 
       const changePcontent = function (a) {
-        document.querySelector('div > p').innerText = a;
+        let p = document.querySelectorAll('div > p');
+        p.forEach(el => el.innerText = a)
+        
       }
 
       changePcontent('questo è il nuovo p')
