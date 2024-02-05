@@ -271,11 +271,9 @@
 
 
     const subTitle = document.querySelector('h2')
-    
-      function changeColor () {
 
+      function changeColor () {
         subTitle.setAttribute('id','changeMyColor');
-        console.dir(subTitle)
         const randomColor = Math.floor(Math.random()*16777215).toString(16);
         subTitle.style.color= "#" + randomColor;
       }
@@ -284,6 +282,7 @@
         subTitle.addEventListener('click', changeColor)
       }
       changeColorWithRandom()
+
     </script>
   </body>
 </html>
