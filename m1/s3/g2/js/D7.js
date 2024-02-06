@@ -15,44 +15,54 @@ console.log(mixString('albero', 'morbidoso').toUpperCase());
   Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
 */
 
-const arr=[]
+function arr(){
+  let rand = []
 for (i=0;i<10;i++) {
-  arr.push(Math.floor(Math.random()*101))
+  rand.push(Math.floor(Math.random()*101))
+  }
+return rand
 }
 
-console.log(arr);
+console.log(arr());
 
 /* ESERCIZIO 3 (filter)
   Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici
 */
 
-const evenNum = arr.filter((num) => num%2===0)
+function evenNum() {
+  let numb=arr()
+  return numb.filter((num) => num%2===0)
+}
 
-console.log(evenNum);
+console.log(evenNum());
 
 /* ESERCIZIO 4 (forEach)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
 
-let arrSumEach = 0
-arr.forEach(el => {arrSumEach+=el
-  });
-
-console.log(arrSumEach);
+function sumEach(){
+  let sumArrEach=0
+  arr().forEach(el => {sumArrEach+=el
+  })
+  return sumArrEach
+}
+console.log(sumEach());
 
 /* ESERCIZIO 5 (reduce)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
 
-const arrSumRed = arr.reduce((temp, curr) => temp+curr,0)
-console.log(arrSumRed);
+function sumRed () {
+  return arr().reduce((temp, curr) => temp+curr,0)
+}
+console.log(sumRed());
 
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
 
 function transl(n) {
-  let arr2 = arr.map((i) => i + n)
+  let arr2 = arr().map((i) => i + n)
   return arr2
 }
 
