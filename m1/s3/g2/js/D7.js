@@ -17,7 +17,7 @@ console.log(mixString('albero', 'morbidoso').toUpperCase());
 
 const arr=[]
 for (i=0;i<10;i++) {
-  arr.push(Math.floor(Math.random()*100))
+  arr.push(Math.floor(Math.random()*101))
 }
 
 console.log(arr);
