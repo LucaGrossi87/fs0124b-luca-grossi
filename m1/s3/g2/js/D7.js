@@ -9,7 +9,7 @@ const mixString = function (a,b){
   return firstWord + secondWord
 }
 
-console.log(mixString('albero', 'morbidoso'));
+console.log(mixString('albero', 'morbidoso').toUpperCase());
 
 /* ESERCIZIO 2 (for)
   Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
