@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/** generals **/
+
+body {
+    text-align: center;
+    font-family: "Rock Salt", cursive;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 1.8px;
+    scroll-behavior: smooth;
+    color: white;
+    background-image: url(../img/background.jpg);
+}
+      
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.4;
+    margin: 20px;
+}
+
+.listTitle {
+    text-decoration: underline;
+}
+
+.inputTitle {
+    font-weight: 700;
+}
+
+.list {
+    list-style:circle;
+}
+
+button {
+    display: inline-block;
+}
+
+p {
+    display: inline-block;
+}
+
+li {
+    margin: 10px;
+    border-bottom: thick double white;
+    padding: 10px;
+    letter-spacing: 2px;
+}
+
+/** header **/
+
+header {
+    position: sticky;
+    top:0;
+    background-image: url(../img/background.jpg);
+    min-height: fit-content;
+    border-bottom: solid 1px white;
+    }
+
+#headerContent {
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/**main**/
+
+.insideMargin {
+    width: fit-content;
+    min-width: fit-content;
+    margin:auto;
+    border-radius: 15px;
+    padding: 15px 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+main {
+    padding: 30px;
+}
+
+.submit {
+    margin-top: 30px;
+}
+
+#questButton {
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+    font-family: "Rock Salt", cursive;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 0.7rem;
+}
+
+#questText {
+    border-radius: 15px;
+}
+
+/** footer **/
+
+footer {
+    border-top: solid 1px white;
+    width: 100vw;
+    font-size: 0.8rem;
+    background-image: url(../img/background.jpg);
+    position: fixed;
+    bottom: 0;
+}
+
+#footerContent {
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
