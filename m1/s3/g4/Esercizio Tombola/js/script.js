@@ -79,10 +79,16 @@ function creaCartelle (){
         finestraCartella.className = 'finestraCartella'
         finestraCartella.innerHTML = (cartellaRandom[j])
         finestraCartella.style.display='inline-block'
+        finestraCartella.style.border='solid 1px black'
         finestraCartella.style.width='calc(100% / 6)'
         cartella.append(finestraCartella)
+        function evidenzia() {
+            this.style.backgroundColor='yellow'
+        }
+        finestraCartella.addEventListener('click', evidenzia)
         }
     }
+
 }
 
 function eliminaSelect (){
