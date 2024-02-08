@@ -42,10 +42,6 @@ function creaTabellone (){
     numeroTabellone.style.paddingTop='10px'
     numeroTabellone.style.paddingBottom='10px'
     numeroTabellone.style.border='solid 1px black'
-    //let numEstratto = document.querySelector('.numEstr')
-    //if (numeroTabellone.innerHTML===numEstratto.innerText) {
-    //    numeroTabellone.style.backgroundColor='yellow'
-    //}
     function evidenzia() {
             this.style.backgroundColor='yellow'
         }
