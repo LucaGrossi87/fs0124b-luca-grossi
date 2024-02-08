@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+}
+
+/*general*/
+
+body {
+text-align: center;
+}
+
+.block {
+    display: block;
+}
+
+/*header*/
+
+header {
+    position: sticky;
+    top: 0;
+    border-bottom: solid 2px black;
+}
+
+h1 {
+    width: fit-content;
+    font-size: 2rem;
+    margin: 30px auto;
+    border-bottom: double 5px black;
+}
+
+h2 {
+    font-size: 1.6rem;
+    font-style: italic;
+    margin: 30px;
+}
+
+/*main*/
+
+main {
+    width: 90vw;
+    margin: auto;
+}
+.cartellone {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.cartelle {
+    margin-bottom: 30px;
+}
+ 
+.sceltaCartelle {
+    width: fit-content;
+    margin: 30px auto;
+    padding: 30px;
+    border: solid 1px black;
+}
+
+#numeroCartelle {
+    margin: auto;
+}
+
+.gioca {
+    margin: 30px auto 0 auto; 
+}
+
+.cartelleGiocatore {
+    text-align: center;
+    margin: 30px 0;
+}

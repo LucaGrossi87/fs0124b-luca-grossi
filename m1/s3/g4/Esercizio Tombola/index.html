@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tombola</title>
+        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+
+    <body>
+        <header>
+            <h1>Tombola</h1>
+            <h2>Il gioco più noioso del pianeta!</h2>
+        </header>
+
+        <main>
+            <div class="sceltaCartelle">
+                <label for="cartelle" class="cartelle block">Scegli con quante cartelle vuoi giocare</label>
+                <select name="cartelle" class="block" id="numeroCartelle">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button class="gioca block">Gioca!</button>
+            </div>
+
+            <div class="bussolotto"></div>
+
+            <div class="cartellone"></div>
+
+            <div class="cartelleGiocatore"></div>
+
+        </main>
+
+        <script src="./js/script.js"></script>
+    </body>
+</html>
