@@ -716,14 +716,14 @@ function isItPrime(n) {
   }
   
   for (let i = 2; i < n; i++) {
-    if (n%i!==0) {
-      return true
+    if (n%i===0) {
+      return false
     } 
-  return false
   }
+  return true
 }
 
-console.log(isItPrime(8));
+console.log(isItPrime(5));
 
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
 
