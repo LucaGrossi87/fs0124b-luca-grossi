@@ -87,12 +87,13 @@ console.log(dice());
 */
 
 function whoIsBigger (a,b) {
-  if (typeof a === 'number'&&typeof b === 'number'){
-    if (a>b) {
-      return 'a è maggiore'
-    } else {
-      return 'b è maggiore'
-    }
+  if (typeof a !== 'number'&&typeof b !== 'number'){
+    return
+  }
+  if (a>b) {
+    return 'a è maggiore'
+  } else {
+    return 'b è maggiore'
   }
 }
 
@@ -105,9 +106,10 @@ console.log(whoIsBigger(5,2));
 */
 
 function splitMe (a) {
-  if (typeof a === 'string') {
-    return a.split(" ")
+  if (typeof a !== 'string') {
+    return
   }
+    return a.split(" ")
 }
 
 console.log(splitMe('I love coding'));
@@ -118,12 +120,13 @@ console.log(splitMe('I love coding'));
 */
 
 function deleteOne (a,b) {
-  if (typeof a === 'string'&&typeof b === 'boolean'){
-    if (b===true){
-      return a.split("").slice(1).join("")
-    } else {
-      return a.split("").slice(0,-1).join("")
-    }
+  if (typeof a !== 'string'&&typeof b !== 'boolean'){
+    return
+  }
+  if (b===true){
+    return a.split("").slice(1).join("")
+  } else {
+    return a.split("").slice(0,-1).join("")
   }
 }
 
