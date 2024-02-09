@@ -714,8 +714,12 @@ Tree(4)
 */
 
 function isItPrime(n) {
-  if (typeof n !== 'number') {
+  if (typeof n !== 'number' || n===1) {
     return
+  }
+
+  if (n===2){
+    return true
   }
   
   for (let i = 2; i < n; i++) {
