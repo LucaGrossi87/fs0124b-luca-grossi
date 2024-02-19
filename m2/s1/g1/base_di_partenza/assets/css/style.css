@@ -204,7 +204,7 @@ footer a {
     color: fuchsia;
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
     header div img {
         width: 200px;
     }
@@ -222,7 +222,7 @@ footer a {
 
 }
 
-@media (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
     header {
         display: flex;
         justify-content: space-between;
