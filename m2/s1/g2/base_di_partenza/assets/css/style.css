@@ -458,11 +458,11 @@ footer a {
 }
 
 .social {
-  top: 2vh;
+  bottom: 10vh;
 }
 
 .calend {
-  top: 7vh;
+  bottom: 6vh;
 }
 
 .social a, .calend a, .calend a:visited, .social a:visited {
@@ -481,11 +481,11 @@ footer a {
   font-size: 4rem;
 }
 
-@media screen and (max-width:700px) {
+@media screen and (min-width:700px) {
   .social{
-    top: 86vh
+    bottom: 90vh
   }
   .calend {
-    top: 90vh;
+    bottom: 86vh;
   }
 }
