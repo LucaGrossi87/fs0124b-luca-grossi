@@ -20,6 +20,18 @@ body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     box-shadow: 5px 5px 5px black;
     position: relative;
+    animation-name: stick;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}
+
+@keyframes stick {
+    from {
+        transform: translateZ(1000px);
+    }
+    to{
+        transform: translateZ(0);
+    }
 }
 
 .inset-shadow {
