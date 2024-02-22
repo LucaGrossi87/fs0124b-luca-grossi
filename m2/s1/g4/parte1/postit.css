@@ -20,14 +20,84 @@ body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     box-shadow: 5px 5px 5px black;
     position: relative;
+    /* animation-name: stick;
+    animation-duration: 2.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards; */
 }
 
-@keyframes stick {
+/* @keyframes stick {
     from {
         transform: translateZ(800px);
     }
     to{
         transform: translateZ(0);
+    }
+} */
+
+@keyframes overyellow {
+    from {
+        transform: rotate(0) translateZ(0px);
+        box-shadow: 5px 5px 5px black;
+    }
+    to {
+        transform: rotate(-15deg) translateZ(20px);
+        box-shadow: 15px 15px 15px black;
+    }
+}
+
+@keyframes overyellowback {
+    from {
+        transform: rotate(-15deg) translateZ(20px);
+        box-shadow: 15px 15px 15px black;
+    }
+    to {
+        transform: rotate(0) translateZ(0px);
+        box-shadow: 5px 5px 5px black;
+    }
+}
+
+@keyframes overgreen {
+    from {
+        transform: rotate(0) translateZ(0px);
+        box-shadow: 5px 5px 5px black;
+    }
+    to {
+        transform: rotate(20deg) translateZ(20px);
+        box-shadow: 15px 15px 15px black;
+    }
+}
+
+@keyframes overgreenback {
+    from {
+        transform: rotate(20deg) translateZ(20px);
+        box-shadow: 15px 15px 15px black;
+    }
+    to {
+        transform: rotate(0) translateZ(0px);
+        box-shadow: 5px 5px 5px black;
+    }
+}
+
+@keyframes overpurple {
+    from {
+        transform: rotate(0) translateZ(0px);
+        box-shadow: 5px 5px 5px black;
+    }
+    to {
+        transform: rotate(-10deg) translateZ(20px);
+        box-shadow: 15px 15px 15px black;
+    }
+}
+
+@keyframes overpurpleback {
+    from {
+        transform: rotate(-10deg) translateZ(20px);
+        box-shadow: 15px 15px 15px black;
+    }
+    to {
+        transform: rotate(0) translateZ(0px);
+        box-shadow: 5px 5px 5px black;
     }
 }
 
@@ -39,41 +109,43 @@ body {
     background-image: linear-gradient(to top, rgba(128,128,128,1), rgba(128,128,128,0))
 }
 
-.postit:hover {
-    transform: translateZ(20px);
-    box-shadow: 15px 15px 15px black;
-}
-
 .yellow:hover {
-    transform: rotate(-10deg);
+    animation-name: overyellow;
+    animation-duration: 1s;
 }
 .green:hover {
-    transform: rotate(25deg);
+    animation-name: overgreen;
+    animation-duration: 1s;
 }
 .purple:hover {
-    transform: rotate(-5deg);
+    animation-name: overpurple;
+    animation-duration: 1s;
+}
+
+.yellow:not(:hover) {
+    animation-name: overyellowback;
+    animation-duration: 1s;
+}
+.green:not(:hover) {
+    animation-name: overgreenback;
+    animation-duration: 1s;
+}
+.purple:not(:hover) {
+    animation-name: overpurpleback;
+    animation-duration: 1s;
 }
 
 .yellow {
     background-color: rgb(255, 255, 141);
     rotate: 15deg;
-    animation-name: stick;
-    animation-duration: 2.5s;
-    animation-iteration-count: 1;
 }
 
 .green {
     background-color: rgb(110, 189, 110);
     rotate: -20deg;
-    animation-name: stick;
-    animation-duration: 4s;
-    animation-iteration-count: 1;
 }
 
 .purple {
     background-color: rgb(189, 112, 189);
     rotate: 10deg;
-    animation-name: stick;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
 }
