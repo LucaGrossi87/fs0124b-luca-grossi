@@ -27,7 +27,7 @@ body {
 
 @keyframes stick {
     from {
-        transform: translateZ(1000px);
+        transform: translateZ(800px);
     }
     to{
         transform: translateZ(0);
