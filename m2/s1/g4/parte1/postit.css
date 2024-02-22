@@ -6,7 +6,8 @@ body {
     display: flex ;
     flex-wrap: wrap;
     justify-content: space-around;
-    perspective: 1000px;
+    perspective: 400px;
+    transform-style: preserve-3d
 }
 
 .postit {
@@ -20,20 +21,7 @@ body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     box-shadow: 5px 5px 5px black;
     position: relative;
-    /* animation-name: stick;
-    animation-duration: 2.5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards; */
 }
-
-/* @keyframes stick {
-    from {
-        transform: translateZ(800px);
-    }
-    to{
-        transform: translateZ(0);
-    }
-} */
 
 @keyframes overyellow {
     from {
@@ -41,14 +29,14 @@ body {
         box-shadow: 5px 5px 5px black;
     }
     to {
-        transform: rotate(-15deg) translateZ(20px);
+        transform: rotate(-15deg) translateZ(50px);
         box-shadow: 15px 15px 15px black;
     }
 }
 
 @keyframes overyellowback {
     from {
-        transform: rotate(-15deg) translateZ(20px);
+        transform: rotate(-15deg) translateZ(50px);
         box-shadow: 15px 15px 15px black;
     }
     to {
@@ -63,14 +51,14 @@ body {
         box-shadow: 5px 5px 5px black;
     }
     to {
-        transform: rotate(20deg) translateZ(20px);
+        transform: rotate(20deg) translateZ(50px);
         box-shadow: 15px 15px 15px black;
     }
 }
 
 @keyframes overgreenback {
     from {
-        transform: rotate(20deg) translateZ(20px);
+        transform: rotate(20deg) translateZ(50px);
         box-shadow: 15px 15px 15px black;
     }
     to {
@@ -85,14 +73,14 @@ body {
         box-shadow: 5px 5px 5px black;
     }
     to {
-        transform: rotate(-10deg) translateZ(20px);
+        transform: rotate(-10deg) translateZ(50px);
         box-shadow: 15px 15px 15px black;
     }
 }
 
 @keyframes overpurpleback {
     from {
-        transform: rotate(-10deg) translateZ(20px);
+        transform: rotate(-10deg) translateZ(50px);
         box-shadow: 15px 15px 15px black;
     }
     to {
@@ -112,27 +100,33 @@ body {
 .yellow:hover {
     animation-name: overyellow;
     animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 .green:hover {
     animation-name: overgreen;
     animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 .purple:hover {
     animation-name: overpurple;
     animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 
 .yellow:not(:hover) {
     animation-name: overyellowback;
     animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 .green:not(:hover) {
     animation-name: overgreenback;
-    animation-duration: 1s;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
 }
 .purple:not(:hover) {
     animation-name: overpurpleback;
-    animation-duration: 1s;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
 }
 
 .yellow {
