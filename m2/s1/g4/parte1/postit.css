@@ -1,0 +1,35 @@
+body {
+    background-color: grey;
+}
+
+#board {
+    display: flex ;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    perspective: 400px;
+}
+
+.postit {
+    margin: 5%;
+    width: 15%;
+    aspect-ratio: 1;
+}
+
+.postit:hover {
+    transform: translateZ(20px);
+}
+
+.yellow {
+    background-color: yellow;
+    rotate: 15deg;
+}
+
+.green {
+    background-color: green;
+    rotate: -20deg;
+}
+
+.purple {
+    background-color: purple;
+    rotate: 10deg;
+}
