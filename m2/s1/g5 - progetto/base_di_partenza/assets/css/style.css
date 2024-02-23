@@ -322,3 +322,12 @@ footer ul {
         background-color: white;
     }
 }
+
+@keyframes changeColorUp {
+    0% {
+        background-color:white
+    }
+    100% {
+        background-color:var(--yellow);
+    }
+}
