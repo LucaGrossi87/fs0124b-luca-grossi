@@ -331,3 +331,21 @@ footer ul {
         background-color:var(--yellow);
     }
 }
+
+@keyframes changeBtnDown {
+    0% {
+        background-color:var(--black)
+    }
+    100% {
+        background-color:var(--green);
+    }
+}
+
+@keyframes changeBtnUp {
+    0% {
+        background-color:var(--green)
+    }
+    100% {
+        background-color:var(--black);
+    }
+}
