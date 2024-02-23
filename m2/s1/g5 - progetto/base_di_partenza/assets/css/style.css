@@ -24,11 +24,11 @@ a:visited {
 }
 
 .left-padding {
-    padding-left: 25vw;
+    padding-left: 28svw;
 }
 
 .right-padding {
-    padding-right: 25vw;
+    padding-right: 28vw;
 }
 
 .color-white {
@@ -51,6 +51,7 @@ header {
     padding-top: 20px;
     padding-bottom: 20px;
     z-index: 100;
+    /* animation: changeColorDown 1s 1 forwards; */
 }
 
 .main-title {
@@ -108,10 +109,7 @@ h3 {
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.title-content * {
-    margin: 18px 0;
+    gap: 40px;
 }
 
 button {
@@ -175,11 +173,7 @@ button {
     font-size: 0.8rem;
 }
 
-.main-content {
-    justify-content: space-between;
-}
-
-.article-cards {
+.main-content, .article-cards {
     justify-content: space-between;
 }
 
@@ -218,6 +212,7 @@ h3 {
     font-size: 16px;
     max-height: 40px;
     line-height: 20px;
+    overflow: hidden;
 }
 
 aside {
@@ -238,7 +233,7 @@ aside {
     text-align: center;
 }
 
-.tag-cloud a {
+.tag-cloud>a {
     color: var(--green);
     font-size: 0.9rem;
 }
@@ -315,4 +310,15 @@ footer ul {
     position: absolute;
     top: calc(50% - 15px);
     left: -15px;
+}
+
+/* animazione */
+
+@keyframes changeColorDown {
+    0% {
+        background-color:var(--yellow)
+    }
+    100% {
+        background-color: white;
+    }
 }
