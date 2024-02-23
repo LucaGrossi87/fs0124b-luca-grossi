@@ -25,6 +25,10 @@ a, a:hover, a:visited {
     padding-left: 12vw;
 }
 
+.right-padding {
+    padding-right: 12vw;
+}
+
 .color-white {
     color: white;
 }
@@ -32,10 +36,8 @@ a, a:hover, a:visited {
 /* header */
 
 header {
-    padding: 17px 12vw;
     background-color: #ffc017;
     border-bottom: solid 1px var(--black);
-    display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
@@ -55,7 +57,6 @@ nav {
 }
 
 ul {
-    display: flex;
     gap: 10px;
 }
 
@@ -79,7 +80,6 @@ ul {
 
 .main-title {
     padding-right: 0;
-    display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: solid 1px #191919;
@@ -97,7 +97,6 @@ h3 {
 
 .title-content {
     width: 550px;
-    display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
@@ -109,4 +108,102 @@ h3 {
 
 button {
     font-size: 1.2rem;
+}
+
+/* main */
+
+.display-flex {
+    display: flex;
+}
+
+.trending-title h2 {
+    font-size: 16px;
+    letter-spacing: 0;
+    font-weight: 500;
+}
+
+.trending-title {
+    align-items: center;
+    padding-top: 40px;
+}
+
+.trending-content {
+    flex-wrap: wrap;
+    padding: 10px 30px;
+}
+
+.trending-cards {
+    flex-basis: 33%;
+    margin-bottom: 30px;
+}
+
+.trending-cards h4, .article-text h4 {
+    font-size: 13px;
+}
+
+.trending-cards img, .article-text img {
+    width: 20px;
+}
+
+.trending-cards .display-flex, .article-text .display-flex {
+    align-items: center;
+}
+
+.trending-cards h2 {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.trending-cards>*, .article-text>* {
+    padding: 7px 16px;
+}
+
+.trending-cards:last-child {
+    font-size: 0.8rem;
+}
+
+.article-cards {
+    justify-content: space-between;
+}
+
+.article-text h2 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.article-details {
+    font-size: 0.8rem;
+}
+
+.tag {
+    background-color: rgb(217, 217, 217);
+    border-radius: 10px;
+    padding: 4px;
+}
+
+.article-list {
+    width: 55%;
+}
+
+.article-img {
+    width: fit-content;
+
+}
+
+.article-img img {
+    width: 200px;
+    aspect-ratio: auto 200 / 134;
+    height: 134px;
+}
+
+h3 {
+    font-size: 16px;
+    max-height: 40px;
+    line-height: 20px;
+}
+
+aside {
+    width: 45%;
 }
