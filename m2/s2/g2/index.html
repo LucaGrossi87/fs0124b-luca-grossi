@@ -170,7 +170,7 @@ EXTRAS
                     Prenota ora</button>
                 </a>
 
-                <button class="my-3 py-2 px-5 bg-warning text-black border-0 rounded" id="removeCards">
+                <button class="my-3 py-2 px-5 bg-danger text-black border-0 rounded fw-bold" id="removeCards">
                     Nascondi le cards!
                 </button>
             </div>
@@ -625,24 +625,28 @@ EXTRAS
             let totalOffers = travels.length + cards.length
             document.querySelector('.alert').innerText = `Oggi ci sono ben ${totalOffers} offerte disponibili! Scegli quella migliore per te!`
 
+            let cardBtn = document.querySelector("#removeCards")
+
             function removeCards (){
                 for (let i = 0; i < cards.length; i++) {
                     const card = cards[i];
                     if (card.style.display==='none') {
-                    card.style.display='flex'
+                    card.style.display=''
                     } else {
                     card.style.display='none'
                     }
                 }
             }
 
-            let cardBtn = document.querySelector("#removeCards")
-
             function changeText (){
                 if (cardBtn.innerText==='Mostra le cards!'){
                     cardBtn.innerText='Nascondi le cards!'
+                    cardBtn.classList.toggle('bg-success')
+                    cardBtn.classList.toggle('bg-danger')
                 } else {
                     cardBtn.innerText='Mostra le cards!'
+                    cardBtn.classList.toggle('bg-success')
+                    cardBtn.classList.toggle('bg-danger')
                 }
             }
 
