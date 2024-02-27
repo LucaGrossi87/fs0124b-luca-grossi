@@ -30,11 +30,11 @@ Welcome Summer
 Last Minute
 Recensioni
 
-Collegherai ogni sezione della pagina agli elementi del menu corrispondenti. 
+Collegherai ogni sezione della pagina agli elementi del menu corrispondenti.
 
 2) Aggiungi un logo alla navbar, un qualsiasi logo di agenzia di viaggi, anche inventata.
 
-3) Aggiungi una sezione introduttiva con il nome, il payoff dell'agenzia, 
+3) Aggiungi una sezione introduttiva con il nome, il payoff dell'agenzia,
 una breve descrizione in corsivo e una call-to-action (bottone) "Prenota ora" di colore azzurro chiaro e testo bianco e grassetto
 
 Il background della sezione sarà grigio chiaro e con bordi arrotondati e del padding generoso all'interno
@@ -76,7 +76,7 @@ e il badge sarà scuro
 
 9) Crea una sezione "Last Minute", in cui mostrerai 6 immagini delle destinazioni last minute come rettangoli ombreggiati dai bordi arrotondati, senza testo. Rendile responsive come preferisci!
 
-10) Crea una sezione "Recensioni", dove l'utente potrà trovare alcuni feedback da utenti fittizi. 
+10) Crea una sezione "Recensioni", dove l'utente potrà trovare alcuni feedback da utenti fittizi.
 Piccola immagine tonda a sinistra con bordo 2px azzurro, nome utente e recensione a destra
 
 11) Crea un footer con le informazioni dell'agenzia e un bottone "Contattaci".
@@ -102,7 +102,7 @@ EXTRAS
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light mb-5 px-5 bg-light sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light px-5 bg-light sticky-top">
             <img src="./assets/img/logo.png" width="5%" alt="" />
             <button
                 class="navbar-toggler"
@@ -154,6 +154,8 @@ EXTRAS
             </div>
         </nav>
 
+        <div class="alert alert-info text-center" role="alert"></div>
+
         <header class="px-3 mx-5 bg-light">
             <div class="d-flex align-items-center border-bottom py-3 mx-5">
                 <h1 class="display-1 text-secondary">LG Travel Agency</h1>
@@ -173,7 +175,7 @@ EXTRAS
 
         <main>
             <section id="discount" class="m-5">
-                
+
                 <div class="d-flex justify-content-between">
                     <h3>Saldi</h3>
                     <button class="btn btn-white text-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDiscount" aria-expanded="false" aria-controls="collapseDiscount">Espandi/Nascondi sezione</button>
@@ -477,7 +479,7 @@ EXTRAS
 
                 <h3>Offerta del giorno</h3>
 
-                <div class="row p-3">
+                <div class="row p-3 travel">
 
                     <div class="col-8">
                         <div class="">
@@ -505,7 +507,7 @@ EXTRAS
 
                 <div class="row p-3">
 
-                    <div class="col-2">
+                    <div class="col-2 travel">
                         <div class="gx-3">
                             <img
                                 class="card-img-top img-fluid rounded"
@@ -515,7 +517,7 @@ EXTRAS
                         </div>
                     </div>
 
-                    <div class="col-2">
+                    <div class="col-2 travel">
                         <div class="gx-3">
                             <img
                                 class="card-img-top img-fluid rounded"
@@ -525,7 +527,7 @@ EXTRAS
                         </div>
                     </div>
 
-                    <div class="col-2">
+                    <div class="col-2 travel">
                         <div class="gx-3">
                             <img
                                 class="card-img-top img-fluid rounded"
@@ -535,7 +537,7 @@ EXTRAS
                         </div>
                     </div>
 
-                    <div class="col-2">
+                    <div class="col-2 travel">
                         <div class="gx-3">
                             <img
                                 class="card-img-top img-fluid rounded"
@@ -545,7 +547,7 @@ EXTRAS
                         </div>
                     </div>
 
-                    <div class="col-2">
+                    <div class="col-2 travel">
                         <div class="gx-3">
                             <img
                                 class="card-img-top img-fluid rounded"
@@ -555,7 +557,7 @@ EXTRAS
                         </div>
                     </div>
 
-                    <div class="col-2">
+                    <div class="col-2 travel">
                         <div class="gx-3">
                             <img
                                 class="card-img-top img-fluid rounded"
@@ -571,28 +573,34 @@ EXTRAS
             <section id="review" class="m-5">
                 <h3 class="text-center">Dicono di noi</h3>
 
-                <div class="review row">                 
-                    <img src="./assets/img/3177440.png" alt="" class="img col-1 object-fit-scale">
+                <div class="d-flex align-items-center">
+                    <div class="col-1 text-center">
+                        <img src="./assets/img/3177440.png" alt="" class="img w-50 object-fit-scale img-thumbnail rounded-circle border-info">
+                    </div>
                     <div class="col-11">
-                        <h6 class="fs-4">Username</h6>
+                        <h6 class="fs-5">Username</h6>
                         <p class="fs-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam voluptate iure voluptates error magni ut, eos animi odit reprehenderit. Reiciendis vel id earum mollitia! Quia magnam eveniet libero perspiciatis eum!
                         Corrupti id excepturi possimus voluptate ipsum distinctio quod quisquam ex aperiam quas explicabo temporibus, alias eum odit totam cum iusto, dolores ratione, non omnis. Dignissimos explicabo deleniti officia nesciunt minima?</p>
                     </div>
                 </div>
 
-                <div class="review row">
-                    <img src="./assets/img/3177440.png" alt="" class="img col-1 object-fit-scale">
+                <div class="d-flex align-items-center">
+                    <div class="col-1 text-center">
+                        <img src="./assets/img/3177440.png" alt="" class="img w-50 object-fit-scale img-thumbnail rounded-circle border-info">
+                    </div>
                     <div class="col-11">
-                        <h6 class="fs-4">Username</h6>
+                        <h6 class="fs-5">Username</h6>
                         <p class="fs-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam voluptate iure voluptates error magni ut, eos animi odit reprehenderit. Reiciendis vel id earum mollitia! Quia magnam eveniet libero perspiciatis eum!
                         Corrupti id excepturi possimus voluptate ipsum distinctio quod quisquam ex aperiam quas explicabo temporibus, alias eum odit totam cum iusto, dolores ratione, non omnis. Dignissimos explicabo deleniti officia nesciunt minima?</p>
                     </div>
                 </div>
 
-                <div class="review row">
-                    <img src="./assets/img/3177440.png" alt="" class="img col-1 object-fit-scale">
+                <div class="d-flex align-items-center">
+                    <div class="col-1 text-center">
+                        <img src="./assets/img/3177440.png" alt="" class="img w-50 object-fit-scale img-thumbnail rounded-circle border-info">
+                    </div>
                     <div class="col-11">
-                        <h6 class="fs-4">Username</h6>
+                        <h6 class="fs-5">Username</h6>
                         <p class="fs-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam voluptate iure voluptates error magni ut, eos animi odit reprehenderit. Reiciendis vel id earum mollitia! Quia magnam eveniet libero perspiciatis eum!
                         Corrupti id excepturi possimus voluptate ipsum distinctio quod quisquam ex aperiam quas explicabo temporibus, alias eum odit totam cum iusto, dolores ratione, non omnis. Dignissimos explicabo deleniti officia nesciunt minima?</p>
                     </div>
@@ -608,5 +616,12 @@ EXTRAS
         </footer>
 
         <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            let travels = document.querySelectorAll(".travel")
+            let cards = document.querySelectorAll(".card")
+            let totalOffers = travels.length + cards.length
+            document.querySelector('.alert').innerText = `Oggi ci sono ben ${totalOffers} offerte disponibili! Scegli quella migliore per te!`
+        </script>
+        <script></script>
     </body>
 </html>
