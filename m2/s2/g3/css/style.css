@@ -242,10 +242,14 @@ a {
   color: #cecece;
 }
 
-nav, .hero {
+nav, .hero, ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+ul {
+  gap: 35px;
 }
 
 nav > a > img, .hero > a > img {
@@ -259,6 +263,11 @@ h1 {
   font-style: normal;
   font-size: 4rem;
   text-shadow: 3px 3px 3px black;
+}
+@media screen and (max-width: 1200px) {
+  h1 {
+    text-align: center;
+  }
 }
 
 h2 {
@@ -275,6 +284,11 @@ h2 {
   z-index: 0;
   padding-top: 35px;
   padding-bottom: 35px;
+}
+@media screen and (max-width: 1200px) {
+  .hero {
+    justify-content: center;
+  }
 }
 
 .name {
@@ -314,7 +328,7 @@ h2 {
   position: relative;
   bottom: -100px;
 }
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1200px) {
   .hero-pic {
     display: none;
   }
@@ -359,9 +373,12 @@ h4 {
   gap: 35px;
   border-bottom: 1px solid white;
   border-top: 1px solid white;
+  flex-wrap: wrap;
 }
 
 .single-class {
+  display: flex;
+  flex-direction: column;
   margin: 15px 0;
   border: 2px solid black;
   border-radius: 15px;
@@ -369,6 +386,17 @@ h4 {
   overflow: hidden;
   line-height: 2rem;
   background-color: rgba(0, 0, 0, 0.6);
+  flex: 0 0 22%;
+}
+@media screen and (max-width: 1200px) {
+  .single-class {
+    flex: 1 1 47%;
+  }
+}
+@media screen and (max-width: 760px) {
+  .single-class {
+    flex: 1 1 100%;
+  }
 }
 
 .single-class > h4, .single-class > p {

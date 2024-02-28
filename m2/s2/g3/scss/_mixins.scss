@@ -22,7 +22,6 @@
     overflow: hidden;
 }
 
-
 @for $i from 1 to 5 {
     .grid-#{5-$i} {
         flex: 0 0 $i*25%;
@@ -42,4 +41,3 @@
         }
     }
 }
-

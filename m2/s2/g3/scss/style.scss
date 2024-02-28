@@ -27,8 +27,12 @@ a {
     @include anchor-decor
 }
 
-nav {
+nav, ul {
     @include display-between;
+}
+
+ul {
+    gap: 35px;
 }
 
 nav>a>img {
@@ -37,7 +41,10 @@ nav>a>img {
 }
 
 h1 {
-    @include h1-font
+    @include h1-font;
+    @media screen and (max-width: 1200px) {
+        text-align: center;    
+    }
 }
 
 h2 {
@@ -53,6 +60,9 @@ h2 {
     z-index: 0;
     padding-top: 35px;
     padding-bottom: 35px;
+    @media screen and (max-width: 1200px) {
+        justify-content: center;        
+    }
 }
 
 .name {
@@ -82,7 +92,7 @@ h2 {
     aspect-ratio: 1;
     position: relative;
     bottom: -100px;
-    @media screen and (max-width:960px) {
+    @media screen and (max-width:1200px) {
         display: none;        
     }
 }
@@ -115,13 +125,23 @@ h4 {
     gap: 35px;
     border-bottom: 1px solid white;
     border-top: 1px solid white;
+    flex-wrap: wrap;
 }
 
 .single-class {
+    display: flex;
+    flex-direction: column;
     margin: 15px 0;
     @include shadowed-border;
     line-height: 2rem;
     background-color: rgba(0, 0,0, 0.6);
+    flex: 0 0 22%;
+    @media screen and (max-width:1200px) {
+        flex: 1 1 47%;        
+    }
+    @media screen and (max-width:760px) {
+        flex: 1 1 100%;        
+    }
 }
 
 .single-class>h4, .single-class>p {
