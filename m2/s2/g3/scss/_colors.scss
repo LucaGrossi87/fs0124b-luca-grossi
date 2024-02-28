@@ -1,0 +1,7 @@
+$color-text: #cecece;
+
+@for $i from 1 to 5 {
+    .card-img-#{$i} {
+        background-image:  url(../img/#{$i}.jpg);
+    }
+}

@@ -1,0 +1,30 @@
+@mixin h1-font {
+    font-family: "Kings", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4rem;
+    text-shadow: 3px 3px 3px black;
+}
+
+@mixin h2-font {
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+    text-align: center;
+    text-shadow: 3px 3px 3px black;
+}
+
+@mixin h3-font {
+    font-size: 2rem;
+    letter-spacing: 3px;
+    text-align: center;
+    text-shadow: 3px 3px 3px black;
+}
+
+@mixin text-font {
+    font-family: "Covered By Your Grace", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    text-shadow: 3px 3px 3px black;
+}

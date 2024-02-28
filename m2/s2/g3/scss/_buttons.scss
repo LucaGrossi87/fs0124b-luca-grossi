@@ -1,0 +1,14 @@
+$colors-btn: (
+    color-blue: #0e6cff,
+    color-orange: #ff8700,
+    color-green: #4caf50,
+);
+
+
+@each $color-name, $color-code in $colors-btn {
+    .btn-#{$color-name} {
+        background-color: $color-code;
+        background: lighten($color-code, 15%)
+    }
+}
+

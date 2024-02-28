@@ -1,0 +1,43 @@
+@mixin display-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin display-around {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@mixin anchor-decor {
+    text-decoration: none;
+    color: $color-text
+}
+
+@mixin shadowed-border {
+    border: 2px solid black;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px black;
+    overflow: hidden;
+}
+
+@for $i from 1 to 5 {
+    .grid-#{5-$i} {
+        flex: 0 0 $i*25%;
+    }
+}
+
+@mixin animation {
+    @keyframes slidein {
+        from {
+            bottom:-100px;
+            opacity:0;
+        }
+
+        to {
+            bottom:0;
+            opacity:1;
+        }
+    }
+}
