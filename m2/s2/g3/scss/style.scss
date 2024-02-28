@@ -80,12 +80,15 @@ h2 {
 .hero-pic {
     width: 35vw;
     aspect-ratio: 1;
-    @include shadowed-border;
     position: relative;
     bottom: -100px;
+    @media screen and (max-width:960px) {
+        display: none;        
+    }
 }
 
 .hero-pic>img {
+    @include shadowed-border;
     width: 100%;
     height: 100%;
     object-fit: cover;
