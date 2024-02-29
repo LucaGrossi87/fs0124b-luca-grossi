@@ -32,19 +32,16 @@ nav * {
   gap: 15px;
 }
 
-.nav-left {
-  padding-top: 10px;
-}
-
 .nav-left, ul {
   gap: 15px;
+  padding-top: 10px;
 }
 
 .nav-right {
   padding-right: 30px;
 }
 
-.nav-right > div {
+.nav-right > div:not(:last-child) {
   position: relative;
   border-radius: 50%;
   width: 60px;
@@ -65,6 +62,10 @@ nav * {
 .not-icon {
   width: 30%;
   margin: auto;
+}
+
+.ham-menu {
+  border: 3px solid black;
 }
 
 .hero {

@@ -16,10 +16,10 @@
 
     <body class="bg-light">
         
-        <nav>
+        <nav class="position-relative">
             <div class="nav-left">
-                <ul>
-                    <a href=""><img src="./assets/logo.svg" alt=""></a>
+                <a href=""><img src="./assets/logo.svg" alt=""></a>
+                <ul class="d-none d-lg-flex">
                     <li>Browse <img src="./assets/chevron-down.svg" alt=""></i></li>
                     <li>Landings <img src="./assets/chevron-down.svg" alt=""></i></li>
                     <li>Pages <img src="./assets/chevron-down.svg" alt=""></i></li>
@@ -28,16 +28,29 @@
             </div>
 
             <div class="nav-right">
-                <div class="notification">
+                <div class="notification position-relative">
                     <div class="not-icon">
                         <img src="./assets/bell.svg" alt="">
                     </div>
-
-                </div>
-                <div class="avatar">
-                    <img src="./assets/avatar-1.jpg" alt="">
+                    <span class="position-absolute top-0 start-50 p-2 bg-danger border border-light rounded-circle">
+                        <span class="visually-hidden">New alerts</span>
                 </div>
 
+                <div class="avatar dropdown">
+                    <img src="./assets/avatar-1.jpg" alt="" class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <ul class="dropdown-menu bg-white border rounded">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                    <span class="position-absolute bottom-0 start-50 p-2 bg-success border border-light rounded-circle">
+                        <span class="visually-hidden">New alerts</span>
+                    </span>
+                </div>
+
+                <div class="ham-menu p-2 rounded d-lg-none">
+                    <img src="./assets/menu.svg" alt="">
+                </div>
             </div>
         </nav>
 
@@ -100,11 +113,11 @@
 
             <h3 class="fs-4 my-3">Recommended for you</h3>
             
-            <div class="recommended row gap-3 flex-nowrap position-relative">
+            <div class="recommended row gap-3 flex-nowrap position-relative overflow-hidden">
 
                 <div class="back bg-white fs-4 text-secondary-emphasis text-center">&#60;</div>
 
-                <div class="card col-12 col-md-6 col-lg-4" style="width: 18rem;">
+                <div class="card col-12 col-md-6 col-lg-3" style="width: 18rem;">
                     <img class="card-img-top" src="./assets/course-angular.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Titolo Corso</h5>
@@ -133,7 +146,7 @@
                         <img src="./assets/bookmark.svg" alt="">
                     </div>
                 </div>
-                <div class="card d-none d-sm-flex col-6 col-lg-4" style="width: 18rem;">
+                <div class="card d-none d-md-flex col-6 col-lg-3" style="width: 18rem;">
                     <img class="card-img-top" src="./assets/course-angular.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Titolo Corso</h5>
@@ -162,7 +175,7 @@
                         <img src="./assets/bookmark.svg" alt="">
                     </div>
                 </div>
-                <div class="card d-none d-lg-flex col-4" style="width: 18rem;">
+                <div class="card d-none d-lg-flex col-3" style="width: 18rem;">
                     <img class="card-img-top" src="./assets/course-angular.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Titolo Corso</h5>
@@ -191,7 +204,7 @@
                         <img src="./assets/bookmark.svg" alt="">
                     </div>
                 </div>
-                <div class="card d-none d-lg-flex col-4" style="width: 18rem;">
+                <div class="card d-none d-lg-flex col-3" style="width: 18rem;">
                     <img class="card-img-top" src="./assets/course-angular.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Titolo Corso</h5>
