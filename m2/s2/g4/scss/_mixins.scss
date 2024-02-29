@@ -1,0 +1,17 @@
+@mixin d-flex-btw {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin icons {
+    border-radius: 50%;
+    width: 60px;
+    aspect-ratio: 1;
+}
+
+@mixin h-scroll {
+    width: fit-content;
+    position: absolute;
+    top:50%;
+}

@@ -1,0 +1,170 @@
+@import 'mixins';
+
+body {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+    "slnt" 0;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+li {
+    list-style-type: none;
+}
+
+nav {
+    @include d-flex-btw;
+    padding: 5px 15px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 100;
+}
+
+nav * {
+    @include d-flex-btw;
+    gap: 15px;
+}
+
+.nav-left {
+    padding-top: 10px;
+}
+
+.nav-left, ul {
+    gap: 15px;
+}
+
+.nav-right {
+    padding-right: 30px;
+}
+
+.nav-right>div {
+    position: relative;
+    @include icons;
+}
+
+.nav-right img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.notification {
+    background-color: lightgray;
+}
+
+.not-icon {
+    width: 30%;
+    margin: auto;
+}
+
+.hero {
+    background-color: plum;
+}
+
+.hero-content {
+    @include d-flex-btw;
+    gap: 50px;
+}
+
+button {
+    padding: 15px;
+}
+
+.adv-icon {
+    @include icons;
+    background-color: bisque;
+    @include d-flex-btw;
+}
+
+.adv-icon img {
+    margin: auto;
+}
+
+.hero-ftr {
+    margin: auto;
+}
+
+.hero-adv {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.adv-icon {
+    flex-shrink: 0;
+}
+
+.hero-ftr-text {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-ftr-text p {
+    font-size: 0.8rem;
+}
+
+.hero-ftr-text h4 {
+    font-size: 1.3rem;
+    margin: 0
+}
+
+main {
+    padding: 100px;
+}
+
+.card {
+    padding: 0;
+}
+
+.card-body p {
+    font-size: 0.9rem;
+    margin: 0 5px;
+}
+
+.aut-pic {
+    width: 30px;
+    margin-right: 8px;
+}
+
+.author {
+    font-size: 0.85rem;
+}
+
+footer {
+    @include d-flex-btw;
+    font-size: 0.7rem;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.back {
+    @include icons;
+    width: fit-content;
+    position: absolute;
+    left: -60px;
+    top:50%;
+}
+
+.back {
+    @include icons;
+    @include h-scroll;
+    left: -60px;
+}
+
+.forward {
+    @include icons;
+    @include h-scroll;
+    right: -30px;
+}
