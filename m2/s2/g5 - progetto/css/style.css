@@ -13228,4 +13228,19 @@ li {
   opacity: 1;
 }
 
+@media screen and (min-width: 1079px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+.lg-only {
+  display: none;
+}
+@media screen and (min-width: 1079px) {
+  .lg-only {
+    display: flex;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

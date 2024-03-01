@@ -12,23 +12,23 @@
     </head>
     <body class="bg-dark">
 
-        <nav class="d-flex justify-content-between">
+        <nav class="container-fluid d-flex justify-content-between">
             <div class="nav-left d-flex align-items-center">
                 <a href=""><img src="./assets/netflix_logo.png" alt="" class="wd-px-300"></a>
                 <ul class="d-flex text-secondary gap-3 fs-5 ms-0">
-                    <li class="text-white">Home</li>
-                    <li>TV Shows</li>
-                    <li>Movies</li>
-                    <li>Recently Added</li>
-                    <li>My List</li>
+                    <li class="text-white lg-only">Home</li>
+                    <li class="lg-only">TV Shows</li>
+                    <li class="lg-only">Movies</li>
+                    <li class="lg-only">Recently Added</li>
+                    <li class="lg-only">My List</li>
                 </ul>
             </div>
 
-            <div class="nav-right d-flex text-white gap-3 justify-content-end align-items-center">
-                <a href="" class="fs-4 text-white"><i class="bi bi-search"></i></a>
-                <a href="" class="wd-px-50 ratio-1"><img src="./assets/kids_icon.png" alt="" class="w-100 rounded-circle"></a>
-                <a href="" class="fs-4 text-white"><i class="bi bi-bell-fill"></i></a>
-                <div class="dropdown">
+            <div class="nav-right d-flex gap-3 justify-content-end align-items-center">
+                <a href="" class="fs-4 text-white lg-only"><i class="bi bi-search"></i></a>
+                <a href="" class="wd-px-50 ratio-1 lg-only"><img src="./assets/kids_icon.png" alt="" class="w-100 rounded-circle"></a>
+                <a href="" class="fs-4 text-white lg-only"><i class="bi bi-bell-fill"></i></a>
+                <div class="dropdown lg-only">
                     <button class="btn border-0 dropdown-toggle text-white fs-6 wd-px-75 ratio-1 py-0 ps-0 pe-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="./assets/avatar.png" alt="" class="w-100">
                     </button>
@@ -42,7 +42,12 @@
                         </li>
                     </ul>
                 </div>
+
+                <div class="hamburger display-4 text-white content-fit border border-white rounded px-1">
+                    <i class="bi bi-list"></i>
+                </div>
             </div>
+
 
         </nav>
 

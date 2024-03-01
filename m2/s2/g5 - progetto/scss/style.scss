@@ -78,3 +78,16 @@ li {
         opacity: 1;
     }
 }
+
+.hamburger {
+    @media screen and (min-width:1079px){
+        display: none;
+    }
+}
+
+.lg-only{
+    display: none;
+    @media screen and (min-width:1079px){
+        display: flex;
+    }
+}
