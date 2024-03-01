@@ -13243,4 +13243,13 @@ li {
   }
 }
 
+.only-lg-flex {
+  flex-direction: column;
+}
+@media screen and (min-width: 1079px) {
+  .only-lg-flex {
+    flex-direction: row;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

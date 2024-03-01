@@ -91,3 +91,10 @@ li {
         display: flex;
     }
 }
+
+.only-lg-flex {
+    flex-direction: column;
+    @media screen and (min-width:1079px){
+        flex-direction: row;
+    }
+}

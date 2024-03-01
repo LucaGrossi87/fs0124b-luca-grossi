@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css"
+        />
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+    <body class="bg-dark">
+        <header class="container-fluid justify-content-start">
+            <a href="https://www.netflix.com"><img src="./assets/netflix_logo.png" alt="" class="wd-px-300"></a>
+        </header>
+
+        <main class="container padx-100">
+            
+            <h3 class="text-white display-2 border-bottom">Edit Profile</h3>
+
+            <div class="d-flex gap-5 only-lg-flex">
+                <div class="prof-pic">
+                    <div class="content-fit position-relative">
+                        <img src="./assets/avatar.png" alt="">
+                        <span class="position-absolute top-100 start-0 translate-middle p-2 bg-black border border-white rounded-circle">
+                            <span><i class="bi bi-pencil text-white"></i></span>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="flex-column w-100 text-secondary">
+                    <input type="text" class="bg-secondary w-100 p-3 mb-5 text-white fs-4" value="Nome Cognome">
+                    <h5 class="display-6">Language:</h5>
+                    <div class="dropdown">
+                        <button class="btn border border-white rounded-0 dropdown-toggle text-white fs-6 py-1 px-3 fs-4 content-fit" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        English
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li>
+                                <a class="dropdown-item" href="#">Another action</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Genres</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <hr class="border border-secondary border-1 opacity-100 margy-50">
+
+                    <h5 class="display-6 mb-2">Maturity Settings:</h5>
+                    <button class="btn btn-secondary rounded-0 fs-4 fw-bold text-white mb-2">ALL MATURITY RATINGS</button>
+                    <p class="fs-4">Show titles of <span class="fw-bold">all maturity ratings</span>for this profile</p>
+                    <button class="btn btn-outline-secondary rounded-0 fs-4 px-4">EDIT</button>
+
+                    <hr class="border border-secondary border-1 opacity-100 margy-50">
+
+                    <h5 class="display-6 mb-2">Autoplay controls</h5>
+                    
+                    <div class="form-check fs-3">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                        Autoplay next episode in a series on all devices
+                        </label>
+                    </div>
+                    <div class="form-check fs-3">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                        Autoplay previews while browsing on all devices
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <hr class="border border-secondary border-1 opacity-100 margy-50">
+
+            <div class="d-flex gap-5 only-lg-flex">            
+                <div class="btn btn-light rounded-0 fs-4 px-4 flex-grow-1 text-black">SAVE</div>
+
+                <div class="btn btn-outline-secondary rounded-0 fs-4 px-4 flex-grow-1">CANCEL</div>
+
+                <div class="btn btn-outline-secondary rounded-0 fs-4 px-4 flex-grow-1">DELETE PROFILE</div>
+            </div>
+
+
+
+
+
+        </main>
+        
+    </body>
+</html>
