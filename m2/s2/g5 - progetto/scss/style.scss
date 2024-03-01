@@ -1,0 +1,80 @@
+$dark:rgb(14, 14, 14);
+$secondary:#adb5bd;
+$btn-font-size: 0.8rem;
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import 'mixins';
+
+@for $i from 1 through 20 {
+    .pad-#{$i*5} {
+        padding:#{$i*5}px;
+    };
+    .padl-#{$i*5} {
+        padding-left: #{$i*5}px;
+    };
+    .padr-#{$i*5} {
+        padding-right: #{$i*5}px;
+    };
+    .padt-#{$i*5} {
+        padding-top: #{$i*5}px;
+    };
+    .padb-#{$i*5} {
+        padding-bottom: #{$i*5}px;
+    };
+    .padx-#{$i*5} {
+        padding-left: #{$i*5}px;
+        padding-right: #{$i*5}px;
+    };
+    .pady-#{$i*5} {
+        padding-top: #{$i*5}px;
+        padding-bottom: #{$i*5}px;
+    };
+    .marg-#{$i*5} {
+        margin:#{$i*5}px;
+    };
+    .margl-#{$i*5} {
+        margin-left: #{$i*5}px;
+    };
+    .margr-#{$i*5} {
+        margin-right: #{$i*5}px;
+    };
+    .margt-#{$i*5} {
+        margin-top: #{$i*5}px;
+    };
+    .margb-#{$i*5} {
+        margin-bottom: #{$i*5}px;
+    };
+    .margx-#{$i*5} {
+        margin-left: #{$i*5}px;
+        margin-right: #{$i*5}px;
+    };
+    .margy-#{$i*5} {
+        margin-top: #{$i*5}px;
+        margin-bottom: #{$i*5}px;
+    };
+    .wd-#{$i*5} {
+        width: #{$i*5%};
+    }
+    .wd-px-#{$i*25} {
+        width: #{$i*25}px;
+    }
+}
+
+li {
+    list-style-type: none;
+}
+
+.ratio-1 {
+    aspect-ratio: 1/1;
+}
+
+.content-fit {
+    width: fit-content;
+}
+
+.hover-appear {
+    opacity: 0;
+    &:hover {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css"
+        />
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+    <body class="bg-dark">
+
+        <nav class="d-flex justify-content-between">
+            <div class="nav-left d-flex align-items-center">
+                <a href=""><img src="./assets/netflix_logo.png" alt="" class="wd-px-300"></a>
+                <ul class="d-flex text-secondary gap-3 fs-5 ms-0">
+                    <li class="text-white">Home</li>
+                    <li>TV Shows</li>
+                    <li>Movies</li>
+                    <li>Recently Added</li>
+                    <li>My List</li>
+                </ul>
+            </div>
+
+            <div class="nav-right d-flex text-white gap-3 justify-content-end align-items-center">
+                <a href="" class="fs-4 text-white"><i class="bi bi-search"></i></a>
+                <a href="" class="wd-px-50 ratio-1"><img src="./assets/kids_icon.png" alt="" class="w-100 rounded-circle"></a>
+                <a href="" class="fs-4 text-white"><i class="bi bi-bell-fill"></i></a>
+                <div class="dropdown">
+                    <button class="btn border-0 dropdown-toggle text-white fs-6 wd-px-75 ratio-1 py-0 ps-0 pe-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="./assets/avatar.png" alt="" class="w-100">
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li>
+                            <a class="dropdown-item" href="#">Another action</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Genres</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </nav>
+
+        <main class="mx-3">
+            <section class="container-fluid section-title text-white d-flex justify-content-between">
+
+                <div class="genre d-flex gap-3">
+                    <h2>TV Shows</h2>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle rounded-0 text-white fs-6" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Genres
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li>
+                                <a class="dropdown-item" href="#">Another action</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Genres</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="views">
+                    <button class="btn btn-outline-secondary px-3 py-1 fs-red-6">
+                        <i class="bi bi-text-left"></i>
+                    </button>
+                    <button class="btn btn-outline-secondary px-3 py-1 fs-red-6">
+                        <i class="bi bi-grid-fill"></i>
+                    </button>
+                </div>
+
+            </section>
+            <section class="trending my-3">
+
+                <h3 class="text-white mt-5 fs-4 fs-4">Trending Now</h3>
+                <div class="d-flex overflow-hidden gap-3 position-relative mt-3">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <div class="hover-appear bg-dark position-absolute end-0 h-100 px-3 d-flex flex-column justify-content-around"><i class="bi bi-chevron-right text-secondary display-5"></i></div>
+                </div>
+            </section>
+
+            <section class="rewatch my-3">
+
+                <h3 class="text-white mt-5 fs-4">Watch It Again</h3>
+                <div class="d-flex overflow-hidden gap-3 position-relative mt-3">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <div class="hover-appear bg-dark position-absolute end-0 h-100 px-3 d-flex flex-column justify-content-around"><i class="bi bi-chevron-right text-secondary display-5"></i></div>
+                </div>
+            </section>
+
+            <section class="releases my-3">
+
+                <h3 class="text-white mt-5 fs-4">New Releases</h3>
+                <div class="d-flex overflow-hidden gap-3 position-relative mt-3">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <img src="./assets/media/media0.webp" alt="">
+                    <div class="hover-appear bg-dark position-absolute end-0 h-100 px-3 d-flex flex-column justify-content-around"><i class="bi bi-chevron-right display-5 text-secondary"></i></div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="container text-secondary mt-5 pt-5">
+            <div class="icons">
+                <i class="bi bi-facebook mx-3 fs-3"></i>
+                <i class="bi bi-instagram mx-3 fs-3"></i>
+                <i class="bi bi-twitter mx-3 fs-3"></i>
+                <i class="bi bi-youtube mx-3 fs-3"></i>
+            </div>
+            <div class="row my-3">
+                <div class="col-3">
+                    <uk>
+                        <li>
+                            <a href="" class="text-secondary"
+                                >Audio and Subtitles</a
+                            >
+                        </li>
+                        <li>
+                            <a href="" class="text-secondary">Media Center</a>
+                        </li>
+                        <li><a href="" class="text-secondary">Privacy</a></li>
+                        <li>
+                            <a href="" class="text-secondary">Contact Us</a>
+                        </li>
+                    </uk>
+                </div>
+                <div class="col-3">
+                    <uk>
+                        <li>
+                            <a href="" class="text-secondary"
+                                >Audio Description</a
+                            >
+                        </li>
+                        <li>
+                            <a href="" class="text-secondary"
+                                >Investor Relations</a
+                            >
+                        </li>
+                        <li>
+                            <a href="" class="text-secondary">Legal Notices</a>
+                        </li>
+                    </uk>
+                </div>
+                <div class="col-3">
+                    <uk>
+                        <li>
+                            <a href="" class="text-secondary">Help Center</a>
+                        </li>
+                        <li><a href="" class="text-secondary">Jobs</a></li>
+                        <li>
+                            <a href="" class="text-secondary"
+                                >Cookie Preferencies</a
+                            >
+                        </li>
+                    </uk>
+                </div>
+                <div class="col-3">
+                    <uk>
+                        <li>
+                            <a href="" class="text-secondary">Gift Cards</a>
+                        </li>
+                        <li>
+                            <a href="" class="text-secondary">Terms of Use</a>
+                        </li>
+                        <li>
+                            <a href="" class="text-secondary"
+                                >Corporate Information</a
+                            >
+                        </li>
+                    </uk>
+                </div>
+            </div>
+            <div class="service my-3">
+                <button class="btn btn-outline-secondary rounded-0 fs-red">
+                    Service Code
+                </button>
+            </div>
+            <div class="copyright fs-red-6">
+                &#169; 1997-2019 Netflix, Inc. (i-0asd0asd0asd0asd)
+            </div>
+        </footer>
+
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
