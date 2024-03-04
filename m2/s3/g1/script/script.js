@@ -42,7 +42,8 @@ let formBtn = document.querySelector('#form-btn')
 
 console.log(document.querySelector('#petName').value);
 
-function sendData() {
+function sendData(event) {
+    event.preventDefault()
     let dateArray = []
     dateArray.push(document.querySelector('#petName').value, document.querySelector('#ownerName').value, document.querySelector('#species').value, document.querySelector('#breed').value,)
     let list = document.createElement('ul')
