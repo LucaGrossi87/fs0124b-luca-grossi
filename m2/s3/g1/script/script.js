@@ -38,23 +38,23 @@ class Pet {
     }
 }
 
-let formBtn = document.querySelector('#form-btn')
-
-console.log(document.querySelector('#petName').value);
-
 function sendData(event) {
     event.preventDefault()
-    let dateArray = []
-    dateArray.push(document.querySelector('#petName').value, document.querySelector('#ownerName').value, document.querySelector('#species').value, document.querySelector('#breed').value,)
+    let newPet = new Pet (document.querySelector('#petName').value, document.querySelector('#ownerName').value, document.querySelector('#species').value, document.querySelector('#breed').value,)
     let list = document.createElement('ul')
-    for (let i = 0; i < dateArray.length; i++) {
-        const element = dateArray[i];
-        let list_item=document.createElement('li')
-        list_item.innerText=element
-        list.append(list_item)
-    }
-    console.log(list);
-    document.body.append(list)
+    let itemNamePet = document.createElement('li')
+    itemNamePet.innerText=newPet.petName
+    let itemNameOwn = document.createElement('li')
+    itemNameOwn.innerText=newPet.ownerName
+    let itemSpecies = document.createElement('li')
+    itemSpecies.innerText=newPet.species
+    let itemBreed = document.createElement('li')
+    itemBreed.innerText=newPet.breed
+    list.appendChild(itemNamePet)
+    list.appendChild(itemNameOwn)
+    list.appendChild(itemSpecies)
+    list.appendChild(itemBreed)
+    document.body.appendChild(list)
 }
 
-let newPet = new Pet (dateArray[0],dateArray[1],dateArray[2],dateArray[3])
+// let newPet = new Pet (dateArray[0],dateArray[1],dateArray[2],dateArray[3])
