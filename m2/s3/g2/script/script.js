@@ -10,6 +10,7 @@ function sendToStorage(event) {
 function deleteFromStorage(event) {
     event.preventDefault()
     localStorage.removeItem('nome')
+    document.querySelector('.lastName').innerHTML=''
 }
 
 document.querySelector('#submit').addEventListener('click',sendToStorage)
