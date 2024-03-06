@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+        
+        <header class="container-fluid d-flex align-items-center border-bottom flex-column">
+            <h1>Libri in Aria</h1>
+            <h3>Libreria dal 1666</h3>
+        </header>
+
+        <main class="container">
+            <div class="row">
+                <template>
+                    <div class="card align-items-start my-3" style="width: 18rem;">
+                        <img src="" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">titolo</h5>
+                            <p class="card-text">testo</p>
+                            <a href="#" class="btn btn-primary remove">Scarta</a>
+                            <a href="#" class="btn btn-primary addToCart">Aggiungi al Carrello</a>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </main>
+
+        <script src="./script/script.js"></script>
+
+    </body>
+</html>
