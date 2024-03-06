@@ -18,9 +18,9 @@ fetch ('https://striveschool-api.herokuapp.com/books')
         }
         
         let column = document.createElement('div')
-        column.classList.add("col-3")
+        column.classList.add("col-12", "col-md-6", "col-lg-3")
         column.appendChild(clone)
-        document.querySelector('.row').appendChild(column)
+        document.querySelector('.col-10').appendChild(column)
     }
 
 })

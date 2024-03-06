@@ -13,19 +13,22 @@
             <h3>Libreria dal 1666</h3>
         </header>
 
-        <main class="container">
-            <div class="row">
+        <main class="container-fluid row">
+            <div class="col-10 row container-fluid justify-content-between">
                 <template>
-                    <div class="card align-items-start my-3" style="width: 18rem;">
+                    <div class="card align-items-start my-3">
                         <img src="" class="card-img-top" alt="">
                         <div class="card-body">
                             <h5 class="card-title">titolo</h5>
                             <p class="card-text">testo</p>
-                            <a href="#" class="btn btn-primary remove">Scarta</a>
-                            <a href="#" class="btn btn-primary addToCart">Aggiungi al Carrello</a>
+                            <a href="#" class="btn btn-primary remove my-1">Scarta</a>
+                            <a href="#" class="btn btn-primary addToCart my-1">Aggiungi al Carrello</a>
                         </div>
                     </div>
                 </template>
+            </div>
+            <div class="cart col-2 border-start">
+                <h3>Carrello</h3>
             </div>
         </main>
 
