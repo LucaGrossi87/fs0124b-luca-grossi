@@ -16,6 +16,13 @@ fetch ('https://striveschool-api.herokuapp.com/books')
         clone.querySelector('.remove').onclick = function() {
             this.parentElement.parentElement.remove()
         }
+        clone.querySelector('.addToCart').onclick = function() {
+            let bookTitle = this.parentElement.querySelector('.card-title').innerHTML
+            let cartItem = document.createElement('li')
+            cartItem.innerHTML=bookTitle
+            document.querySelector('.cartList').appendChild(cartItem)
+            
+        }
         
         let column = document.createElement('div')
         column.classList.add("col-12", "col-md-6", "col-lg-3")
