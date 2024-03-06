@@ -20,7 +20,7 @@ fetch ('https://striveschool-api.herokuapp.com/books')
             removeFromCart.classList.add("remove-from-cart")
             removeFromCart.innerHTML='Rimuovi dal carrello'
             cartItem.append(removeFromCart)
-            document.querySelector('.remove-from-cart').onclick = function() {
+            removeFromCart.onclick = function() {
                 this.parentElement.remove()
             }
         }
@@ -47,7 +47,7 @@ fetch ('https://striveschool-api.herokuapp.com/books')
             removeFromCart.classList.add("remove-from-cart")
             removeFromCart.innerHTML='Rimuovi dal carrello'
             cartItem.append(removeFromCart)
-            document.querySelector('.remove-from-cart').onclick = function() {
+            removeFromCart.onclick = function() {
                 this.parentElement.remove()
             }
         }
