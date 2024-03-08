@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="d-flex justify-content-between bg-dark align-items-center py-3 px-3">
+        <img src="./img/Amazon-logo-white.svg.png" alt="" style="width: 10%;">
+        <a href="./index.html" class="text-white">Home</a>
+    </header>
+    <main>
+        <div class="container main-head border-bottom my-5">
+            <h2>Add</h2>
+        </div>
+        <div class="main-body container">
+            <form>
+                <div class="mb-3">
+                    <label for="edit-name" class="form-label "
+                        >Nome</label
+                    >
+                    <input
+                        class="form-control"
+                        id="edit-name"
+                        value=""
+                        />
+                </div>
+                <div class="mb-3">
+                    <label for="edit-brand" class="form-label"
+                        >Brand</label
+                    >
+                    <input
+                        class="form-control"
+                        id="edit-brand"
+                        value=""
+                    />
+                </div>
+                <div class="mb-3">
+                    <label for="edit-price" class="form-label"
+                        >Prezzo</label
+                    >
+                    <input
+                        class="form-control"
+                        id="edit-price"
+                        value=""
+                        />
+                </div>
+                <div class="mb-3">
+                    <label for="edit-imgUrl" class="form-label"
+                        >URL Immagine</label
+                    >
+                    <input
+                        class="form-control"
+                        id="edit-imgUrl"
+                        value=""
+                    />
+                </div>
+                <div class="mb-3">
+                    <label for="edit-description" class="form-label"
+                        >Descrizione</label
+                    >
+                    <input
+                        class="form-control"
+                        id="edit-description"
+                        value=""
+                    />
+                </div>
+
+                <button type="submit" class="btn btn-primary save-btn">
+                    Save
+                </button>
+                <input type="reset" value="Reset" class="btn btn-warning">
+            </form>
+        </div>
+    </main>
+
+    <script src="./script/script-new.js"></script>
+
+</body>
+</html>
