@@ -1,6 +1,7 @@
-
-<div class="container">
-
-<h1>{{dbObj.posts[0].title}}</h1>
-<p>{{dbObj.posts[0].body}}</p>
+<div class="text-black text-center">
+  <h3>{{postsDet?.title}}</h3>
+  <p>{{postsDet?.body}}</p>
+  <ul>
+    <i *ngFor="let t of postsDet?.tags">{{t}}</i>
+  </ul>
 </div>

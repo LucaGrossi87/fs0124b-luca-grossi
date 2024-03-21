@@ -22,21 +22,24 @@ export class ActivePostsComponent {
     body: ''
   };
 
-  ngOnInit() {
-    fetch('../../../assets/db.json')
-      .then(db => db.json())
-      .then((db: iRoot) => {
-        this.dbObj = db;
-        this.randomize();
-      });
+  actPosts:iPost[]=[]
+ngOnInit() {
+  fetch('../../../assets/db.json')
+  .then(db => db.json())
+  .then((db: iRoot) => {
+    this.postsArr = db.posts;
+
+
+      for (let i = 0; i < this.postsArr.length; i++) {
+        if(this.postsArr[i].active){
+          this.actPosts.push(this.postsArr[i])
+        }
+      }
+    });
+
+
   }
 
-  randomize() {
-    for (let i = 0; i < 4; i++) {
-      let randomNum: number = Math.floor(Math.random() * this.dbObj.posts.length);
-      this.details.title = this.dbObj.posts[randomNum].title;
-      this.details.body = this.dbObj.posts[randomNum].body;
-      this.randomArr.push({ ...this.details });
-    }
-  }
+
 }
+

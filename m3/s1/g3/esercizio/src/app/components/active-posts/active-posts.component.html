@@ -1,10 +1,8 @@
+<div class="row">
 
-<div class="container">
-  <h2 class="text-center">Ti potrebbero interessare</h2>
-  <div class="row">
-  <div class="col-6" *ngFor="let n of randomArr">
-    <h3>{{n.title}}</h3>
-    <p>{{n.body}}</p>
-  </div>
-  </div>
+  <a [routerLink]="['/posts-detail', p.id]" *ngFor="let p of actPosts" class="col-6 text-black text-decoration-none">
+    <h3>{{p.title}}</h3>
+    <p>{{p.body}}</p>
+  </a>
+
 </div>
