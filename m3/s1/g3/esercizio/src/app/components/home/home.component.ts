@@ -18,9 +18,13 @@ export class HomeComponent {
   }
 
   randomArr: iPost[] = [];
-  details: { title: string, body: string } = {
+  details: { title: string, body: string, id:number, userId:number; tags:string[],active:boolean } = {
     title: '',
-    body: ''
+    body: '',
+    id: 0,
+    userId: 0,
+    tags: [],
+    active: false
   };
 
   ngOnInit() {
@@ -37,12 +41,12 @@ export class HomeComponent {
       let randomNum: number = Math.floor(Math.random() * this.postsArr.length);
       this.details.title = this.postsArr[randomNum].title;
       this.details.body = this.postsArr[randomNum].body;
+      this.details.id = this.postsArr[randomNum].id;
+      this.details.userId = this.postsArr[randomNum].userId;
+      this.details.tags = this.postsArr[randomNum].tags;
+      this.details.active = this.postsArr[randomNum].active;
       this.randomArr.push({
         ...this.details,
-        id: 0,
-        userId: 0,
-        tags: [],
-        active: false
       });
     }
   }

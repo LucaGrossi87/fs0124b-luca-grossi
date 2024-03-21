@@ -37,7 +37,7 @@ ngOnInit() {
 
     const postId = this.route.snapshot.paramMap.get('id')
     if (postId) {
-      this.postsDet = this.postsArr.find(post => post.id)
+      this.postsDet = this.postsArr.find(post => post.id == parseFloat(postId))
     }
     });
 
