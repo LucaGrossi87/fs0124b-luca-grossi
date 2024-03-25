@@ -1,0 +1,8 @@
+<div class="row">
+
+  <a [routerLink]="['/posts-detail', p.id]" *ngFor="let p of actPosts" class="col-6 text-black">
+    <h3>{{p.title}}</h3>
+    <p>{{p.body}}</p>
+  </a>
+
+</div>

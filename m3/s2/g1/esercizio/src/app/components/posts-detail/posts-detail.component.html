@@ -1,0 +1,17 @@
+<div class="text-black text-center" [ngClass]="{'border border-primary':activeValue, 'border-0':!activeValue}">
+  <h3>{{titleValue}}</h3>
+  <p>{{postsDet?.body}}</p>
+  <ul>
+    <i *ngFor="let t of postsDet?.tags">{{t}}</i>
+  </ul>
+</div>
+
+<button class="btn btn-primary my-3" (click)="showForm()">Apri il form</button>
+
+<app-form *ngIf="showedForm">
+  <input type="text" class="form-control" placeholder="Titolo" [(ngModel)]="titleValue">
+  <select class="form-control" [(ngModel)]="activeValue">
+    <option [value]="true">Active</option>
+    <option [value]="false">Inactive</option>
+  </select>
+</app-form>

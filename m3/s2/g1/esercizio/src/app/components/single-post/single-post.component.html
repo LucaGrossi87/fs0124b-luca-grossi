@@ -1,0 +1,7 @@
+<h2 class="text-center">Tutti i posts</h2>
+<div class="row">
+<a [routerLink]="['/posts-detail', p.id]" class="col-6 text-black text-decoration-none mt-3" *ngFor="let p of postsArr" [ngClass]="{'border border-primary':p.active}">
+  <h3>{{p.title}}</h3>
+  <p>{{p.body}}</p>
+</a>
+</div>
