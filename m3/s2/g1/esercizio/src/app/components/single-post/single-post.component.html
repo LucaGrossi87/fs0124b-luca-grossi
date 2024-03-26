@@ -1,6 +1,10 @@
 <h2 class="text-center">Tutti i posts</h2>
+<div class="text-center">
+<button *ngFor="let t of tagsArr" class="btn btn-outline-secondary" (click)="filtered(t)" [ngClass]="{'btn-success text-white': t == selectedTag}">{{t}}</button>
+</div>
+
 <div class="row">
-<a [routerLink]="['/posts-detail', p.id]" class="col-6 text-black text-decoration-none mt-3" *ngFor="let p of postsArr" [ngClass]="{'border border-primary':p.active}">
+<a [routerLink]="['/posts-detail', p.id]" class="col-6 text-black text-decoration-none mt-3" *ngFor="let p of filteredArr" [ngClass]="{'border border-primary':p.active}">
   <h3>{{p.title}}</h3>
   <p>{{p.body}}</p>
 </a>

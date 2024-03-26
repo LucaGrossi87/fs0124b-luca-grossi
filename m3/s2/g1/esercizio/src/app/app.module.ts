@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SinglePostComponent } from './components/single-post/single-post.component';
 import { FormsModule } from '@angular/forms';
 import { FormComponent } from './components/posts-detail/form/form.component';
+import { RandomColorDirective } from './components/posts-detail/random-color.directive';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FormComponent } from './components/posts-detail/form/form.component';
     HomeComponent,
     SinglePostComponent,
     FormComponent,
+    RandomColorDirective,
   ],
   imports: [
     BrowserModule,

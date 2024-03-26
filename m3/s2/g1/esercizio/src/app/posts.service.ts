@@ -263,5 +263,16 @@ export class PostsService {
       "active": true
     }
   ]
+  filteredArr: iPost[]=[]
+
+  filtered(tag:string){
+    this.filteredArr=[]
+      for (let i = 0; i < this.postsArr.length; i++) {
+        const p = this.postsArr[i];
+        if (p.tags.includes(tag)) {
+          this.filteredArr.push(p)
+        }
+      }
+    }
 
 }

@@ -32,10 +32,6 @@ export class HomeComponent implements OnInit{
 
   ngOnInit(){
 
-    // .getPosts().then(res => {
-
-    //   this.dbObj = res;
-    //   this.postsArr = this.dbObj.posts
       console.log(this.postsSvc.postsArr);
       this.postsArr=this.postsSvc.postsArr
 
@@ -59,5 +55,4 @@ export class HomeComponent implements OnInit{
       });
 
     }
-    console.log(this.randomArr);
   }}

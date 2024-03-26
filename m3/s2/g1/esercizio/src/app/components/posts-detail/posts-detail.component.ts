@@ -31,7 +31,7 @@ export class PostsDetailComponent {
 
   postsDet:iPost | undefined;
   titleValue:string='';
-  activeValue:boolean=false
+  activeValue:boolean | null = null
 
 
   constructor(private route: ActivatedRoute, private postsSvc:PostsService) { }
@@ -44,8 +44,8 @@ export class PostsDetailComponent {
     if (postId) {
       this.postsDet = this.postsArr.find(post => post.id == parseFloat(postId))
       this.titleValue=this.postsDet!.title
-      this.activeValue=this.postsDet!.active
-    }
+      this.activeValue=Boolean(this.postsDet!.active)
+      }
   };
 
   showedForm: boolean = false;
@@ -53,5 +53,8 @@ export class PostsDetailComponent {
   showForm(): void {
     this.showedForm = !this.showedForm;
   }
-
+  checkValue(){
+  console.log(this.activeValue);
+  console.log(typeof(this.activeValue));
   }
+}

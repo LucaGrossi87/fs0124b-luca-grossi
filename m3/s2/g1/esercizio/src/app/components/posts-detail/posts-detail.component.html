@@ -2,7 +2,7 @@
   <h3>{{titleValue}}</h3>
   <p>{{postsDet?.body}}</p>
   <ul>
-    <i *ngFor="let t of postsDet?.tags">{{t}}</i>
+    <i *ngFor="let t of postsDet?.tags" appRandomColor>{{t | uppercase}} </i>
   </ul>
 </div>
 
@@ -10,8 +10,8 @@
 
 <app-form *ngIf="showedForm">
   <input type="text" class="form-control" placeholder="Titolo" [(ngModel)]="titleValue">
-  <select class="form-control" [(ngModel)]="activeValue">
-    <option [value]="true">Active</option>
-    <option [value]="false">Inactive</option>
+  <select class="form-control" [(ngModel)]="activeValue" (click)="checkValue()">
+    <option [ngValue]="true">Active</option>
+    <option [ngValue]="false">Inactive</option>
   </select>
 </app-form>
