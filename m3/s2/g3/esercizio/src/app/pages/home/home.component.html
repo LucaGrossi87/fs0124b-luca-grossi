@@ -1,0 +1,29 @@
+<div class="text-center row">
+
+  <div class="col-6">
+
+  <div *ngFor="let pr of prodsArr" class="my-3">
+    {{pr.brand}}, {{pr.title}}, {{pr.price}}, {{pr.category}}
+    <button class="btn btn-primary" (click)="addFav(pr.id)">Add to favorites</button>
+  </div>
+</div>
+
+<div class="col-6">
+  <h3>Favorites</h3>
+  <button class="btn btn-outline-dark" routerLink="/favs">Details</button>
+  <div *ngFor="let pr of favArr" class="my-3">
+    {{pr.brand}}, {{pr.title}}, {{pr.price}}, {{pr.category}}
+  </div>
+
+  <button class="btn btn-success" (click)="addToCart()">add to cart</button>
+
+  <hr>
+
+  <h3>cart</h3>
+  <div *ngFor="let pr of cartArr" class="my-3">
+    {{pr.brand}}, {{pr.title}},{{pr.category}}
+  </div>
+  <h4>total</h4>
+  {{checkout | currency: 'EUR'}}
+
+</div>

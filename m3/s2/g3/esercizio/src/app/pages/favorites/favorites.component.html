@@ -1,0 +1,12 @@
+<div class="text-center">
+<button class="btn btn-outline-dark" routerLink="/">Home</button>
+
+<div *ngFor="let fav of favArrPage" class="border border-success rounded">
+  <h3>{{fav.brand}}</h3>
+  <h4>{{fav.title}},</h4>
+  <img src="{{fav.images}}" alt="">
+  <p>{{fav.description}}</p>
+  <p>{{fav.category}}</p>
+  {{fav.price | currency:"EUR"}}
+</div>
+</div>
