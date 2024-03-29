@@ -1,0 +1,9 @@
+<div *ngFor="let td of todos" >
+  <div *ngIf="td.completed" class="d-flex border border-2 bg-opacity-50 my-1 pt-3 text-white rounded"  [ngClass]="{'border-success bg-success ': td.completed, 'border-danger bg-danger ': !td.completed}">
+    <input class="form-check-input me-3 ms-1" type="checkbox" value="" id="flexCheckDefault" [checked]="td.completed" (change)="accomplish(td)">
+    <div>
+      <h5 class="text-decoration-underline">{{td.todo}}</h5>
+      <p>Assigned to: {{getUser(td.userId)?.firstName}} {{getUser(td.userId)?.lastName}}</p>
+    </div>
+  </div>
+  </div>
