@@ -1,0 +1,207 @@
+{
+  "users": [
+    {
+      "email": "lucagrossi87@gmail.com",
+      "password": "$2a$10$3x5ERlOgn6AP.HDLgMRKOOCi1vBA8KatYoq.Xmwy8Hosx4vEyE1Ka",
+      "firstName": "luca",
+      "lastName": "grossi",
+      "id": 1
+    },
+    {
+      "email": "mariogiammario@email.it",
+      "password": "$2a$10$CAVemFfpR.78O3omiDYupet5jufgSq30.fN8as6iFJWN7Iku9qxdu",
+      "firstName": "Mario",
+      "lastName": "Giammario",
+      "id": 2
+    },
+    {
+      "email": "ajeje@brazorf.org",
+      "password": "$2a$10$yCF2kkh/0wFlIfSggMOG0uFeKKOqmFV8JE2ojLtmj4GhdAMx6ri76",
+      "firstName": "ajeje",
+      "lastName": "brazorf",
+      "id": 3
+    },
+    {
+      "email": "stanis@snip.com",
+      "password": "$2a$10$LPj5JPSzqYq/hzfhQPcRJ.4hd4zEmTi/vPqDdQsCUaAVccu7p.Fl2",
+      "firstName": "Stanis",
+      "lastName": "La Rochelle",
+      "id": 4
+    },
+    {
+      "email": "rene@magnesia.it",
+      "password": "$2a$10$h1o3rzsxKNeUcgD2rxhW7OA26zuU.rIboBXickatcBVXDEz8ingXG",
+      "firstName": "René",
+      "lastName": "Ferretti",
+      "id": 5
+    },
+    {
+      "email": "arianna@boris.it",
+      "password": "$2a$10$VfYlCdCg64mn7GtiJayTtOCdZvoyF3r/1fLTjYiDr0Y59QOw2YlK.",
+      "firstName": "Arianna",
+      "lastName": "Dell'arti",
+      "id": 6
+    },
+    {
+      "email": "billy@ballo.com",
+      "password": "$2a$10$gUCNn3mFQDk7C17BucIIu.4OzP1JUd2O6axOBkuoO9zApO2Ngh7k2",
+      "firstName": "Billy",
+      "lastName": "Ballo",
+      "id": 7
+    },
+    {
+      "email": "vadoapensare@incamper.it",
+      "password": "$2a$10$bj6W.c6iUplvNK97L.m4Z.OmG45ODpzWxP3eRoZP7.5I0B3EVK1I6",
+      "firstName": "Duccio",
+      "lastName": "Patané",
+      "id": 8
+    }
+  ],
+  "movies-popular": [
+    {
+      "id": 1,
+      "title": "Inception",
+      "year": 2010,
+      "director": "Christopher Nolan",
+      "duration": 148,
+      "urlImage": "https://picsum.photos/200/300"
+    },
+    {
+      "id": 2,
+      "title": "The Shawshank Redemption",
+      "year": 1994,
+      "director": "Frank Darabont",
+      "duration": 142,
+      "urlImage": "https://picsum.photos/200/300"
+    },
+    {
+      "id": 3,
+      "title": "The Dark Knight",
+      "year": 2008,
+      "director": "Christopher Nolan",
+      "duration": 152,
+      "urlImage": "https://picsum.photos/200/300"
+    },
+    {
+      "id": 4,
+      "title": "Pulp Fiction",
+      "year": 1994,
+      "director": "Quentin Tarantino",
+      "duration": 154,
+      "urlImage": "https://picsum.photos/200/300"
+    },
+    {
+      "id": 5,
+      "title": "The Lord of the Rings: The Return of the King",
+      "year": 2003,
+      "director": "Peter Jackson",
+      "duration": 201,
+      "urlImage": "https://picsum.photos/200/300"
+    },
+    {
+      "id": 6,
+      "title": "Forrest Gump",
+      "year": 1994,
+      "director": "Robert Zemeckis",
+      "duration": 142,
+      "urlImage": "https://picsum.photos/200/300"
+    },
+    {
+      "id": 7,
+      "title": "Fight Club",
+      "year": 1999,
+      "director": "David Fincher",
+      "duration": 139,
+      "urlImage": "https://picsum.photos/200/300"
+    },
+    {
+      "id": 8,
+      "title": "The Matrix",
+      "year": 1999,
+      "director": "Lana Wachowski, Lilly Wachowski",
+      "duration": 136,
+      "urlImage": "https://picsum.photos/200/300"
+    },
+    {
+      "id": 9,
+      "title": "The Godfather",
+      "year": 1972,
+      "director": "Francis Ford Coppola",
+      "duration": 175,
+      "urlImage": "https://picsum.photos/200/300"
+    },
+    {
+      "id": 10,
+      "title": "Goodfellas",
+      "year": 1990,
+      "director": "Martin Scorsese",
+      "duration": 146,
+      "urlImage": "https://picsum.photos/200/300"
+    },
+    {
+      "id": 11,
+      "title": "Schindler's List",
+      "year": 1993,
+      "director": "Steven Spielberg",
+      "duration": 195,
+      "urlImage": "https://picsum.photos/200/300"
+    },
+    {
+      "id": 12,
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "year": 2001,
+      "director": "Peter Jackson",
+      "duration": 178,
+      "urlImage": "https://picsum.photos/200/300"
+    },
+    {
+      "id": 13,
+      "title": "The Lord of the Rings: The Two Towers",
+      "year": 2002,
+      "director": "Peter Jackson",
+      "duration": 179,
+      "urlImage": "https://picsum.photos/200/300"
+    },
+    {
+      "id": 14,
+      "title": "Seven",
+      "year": 1995,
+      "director": "David Fincher",
+      "duration": 127,
+      "urlImage": "https://picsum.photos/200/300"
+    },
+    {
+      "id": 15,
+      "title": "Inglourious Basterds",
+      "year": 2009,
+      "director": "Quentin Tarantino",
+      "duration": 153,
+      "urlImage": "https://picsum.photos/200/300"
+    },
+    {
+      "id": 16,
+      "title": "The Silence of the Lambs",
+      "year": 1991,
+      "director": "Jonathan Demme",
+      "duration": 118,
+      "urlImage": "https://picsum.photos/200/300"
+    },
+    {
+      "id": 17,
+      "title": "The Departed",
+      "year": 2006,
+      "director": "Martin Scorsese",
+      "duration": 151,
+      "urlImage": "https://picsum.photos/200/300"
+    },
+    {
+      "id": 18,
+      "title": "The Green Mile",
+      "year": 1999,
+      "director": "Frank Darabont",
+      "duration": 189,
+      "urlImage": "https://picsum.photos/200/300"
+    }
+  ],
+  "favorites": []
+}
