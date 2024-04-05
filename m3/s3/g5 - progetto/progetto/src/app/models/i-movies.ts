@@ -1,4 +1,4 @@
-export interface IMovies {
+export interface iMovies {
   "id": number,
   "title": string,
   "year": number,

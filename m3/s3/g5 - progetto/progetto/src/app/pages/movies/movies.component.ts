@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IMovies } from '../../models/i-movies';
+import { iMovies } from '../../models/i-movies';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment.development';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-movies',
@@ -10,9 +11,9 @@ import { environment } from '../../../environments/environment.development';
 })
 export class MoviesComponent {
 
-  movies: IMovies[] = [];
+  movies: iMovies[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authSvc: AuthService) { }
 
   ngOnInit() {
     this.getMovies();
@@ -20,12 +21,14 @@ export class MoviesComponent {
 
   getMovies() {
     const moviesUrl = environment.moviesUrl;
-    this.http.get<IMovies[]>(moviesUrl).subscribe(
+    this.http.get<iMovies[]>(moviesUrl).subscribe(
       (movies) => {
         this.movies = movies;
-        console.log(movies);
-
       },
     );
   }
+
+  addToFavs(movie: iMovies) {
+    this.authSvc.addToFavorites(movie).subscribe()
+}
 }

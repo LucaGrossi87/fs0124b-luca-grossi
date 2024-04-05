@@ -55,6 +55,13 @@
       "firstName": "Duccio",
       "lastName": "Patané",
       "id": 8
+    },
+    {
+      "email": "iamthebatman@yahoo.it",
+      "password": "$2a$10$CxwcoALFiWWU.KedNOiyM.jud46MRgzu7TEZpulS43NTtgMzzp32C",
+      "firstName": "Bruce",
+      "lastName": "Wayne",
+      "id": 9
     }
   ],
   "movies-popular": [
@@ -203,5 +210,102 @@
       "urlImage": "https://picsum.photos/200/300"
     }
   ],
-  "favorites": []
+  "favorites": [
+    {
+      "userId": 8,
+      "movie": {
+        "id": 3,
+        "title": "The Dark Knight",
+        "year": 2008,
+        "director": "Christopher Nolan",
+        "duration": 152,
+        "urlImage": "https://picsum.photos/200/300"
+      },
+      "id": 1
+    },
+    {
+      "userId": 8,
+      "movie": {
+        "id": 1,
+        "title": "Inception",
+        "year": 2010,
+        "director": "Christopher Nolan",
+        "duration": 148,
+        "urlImage": "https://picsum.photos/200/300"
+      },
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "movie": {
+        "id": 2,
+        "title": "The Shawshank Redemption",
+        "year": 1994,
+        "director": "Frank Darabont",
+        "duration": 142,
+        "urlImage": "https://picsum.photos/200/300"
+      },
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "movie": {
+        "id": 4,
+        "title": "Pulp Fiction",
+        "year": 1994,
+        "director": "Quentin Tarantino",
+        "duration": 154,
+        "urlImage": "https://picsum.photos/200/300"
+      },
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "movie": {
+        "id": 7,
+        "title": "Fight Club",
+        "year": 1999,
+        "director": "David Fincher",
+        "duration": 139,
+        "urlImage": "https://picsum.photos/200/300"
+      },
+      "id": 5
+    },
+    {
+      "userId": 4,
+      "movie": {
+        "id": 3,
+        "title": "The Dark Knight",
+        "year": 2008,
+        "director": "Christopher Nolan",
+        "duration": 152,
+        "urlImage": "https://picsum.photos/200/300"
+      },
+      "id": 6
+    },
+    {
+      "userId": 4,
+      "movie": {
+        "id": 12,
+        "title": "The Lord of the Rings: The Fellowship of the Ring",
+        "year": 2001,
+        "director": "Peter Jackson",
+        "duration": 178,
+        "urlImage": "https://picsum.photos/200/300"
+      },
+      "id": 7
+    },
+    {
+      "userId": 4,
+      "movie": {
+        "id": 10,
+        "title": "Goodfellas",
+        "year": 1990,
+        "director": "Martin Scorsese",
+        "duration": 146,
+        "urlImage": "https://picsum.photos/200/300"
+      },
+      "id": 8
+    }
+  ]
 }

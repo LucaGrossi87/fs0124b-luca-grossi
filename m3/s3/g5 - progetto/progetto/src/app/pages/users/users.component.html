@@ -1,5 +1,9 @@
 <h3 class="text-center">La nostra community</h3>
 
-<div *ngFor="let user of users" class="text-center m-3">{{ user.firstName }} {{user.lastName}}</div>
+<div *ngFor="let user of users" class="text-center m-3 border-bottom"><h4>{{ user.firstName }} {{user.lastName}}</h4>
+  <p class="fw-bold">Film preferiti:</p>
+  <div *ngIf="user.favMov && user.favMov.length > 0">
+    <p *ngFor="let movie of user.favMov" class="text-decoration-underline">{{ movie.movie.title }}</p>
+</div>
 
-
+</div>

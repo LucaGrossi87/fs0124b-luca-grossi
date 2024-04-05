@@ -11,6 +11,8 @@ export class HomeComponent {
 
   constructor(private authSvc:AuthService){}
 
+  userName:string|undefined=this.getName()
+
   ngOnInit(){
 
     this.authSvc.isLoggedIn$.subscribe(data => {
@@ -19,5 +21,10 @@ export class HomeComponent {
 
     })
 
+
   }
+  getName(){
+    return this.authSvc.authSubject.value?.firstName
+  }
+
 }
