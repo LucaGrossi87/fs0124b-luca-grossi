@@ -10,7 +10,7 @@ import { environment } from '../../../environments/environment.development';
 })
 export class MoviesComponent {
 
-  movies: IMovies[] = []; // Definisci una variabile per memorizzare i dati JSON
+  movies: IMovies[] = [];
 
   constructor(private http: HttpClient) { }
 
