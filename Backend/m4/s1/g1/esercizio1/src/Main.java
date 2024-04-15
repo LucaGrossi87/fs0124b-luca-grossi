@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Main {
 
     public static int moltiplicazione(int a, int b){
@@ -12,10 +10,9 @@ public class Main {
         return a+b;
     }
 
-    public static String esercizioArray(String[] a, String b){
+    public static String[] esercizioArray(String[] a, String b){
         String[] nuovoArray={a[0],a[1],a[2],b,a[3],a[4]};
-        return Arrays.toString(nuovoArray);
-
+        return nuovoArray;
     }
 
     public static void main(String[] args) {
@@ -24,6 +21,9 @@ public class Main {
 
         System.out.println(concatenazione("Il numero scelto è ", 9));
 
-        System.out.println(esercizioArray(new String[]{"ciao", "sono", "Luca", "37", "anni"}, "e ho"));
+        String[] nuovoArray = esercizioArray(new String[]{"ciao", "sono", "Luca", "37", "anni"}, "e ho");
+        for (String s : nuovoArray) {
+            System.out.println(s);
+        }
         }
 }
