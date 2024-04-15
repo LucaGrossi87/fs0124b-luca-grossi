@@ -1,15 +1,29 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.Arrays;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+public class Main {
+
+    public static int moltiplicazione(int a, int b){
+
+        return a*b;
     }
+
+    public static String concatenazione(String a, int b){
+
+        return a+b;
+    }
+
+    public static String esercizioArray(String[] a, String b){
+        String[] nuovoArray={a[0],a[1],a[2],b,a[3],a[4]};
+        return Arrays.toString(nuovoArray);
+
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(moltiplicazione(5, 7));
+
+        System.out.println(concatenazione("Il numero scelto è ", 9));
+
+        System.out.println(esercizioArray(new String[]{"ciao", "sono", "Luca", "37", "anni"}, "e ho"));
+        }
 }
