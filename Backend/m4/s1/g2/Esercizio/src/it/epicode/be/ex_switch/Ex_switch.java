@@ -5,19 +5,19 @@ public class Ex_switch {
     public static String stringedNumber (int a) {
         switch(a) {
             case 0:
-                return "zero";
+                return Integer.toString(a);
             case 1:
-                return "uno";
+                return Integer.toString(a);
             case 2:
-                return "due";
+                return Integer.toString(a);
             case 3:
-                return "tre";
+                return Integer.toString(a);
             default:
                 return "errore";
         }
     }
 
     public static void main (String[] args){
-        System.out.println("Hai inserito il numero: " + stringedNumber(1));
+        System.out.println("Hai inserito il numero: " + stringedNumber(3));
     }
 }
