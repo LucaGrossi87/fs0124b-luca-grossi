@@ -4,4 +4,3 @@ public interface MenuItem {
     String getGusto();
     double getPrezzo();
 }
-

@@ -3,9 +3,14 @@ package com.menuPizze.config;
 import com.menuPizze.model.Drink;
 import com.menuPizze.model.Pizza;
 import com.menuPizze.model.Topping;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
 
+@Component
+@PropertySource("classpath:application.properties")
 @Configuration
 public class AppConfig {
 
@@ -26,7 +31,7 @@ public class AppConfig {
     }
 
     @Bean
-    public Pizza fioriEAlici(){
+    public Pizza fioriealici(){
         Pizza fioriEAlici = new Pizza();
         fioriEAlici.setGusto("Fiori e alici");
         fioriEAlici.setPrezzo(7);
@@ -34,7 +39,7 @@ public class AppConfig {
     }
 
     @Bean
-    public Topping doppioFormaggio(){
+    public Topping doppioformaggio(){
         Topping doppioFormaggio = new Topping("Doppio formaggio",1.50);
         return doppioFormaggio;
     }
@@ -46,7 +51,7 @@ public class AppConfig {
     }
 
     @Bean
-    public Topping doppioSalame(){
+    public Topping doppiosalame(){
         Topping doppioSalame = new Topping("Doppio salame",2);
         return doppioSalame;
     }
@@ -64,6 +69,14 @@ public class AppConfig {
     @Bean
     public Drink acqua(){
         return new Drink("Acqua",1);
+    }
+
+    @Value("${spring.application.coperto}")
+    private int costoCoperto;
+
+    @Bean
+    public int costoCoperto() {
+        return costoCoperto;
     }
 
 }
