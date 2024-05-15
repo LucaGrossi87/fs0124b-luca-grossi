@@ -3,6 +3,7 @@ package com.menuPizze.model;
 import com.menuPizze.config.AppConfig;
 import lombok.*;
 
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.PropertySource;
@@ -11,6 +12,9 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 @Component
 @AllArgsConstructor
