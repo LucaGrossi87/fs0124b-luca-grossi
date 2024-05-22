@@ -1,20 +1,22 @@
 package com.webapi.webapi.model;
 
-import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.data.annotation.Id;
 
+import java.util.Optional;
+
+@Entity
     @NoArgsConstructor
     @Getter
     @Setter
     @ToString
 public class Post {
 
-//    @Id
-//    @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
 
     private String category;
@@ -23,12 +25,16 @@ public class Post {
     private String content;
     private int readingTime;
 
-    public Post (Long id, String category, String title, String cover, String content, int readingTime){
-        this.id=id;
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    private Author author;
+
+    public Post (String category, String title, String cover, String content, int readingTime, Author author){
         this.category=category;
         this.title=title;
         this.cover=cover;
         this.content=content;
         this.readingTime=readingTime;
+        this.author=author;
     }
 }
