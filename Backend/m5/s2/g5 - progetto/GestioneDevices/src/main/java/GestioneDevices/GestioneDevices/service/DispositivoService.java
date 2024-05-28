@@ -19,7 +19,7 @@ public class DispositivoService {
     private DispositivoRepository dispositivoRepository;
 
     @Autowired
-    private DipendenteRepository dipendenteRepository; // Aggiungi questo per il repository Dipendente
+    private DipendenteRepository dipendenteRepository;
 
     public List<Dispositivo> getAllDispositivi() {
         return dispositivoRepository.findAll();
