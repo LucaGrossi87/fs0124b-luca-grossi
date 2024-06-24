@@ -26,7 +26,7 @@ public class BoardSchedulingService {
         for (Board board : boardList){
             board.setAvailable(true);
             board.setOpen(false);
-            board.setSeatsAvalaible(board.getSeatsAvalaible());
+            board.setSeatsAvailable(board.getSeatsAvailable());
             boardService.save(board);
         }
         for (Lan lan : lanList){

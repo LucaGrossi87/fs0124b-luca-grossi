@@ -8,4 +8,6 @@ import java.util.Optional;
 public interface AdminRepository extends JpaRepository<Admin, Long> {
 
     Optional<Admin> findByLoggedin (boolean loggedin);
+
+    Optional<Admin> findByUserName (String username);
 }

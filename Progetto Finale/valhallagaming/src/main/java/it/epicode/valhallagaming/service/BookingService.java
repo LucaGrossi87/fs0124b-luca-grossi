@@ -3,10 +3,12 @@ package it.epicode.valhallagaming.service;
 import it.epicode.valhallagaming.entity.Booking;
 import it.epicode.valhallagaming.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class BookingService {
 
     @Autowired

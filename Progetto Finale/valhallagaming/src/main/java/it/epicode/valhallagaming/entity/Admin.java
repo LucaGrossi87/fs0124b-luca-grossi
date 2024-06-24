@@ -47,4 +47,5 @@ public class Admin {
         this.password=password;
         this.loggedin=loggedin;
     }
+
 }

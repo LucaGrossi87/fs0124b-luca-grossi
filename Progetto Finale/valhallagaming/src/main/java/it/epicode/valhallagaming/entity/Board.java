@@ -14,14 +14,14 @@ public class Board extends Station {
     @Column(nullable = false)
     private int seatsTotal;
     @Column(nullable = false)
-    private int seatsAvalaible;
+    private int seatsAvailable;
     @Column(nullable = false)
     private boolean open=false;
 
-    public Board (boolean available, List<Booking> bookingList, int seatsTotal, int seatsAvalaible, boolean open){
+    public Board (boolean available, List<Booking> bookingList, int seatsTotal, int seatsAvailable, boolean open){
         super(available,bookingList);
         this.seatsTotal=seatsTotal;
-        this.seatsAvalaible=seatsAvalaible;
+        this.seatsAvailable=seatsAvailable;
         this.open=open;
     }
 }
