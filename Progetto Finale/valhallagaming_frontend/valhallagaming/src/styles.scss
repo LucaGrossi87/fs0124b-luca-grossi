@@ -1,0 +1,35 @@
+.header {
+  background: #333;
+  color: white;
+  padding: 10px;
+  text-align: right;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.home {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.options {
+  margin-top: 20px;
+}
+
+.options a {
+  display: inline-block;
+  margin: 10px;
+  padding: 15px 30px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.options a:hover {
+  background: #0056b3;
+}
