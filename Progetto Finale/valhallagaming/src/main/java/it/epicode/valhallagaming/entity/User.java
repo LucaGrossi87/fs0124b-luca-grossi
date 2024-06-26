@@ -1,5 +1,6 @@
 package it.epicode.valhallagaming.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -30,6 +31,7 @@ public class User {
     private String email;
 
     @OneToMany(mappedBy = "user")
+    @JsonManagedReference
     private List<Booking> bookingList;
 
     public User (String firstName, String lastName, String email, List<Booking> bookingList){

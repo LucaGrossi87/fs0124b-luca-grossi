@@ -28,8 +28,15 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeHttpRequests(auth -> auth
                 .requestMatchers("/auth/login").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/users").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/bookings/lanbooking").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/users").permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/lans").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/board/save").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/lans").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/lans/available").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/boards").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/boards/available").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/boards/open").permitAll()
                 .anyRequest().authenticated()
         ).sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 

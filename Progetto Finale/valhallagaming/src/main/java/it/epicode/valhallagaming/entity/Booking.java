@@ -1,5 +1,6 @@
 package it.epicode.valhallagaming.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ public class Booking {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonBackReference
     private User user;
 
     @ManyToOne
@@ -27,12 +29,24 @@ public class Booking {
     private LocalDate date;
 
     @Column(nullable = false)
+    private boolean open;
+
+    @Column(nullable = false)
     private boolean confirmed=false;
 
-    public Booking(User user, Station station, LocalDate date, boolean confirmed){
+    @Column(nullable = false)
+    private int guests;
+
+    @Column(nullable = false)
+    private int seatsAvailable;
+
+    public Booking(User user, Station station, LocalDate date, boolean open, boolean confirmed, int guests, int seatsAvailable){
         this.user=user;
         this.station=station;
         this.date=date;
+        this.open=open;
         this.confirmed=confirmed;
+        this.guests=guests;
+        this.seatsAvailable=seatsAvailable;
     }
 }

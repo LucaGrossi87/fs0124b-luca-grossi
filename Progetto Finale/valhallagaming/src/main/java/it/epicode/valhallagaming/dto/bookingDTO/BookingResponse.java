@@ -14,4 +14,6 @@ public class BookingResponse {
     private LocalDate date;
     private boolean open;
     private boolean confirmed;
+    private int guests;
+    private int seatsAvailable;
 }

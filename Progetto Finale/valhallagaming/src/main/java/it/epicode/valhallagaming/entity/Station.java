@@ -7,9 +7,10 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @NoArgsConstructor
-@MappedSuperclass
+@Entity
+@Table(name = "stations")
 @Data
-public abstract class Station {
+public class Station {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -20,8 +21,17 @@ public abstract class Station {
     @OneToMany(mappedBy = "station")
     private List<Booking> bookingList;
 
-    public Station(boolean available, List<Booking> bookingList){
+    @Column(nullable = false)
+    private StationType stationType;
+
+
+    @Column(nullable = false)
+    private int seatsTotal;
+
+    public Station(List<Booking> bookingList, StationType stationType, int seatsTotal){
         this.available=available;
         this.bookingList=bookingList;
+        this.stationType=stationType;
+        this.seatsTotal=seatsTotal;
     }
 }

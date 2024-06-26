@@ -13,5 +13,7 @@ public class BookingCreateRequest {
     private LocalDate date;
     private boolean open;
     private boolean confirmed;
+    private int guests;
+    private int seatsAvailable;
     private final String method = "create";
 }
