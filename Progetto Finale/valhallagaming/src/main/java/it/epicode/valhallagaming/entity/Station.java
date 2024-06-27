@@ -1,5 +1,6 @@
 package it.epicode.valhallagaming.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,11 +20,11 @@ public class Station {
     private boolean available = true;
 
     @OneToMany(mappedBy = "station")
+    @JsonManagedReference("station-booking")
     private List<Booking> bookingList;
 
     @Column(nullable = false)
     private StationType stationType;
-
 
     @Column(nullable = false)
     private int seatsTotal;

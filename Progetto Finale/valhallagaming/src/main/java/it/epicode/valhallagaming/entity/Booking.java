@@ -18,11 +18,12 @@ public class Booking {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    @JsonBackReference
+    @JsonBackReference("user-booking")
     private User user;
 
     @ManyToOne
     @JoinColumn(name = "station_id", nullable = false)
+    @JsonBackReference("station-booking")
     private Station station;
 
     @Column(nullable = false)

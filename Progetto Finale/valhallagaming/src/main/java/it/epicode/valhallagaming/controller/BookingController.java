@@ -81,6 +81,9 @@ public class BookingController {
         dto.setStation(booking.getStation());
         dto.setDate(booking.getDate());
         dto.setConfirmed(booking.isConfirmed());
+        dto.setGuests(booking.getGuests());
+        dto.setSeatsAvailable(booking.getSeatsAvailable());
+        dto.setOpen(booking.isOpen());
         return dto;
     }
 
@@ -104,25 +107,30 @@ public class BookingController {
     }
 
     @PostMapping("/boardbookingclose")
-    public BookingResponse boardBookingClose(@RequestParam("date") String dateParam, @RequestParam("guests") int guests, @RequestParam("user") User user) {
+    public BookingResponse boardBookingClose(@RequestParam("date") String dateParam, @RequestParam("guests") int guests, @RequestParam("userId") Long userId, @RequestParam("open") boolean open) {
         LocalDate date = LocalDate.parse(dateParam);
+        User user = userService.findById(userId).orElseThrow(() -> new EntityNotFoundException("Utente non trovato"));
         Station finalBoard = null;
         List<Station> boardsList = stationService.findAvailableBoards(date);
+
         if (!boardsList.isEmpty()) {
             int closestDiff = Integer.MAX_VALUE;
+
             for (Station board : boardsList) {
-                if (board.getSeatsTotal() >= guests) {
-                    int diff = board.getSeatsTotal() - guests;
+                int seatsTotal = board.getSeatsTotal();
+                System.out.println("Checking board with seats: " + seatsTotal);
+                if (seatsTotal >= guests) {
+                    int diff = seatsTotal - guests;
+                    System.out.println("Board is suitable with diff: " + diff);
                     if (diff < closestDiff) {
                         closestDiff = diff;
                         finalBoard = board;
                     }
-                } else {
-                    throw new EntityNotFoundException("Postazione non trovata");
                 }
             }
+
             if (finalBoard != null) {
-                Booking newClosedBooking = new Booking(user, finalBoard, date, false, false, guests, finalBoard.getSeatsTotal() - guests);
+                Booking newClosedBooking = new Booking(user, finalBoard, date, open, false, guests, finalBoard.getSeatsTotal() - guests);
                 Booking newBooking = bookingService.save(newClosedBooking);
                 return convertToDTO(newBooking);
             } else {
@@ -167,9 +175,7 @@ public class BookingController {
     }
 
     @PostMapping("/lanbooking")
-    public BookingResponse lanBooking(@RequestParam("date") String dateParam,@RequestParam("userId") Long userId) {
-        System.out.println(dateParam);
-        System.out.println(userId);
+    public BookingResponse lanBooking(@RequestParam("date") String dateParam, @RequestParam("userId") Long userId) {
         LocalDate date = LocalDate.parse(dateParam);
         User user = userService.findById(userId).orElseThrow(() -> new EntityNotFoundException("Utente non trovato"));
         List<Station> lansList = stationService.findAvailableLans(date);
@@ -182,4 +188,26 @@ public class BookingController {
             throw new EntityNotFoundException("Postazione non trovata");
         }
     }
-}
+
+    @GetMapping("/bookingsbydate")
+    public List<BookingResponse> getBookingByDate(@RequestParam("date") String dateParam) {
+        LocalDate date = LocalDate.parse(dateParam);
+        return bookingService.getByDate(date).stream()
+                .map(this::convertToDTO).collect(Collectors.toList());
+
+    }
+
+    @PostMapping("/bookingbyid")
+    public BookingResponse boardBookingById(@RequestParam("date") String dateParam,
+                                            @RequestParam("guests") int guests,
+                                            @RequestParam("userId") Long userId,
+                                            @RequestParam("open") boolean open,
+                                            @RequestParam("boardId") Long boardId) {
+        LocalDate date = LocalDate.parse(dateParam);
+        User user = userService.findById(userId).orElseThrow(() -> new EntityNotFoundException("Utente non trovato"));
+        Optional<Station> chosenBoard = stationService.findById(boardId);
+                Booking newClosedBooking = new Booking(user, chosenBoard.get(), date, open, false, guests, chosenBoard.get().getSeatsTotal() - guests);
+                Booking newBooking = bookingService.save(newClosedBooking);
+                return convertToDTO(newBooking);
+            }
+        }

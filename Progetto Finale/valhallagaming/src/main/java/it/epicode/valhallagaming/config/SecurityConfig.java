@@ -30,6 +30,8 @@ public class SecurityConfig {
                 .requestMatchers("/auth/login").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/users").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/bookings/lanbooking").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/bookings/boardbookingclose").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/bookings/bookingbyid").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/users").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/board/save").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/lans").permitAll()
@@ -37,6 +39,8 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/api/boards").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/boards/available").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/boards/open").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/boards/byseats").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/bookings/bookingsbydate").permitAll()
                 .anyRequest().authenticated()
         ).sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 

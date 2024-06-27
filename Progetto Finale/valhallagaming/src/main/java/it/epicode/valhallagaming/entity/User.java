@@ -31,7 +31,7 @@ public class User {
     private String email;
 
     @OneToMany(mappedBy = "user")
-    @JsonManagedReference
+    @JsonManagedReference("user-booking")
     private List<Booking> bookingList;
 
     public User (String firstName, String lastName, String email, List<Booking> bookingList){

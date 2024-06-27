@@ -14,6 +14,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { BookNewBoardComponent } from './pages/book-new-board/book-new-board.component';
 import { BookOpenBoardComponent } from './pages/book-open-board/book-open-board.component';
 import { FormsModule } from '@angular/forms';
+import { WaitConfirmationComponent } from './pages/wait-confirmation/wait-confirmation/wait-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     ManageStationsComponent,
     HeaderComponent,
     BookNewBoardComponent,
-    BookOpenBoardComponent
+    BookOpenBoardComponent,
+    WaitConfirmationComponent
   ],
   imports: [
     BrowserModule,

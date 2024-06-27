@@ -5,6 +5,7 @@ import it.epicode.valhallagaming.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,5 +31,8 @@ public class BookingService {
         bookingRepository.deleteById(id);
     }
 
+    public List<Booking> getByDate(LocalDate date){
+        return bookingRepository.findBookingsByDate(date);
+    }
 
 }

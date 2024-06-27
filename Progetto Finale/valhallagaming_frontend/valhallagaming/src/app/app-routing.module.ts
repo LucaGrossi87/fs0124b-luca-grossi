@@ -8,6 +8,7 @@ import { BookBoardComponent } from './pages/book-board/book-board.component';
 import { ConfirmBookingComponent } from './pages/confirm-booking/confirm-booking.component';
 import { BookOpenBoardComponent } from './pages/book-open-board/book-open-board.component';
 import { BookNewBoardComponent } from './pages/book-new-board/book-new-board.component';
+import { WaitConfirmationComponent } from './pages/wait-confirmation/wait-confirmation/wait-confirmation.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'book-lan', component: BookLanComponent },
   { path: 'admin-login', component: AdminLoginComponent },
   { path: 'confirm-bookings', component: ConfirmBookingComponent },
-  { path: 'manage-stations', component: ManageStationsComponent }
+  { path: 'manage-stations', component: ManageStationsComponent },
+  { path: 'wait-confirmation', component: WaitConfirmationComponent },
 ];
 
 @NgModule({
