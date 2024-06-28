@@ -9,12 +9,12 @@ import { BookBoardComponent } from './pages/book-board/book-board.component';
 import { BookLanComponent } from './pages/book-lan/book-lan.component';
 import { AdminLoginComponent } from './pages/admin-login/admin-login.component';
 import { ConfirmBookingComponent } from './pages/confirm-booking/confirm-booking.component';
-import { ManageStationsComponent } from './pages/manage-stations/manage-stations.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BookNewBoardComponent } from './pages/book-new-board/book-new-board.component';
 import { BookOpenBoardComponent } from './pages/book-open-board/book-open-board.component';
 import { FormsModule } from '@angular/forms';
 import { WaitConfirmationComponent } from './pages/wait-confirmation/wait-confirmation/wait-confirmation.component';
+
 
 @NgModule({
   declarations: [
@@ -24,11 +24,10 @@ import { WaitConfirmationComponent } from './pages/wait-confirmation/wait-confir
     BookLanComponent,
     AdminLoginComponent,
     ConfirmBookingComponent,
-    ManageStationsComponent,
     HeaderComponent,
     BookNewBoardComponent,
     BookOpenBoardComponent,
-    WaitConfirmationComponent
+    WaitConfirmationComponent,
   ],
   imports: [
     BrowserModule,

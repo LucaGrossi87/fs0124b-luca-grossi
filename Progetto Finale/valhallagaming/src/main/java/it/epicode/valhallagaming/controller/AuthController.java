@@ -33,8 +33,9 @@ public class AuthController {
     private AdminRepository adminRepository;
 
     @PostMapping("/login")
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
+    public ResponseEntity<AuthenticationResponse> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
         try {
+            System.out.println(authenticationRequest.getUsername()+authenticationRequest.getPassword());
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword())
             );
@@ -43,14 +44,18 @@ public class AuthController {
         }
 
         final UserDetails userDetails = adminDetailsService.loadUserByUsername(authenticationRequest.getUsername());
+        System.out.println(userDetails.getUsername()+userDetails.getPassword());
         final String jwt = jwtUtil.generateToken(userDetails);
 
         Admin admin = adminRepository.findByUserName(authenticationRequest.getUsername())
                 .orElseThrow(() -> new Exception("Admin not found"));
         admin.setLoggedin(true);
+        System.out.println(admin.getUserName());
         adminRepository.save(admin);
 
-        return ResponseEntity.ok(new AuthenticationResponse(jwt));
+        System.out.println(ResponseEntity.ok(new AuthenticationResponse(jwt, admin)));
+
+        return ResponseEntity.ok(new AuthenticationResponse(jwt, admin));
     }
 
     @PostMapping("/logout")

@@ -35,7 +35,7 @@ public class AdminController {
     @PostMapping
     public AdminResponse createAdmin (@RequestBody AdminCreateRequest adminCreateRequest){
         Admin admin = convertToEntity(adminCreateRequest);
-        Admin savedAdmin = adminService.save(admin);
+        Admin savedAdmin = adminService.registerAdmin(admin);
         return convertToDTO(savedAdmin);
     }
 
@@ -43,7 +43,7 @@ public class AdminController {
     public AdminResponse editAdmin (@PathVariable Long id, @RequestBody AdminEditRequest adminEditRequest){
         Admin admin = convertToEntity(adminEditRequest);
         admin.setId(id);
-        Admin updatedAdmin = adminService.save(admin);
+        Admin updatedAdmin = adminService.registerAdmin(admin);
         return convertToDTO(updatedAdmin);
     }
 
@@ -63,7 +63,6 @@ public class AdminController {
         dto.setLastName(admin.getLastName());
         dto.setUserName(admin.getUserName());
         dto.setEmail(admin.getEmail());
-        dto.setPassword(admin.getPassword());
         dto.setLoggedin(admin.isLoggedin());
         return dto;
     }
