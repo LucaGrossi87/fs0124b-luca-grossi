@@ -62,18 +62,18 @@ public class StationController {
         return station.map(this::convertToDTO).orElse(null);
     }
 
-    @PostMapping("/lan/save")
-    public StationResponse createLan(@RequestBody LanCreateRequest lanCreateRequest){
-        Station station = convertToEntityLan(lanCreateRequest);
-        Station savedLan = stationService.save(station);
-        return convertToDTO(savedLan);
-    }
+//    @PostMapping("/lan/save")
+//    public StationResponse createLan(@RequestBody LanCreateRequest lanCreateRequest){
+//        Station station = convertToEntityLan(lanCreateRequest);
+//        Station savedLan = stationService.save(station);
+//        return convertToDTO(savedLan);
+//    }
 
-    @PostMapping("/board/save")
+    @PostMapping("/save")
     public StationResponse createBoard(@RequestBody StationCreateRequest stationCreateRequest){
         Station station = convertToEntity(stationCreateRequest);
-        Station savedBoard = stationService.save(station);
-        return convertToDTO(savedBoard);
+        Station savedStation = stationService.save(station);
+        return convertToDTO(savedStation);
     }
 
 //    @PutMapping("/lans/{id}")
@@ -114,13 +114,13 @@ public class StationController {
         return new Station(dto.getBookingList(),dto.getStationType(),dto.getSeatsTotal());
     }
 
-    private Station convertToEntityLan (LanCreateRequest dto){
-        return new Station(dto.getBookingList(), StationType.LAN,1);
-    }
-
-    private Station convertToEntityLan (LanEditRequest dto){
-        return new Station(dto.getBookingList(), StationType.LAN,1);
-    }
+//    private Station convertToEntityLan (LanCreateRequest dto){
+//        return new Station(dto.getBookingList(), StationType.LAN,1);
+//    }
+//
+//    private Station convertToEntityLan (LanEditRequest dto){
+//        return new Station(dto.getBookingList(), StationType.LAN,1);
+//    }
 
     private Station convertToEntity (StationEditRequest dto){
         return new Station(dto.getBookingList(),dto.getStationType(),dto.getSeatsTotal());

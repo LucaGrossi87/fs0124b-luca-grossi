@@ -16,9 +16,6 @@ public class Station {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
-    private boolean available = true;
-
     @OneToMany(mappedBy = "station")
     @JsonManagedReference("station-booking")
     private List<Booking> bookingList;
@@ -30,7 +27,6 @@ public class Station {
     private int seatsTotal;
 
     public Station(List<Booking> bookingList, StationType stationType, int seatsTotal){
-        this.available=available;
         this.bookingList=bookingList;
         this.stationType=stationType;
         this.seatsTotal=seatsTotal;
