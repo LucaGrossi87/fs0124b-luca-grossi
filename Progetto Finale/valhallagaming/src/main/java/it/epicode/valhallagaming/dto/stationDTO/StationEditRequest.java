@@ -12,4 +12,5 @@ public class StationEditRequest {
     private int seatsTotal;
     private StationType stationType;
     private final String method = "edit";
-}
+    }
+

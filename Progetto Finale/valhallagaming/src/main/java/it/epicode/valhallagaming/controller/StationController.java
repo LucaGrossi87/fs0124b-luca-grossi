@@ -76,13 +76,13 @@ public class StationController {
         return convertToDTO(savedBoard);
     }
 
-    @PutMapping("/lans/{id}")
-    public StationResponse editLan (@PathVariable Long id, @RequestBody LanEditRequest lanEditRequest){
-        Station station = convertToEntityLan(lanEditRequest);
-        station.setId(id);
-        Station updatedLan = stationService.save(station);
-        return convertToDTO(updatedLan);
-    }
+//    @PutMapping("/lans/{id}")
+//    public StationResponse editLan (@PathVariable Long id, @RequestBody LanEditRequest lanEditRequest){
+//        Station station = convertToEntityLan(lanEditRequest);
+//        station.setId(id);
+//        Station updatedLan = stationService.save(station);
+//        return convertToDTO(updatedLan);
+//    }
 
     @PutMapping("/boards/{id}")
     public StationResponse editBoard (@PathVariable Long id, @RequestBody StationEditRequest stationEditRequest){

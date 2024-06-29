@@ -65,12 +65,12 @@ public class BookingController {
 
     @DeleteMapping("/{id}")
     public BookingDeleteResponse deleteBooking(@PathVariable Long id) {
-        Station deletedStation = bookingService.findById(id).get().getStation();
-        deletedStation.setAvailable(true);
+        System.out.println(id);
         bookingService.deleteById(id);
         BookingDeleteResponse response = new BookingDeleteResponse();
         response.setId(id);
         response.setMessage("Booking eliminato");
+        System.out.println(response);
         return response;
     }
 
@@ -97,13 +97,24 @@ public class BookingController {
 
     @PutMapping("/{id}/confirmation")
     public void sendEmailConfirmation(@PathVariable Long id) {
-        Optional<Booking> booking = bookingService.findById(id);
-        Optional<Admin> loggedAdmin = adminService.findLoggedin();
-        String userEmail = booking.get().getUser().getEmail();
-        String adminName = loggedAdmin.get().getFirstName();
-        String adminEmail = loggedAdmin.get().getEmail();
+        Optional<Booking> bookingOpt = bookingService.findById(id);
+        if (bookingOpt.isPresent()) {
+            Booking booking = bookingOpt.get();
+            User user = booking.getUser();
 
-        emailService.sendConfirmationEmail(userEmail, adminName, adminEmail);
+            booking.setConfirmed(true);
+            bookingService.save(booking);
+
+            Optional<Admin> loggedAdminOpt = adminService.findLoggedin();
+            if (loggedAdminOpt.isPresent()) {
+                Admin loggedAdmin = loggedAdminOpt.get();
+                String userEmail = user.getEmail();
+                String adminName = loggedAdmin.getFirstName();
+                String adminEmail = loggedAdmin.getEmail();
+
+                emailService.sendConfirmationEmail(userEmail, adminName, adminEmail);
+            }
+        }
     }
 
     @PostMapping("/boardbookingclose")

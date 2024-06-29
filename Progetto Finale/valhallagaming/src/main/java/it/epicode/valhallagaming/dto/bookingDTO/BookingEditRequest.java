@@ -16,4 +16,14 @@ public class BookingEditRequest {
     private int guests;
     private int seatsAvailable;
     private final String method = "edit";
+
+    public BookingEditRequest(User user, Station station, LocalDate date, boolean open, boolean confirmed, int guests, int seatsAvailable) {
+        this.user = user;
+        this.station = station;
+        this.date = date;
+        this.open = open;
+        this.confirmed = confirmed;
+        this.guests = guests;
+        this.seatsAvailable = seatsAvailable;
+    }
 }
