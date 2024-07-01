@@ -1,3 +1,4 @@
+import { NavbarComponent } from './../../../../../m3/s2/g1/esercizio/src/app/components/navbar/navbar.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -15,6 +16,7 @@ import { BookOpenBoardComponent } from './pages/book-open-board/book-open-board.
 import { FormsModule } from '@angular/forms';
 import { WaitConfirmationComponent } from './pages/wait-confirmation/wait-confirmation/wait-confirmation.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     BookNewBoardComponent,
     BookOpenBoardComponent,
     WaitConfirmationComponent,
+    FooterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,21 @@
+<div class="manage-stations">
+  <h4>Tavoli <button (click)="toggleSelect()">Aggiungi</button></h4>
+  <div *ngIf="select">segli quanti posti:  <select id="guests" [(ngModel)]="postSeatsTotal">
+    <option *ngFor="let number of seatsSelection" [value]="number">{{number}}</option>
+  </select> <button (click)="postStation('BOARD')">conferma</button></div>
+  <div *ngFor="let b of boards"><p>
+    Tavolo {{b.id}} - Posti: {{b.seatsTotal}}
+    <button (click)="edit(b)">Modifica</button>
+    <button (click)="delete(b.id!)">Elimina</button></p>
+    <div *ngIf="isEditing(b)">
+      <p>Modifica posti</p>
+      <input [(ngModel)]="editSeatsTotal" placeholder="Numero di posti" />
+      <button (click)="submitEdit()">Submit</button>
+    </div>
+  </div>
+  <h4>Postazioni Lan <button (click)="postStation('LAN')">Aggiungi</button></h4>
+  <p *ngFor="let l of lans">
+    Postazione {{l.id}}
+    <button (click)="delete(l.id!)">Elimina</button>
+  </p>
+</div>

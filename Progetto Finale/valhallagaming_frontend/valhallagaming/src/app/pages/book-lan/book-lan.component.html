@@ -1,0 +1,18 @@
+<p>book-lan works!</p>
+
+<p>Ci sono ancora {{lans.length}} LAN libere</p>
+<p>Inserisci i tuoi dati per prenotare</p>
+
+<div>
+  <label for="firstName">Nome:</label>
+  <input id="firstName" [(ngModel)]="firstName" placeholder="Inserisci il tuo nome" />
+</div>
+<div>
+  <label for="lastName">Cognome:</label>
+  <input id="lastName" [(ngModel)]="lastName" placeholder="Inserisci il tuo cognome" />
+</div>
+<div>
+  <label for="email">Email:</label>
+  <input id="email" [(ngModel)]="email" placeholder="Inserisci email" />
+</div>
+<button (click)="prenota()" [routerLink]="['/wait-confirmation']">Prenota</button>

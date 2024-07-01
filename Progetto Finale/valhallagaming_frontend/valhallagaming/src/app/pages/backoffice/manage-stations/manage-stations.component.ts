@@ -1,0 +1,93 @@
+import { Component, OnInit } from '@angular/core';
+import { Station } from '../../../models/i-stations';
+import { ManageStationsService } from './manage-stations.service';
+
+@Component({
+  selector: 'app-manage-stations',
+  templateUrl: './manage-stations.component.html',
+  styleUrls: ['./manage-stations.component.scss']
+})
+export class ManageStationsComponent implements OnInit {
+  boards: Station[] = [];
+  lans: Station[] = [];
+  editId: number | null = null;
+  editSeatsTotal: number | null = null;
+  editStationType: string | null = null;
+  postSeatsTotal:number=0
+  select:boolean=false
+  seatsSelection:number[]=[2,3,4,5,6,7,8,10,11,12]
+
+  constructor(private stationSvc: ManageStationsService) {}
+
+  ngOnInit(): void {
+    this.stationSvc.getBoards().subscribe(data => {
+      this.boards = data;
+    });
+    this.stationSvc.getLans().subscribe(data => {
+      this.lans = data;
+    });
+  }
+
+  delete(id: number): void {
+    this.stationSvc.delete(id).subscribe(() => {
+      this.boards = this.boards.filter(board => board.id !== id);
+      this.lans = this.lans.filter(lan => lan.id !== id);
+    });
+  }
+
+  edit(station: Station): void {
+    this.editId = station.id || null;
+    this.editSeatsTotal = station.seatsTotal;
+    this.editStationType = station.stationType;
+  }
+
+  isEditing(station: Station): boolean {
+    return this.editId === station.id;
+  }
+
+  submitEdit(): void {
+    if (this.editSeatsTotal !== null && this.editId !== null && this.editStationType !== null) {
+      const updatedStation: Partial<Station> = {
+        seatsTotal: this.editSeatsTotal,
+        stationType: this.editStationType
+      };
+      this.stationSvc.update(this.editId, updatedStation).subscribe(updatedData => {
+        const boardIndex = this.boards.findIndex(board => board.id === this.editId);
+        if (boardIndex !== -1) {
+          this.boards[boardIndex] = updatedData;
+        } else {
+          const lanIndex = this.lans.findIndex(lan => lan.id === this.editId);
+          if (lanIndex !== -1) {
+            this.lans[lanIndex] = updatedData;
+          }
+        }
+        this.editId = null;
+      });
+    }
+  }
+
+  postStation(type:string):void {
+    if (type=='LAN') {
+      const postStation: Partial<Station> = {
+        stationType:type,
+        seatsTotal:1
+      }
+      this.stationSvc.post(postStation).subscribe(data=>{
+      this.lans.push(data)
+      })
+    } else if (type=='BOARD'){
+      const postStation: Partial<Station> = {
+        stationType:type,
+        seatsTotal:this.postSeatsTotal
+      }
+      this.stationSvc.post(postStation).subscribe(data=>{
+        this.boards.push(data)
+        })
+    }
+  }
+
+  toggleSelect(): void {
+    this.select = !this.select;
+  }
+
+}

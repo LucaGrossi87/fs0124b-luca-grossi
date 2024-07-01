@@ -1,0 +1,33 @@
+<p>Ci sono ancora {{boards.length}} tavoli disponibili</p>
+
+<div>
+  <label for="firstName">Nome:</label>
+  <input id="firstName" [(ngModel)]="firstName" placeholder="Inserisci il tuo nome" />
+</div>
+<div>
+  <label for="lastName">Cognome:</label>
+  <input id="lastName" [(ngModel)]="lastName" placeholder="Inserisci il tuo cognome" />
+</div>
+<div>
+  <label for="email">Email:</label>
+  <input id="email" [(ngModel)]="email" placeholder="Inserisci email" />
+</div>
+<div>
+  <p>Quanti siete?</p>
+  <select id="guests" [(ngModel)]="guests">
+    <option *ngFor="let number of guestNumbers" [value]="number">{{number}}</option>
+  </select>
+</div>
+<div>
+  <label for="open">Vuoi lasciare la prenotazione aperta?</label>
+  <input type="checkbox" id="open" [(ngModel)]="open" />
+</div>
+<div *ngIf="open">
+  <p>Scegli quanti posti servono al tuo tavolo</p>
+  <div *ngFor="let b of boards">
+    <input type="radio" id="seat{{b.id}}" name="seats" [value]="b.seatsTotal" (change)="onSeatSelected(b)" [disabled]="b.seatsTotal - guests < 0">
+    <label for="seat{{b.id}}" *ngIf="b.seatsTotal - guests >= 0">{{b.seatsTotal}}</label>
+  </div>
+</div>
+
+<button (click)="prenota()" [routerLink]="['/wait-confirmation']">Prenota</button>

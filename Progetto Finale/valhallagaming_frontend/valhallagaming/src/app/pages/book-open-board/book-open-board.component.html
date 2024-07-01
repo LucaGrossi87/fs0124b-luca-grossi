@@ -1,0 +1,7 @@
+<p>book-open-table works!</p>
+
+<p>{{boards.length}}</p>
+
+<div *ngFor="let b of bookings">
+<p *ngIf="b.seatsAvailable>0">sono disponibili {{b.seatsAvailable}} posti al tavolo {{b.station.id}} con altri {{b.guests}} giocatori</p>
+</div>

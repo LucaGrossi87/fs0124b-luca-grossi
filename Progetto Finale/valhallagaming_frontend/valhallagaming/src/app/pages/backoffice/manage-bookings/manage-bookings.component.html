@@ -1,0 +1,6 @@
+<div *ngFor="let d of dates">
+  <h4>{{d}}</h4>
+  <div *ngFor="let b of bookings">
+    <p *ngIf="b.date==d">{{b.id}} - {{b.user.firstName}} - {{b.station.stationType}} {{b.station.id}}<button *ngIf="!b.confirmed" (click)="confirm(b.id)">conferma</button> <button (click)="delete(b.id)">annulla</button></p>
+  </div>
+</div>
