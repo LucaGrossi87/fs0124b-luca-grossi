@@ -6,7 +6,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
-import { BookBoardComponent } from './pages/book-board/book-board.component';
+
 import { BookLanComponent } from './pages/book-lan/book-lan.component';
 import { AdminLoginComponent } from './pages/admin-login/admin-login.component';
 import { ConfirmBookingComponent } from './pages/confirm-booking/confirm-booking.component';
@@ -17,13 +17,14 @@ import { FormsModule } from '@angular/forms';
 import { WaitConfirmationComponent } from './pages/wait-confirmation/wait-confirmation/wait-confirmation.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { FooterComponent } from './components/footer/footer.component';
+import { ContactsComponent } from './pages/contacts/contacts.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    BookBoardComponent,
+
     BookLanComponent,
     AdminLoginComponent,
     ConfirmBookingComponent,
@@ -32,7 +33,8 @@ import { FooterComponent } from './components/footer/footer.component';
     BookOpenBoardComponent,
     WaitConfirmationComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    ContactsComponent
   ],
   imports: [
     BrowserModule,

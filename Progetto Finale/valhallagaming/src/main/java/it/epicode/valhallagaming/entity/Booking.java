@@ -41,7 +41,10 @@ public class Booking {
     @Column(nullable = false)
     private int seatsAvailable;
 
-    public Booking(User user, Station station, LocalDate date, boolean open, boolean confirmed, int guests, int seatsAvailable){
+    @Column(nullable = false)
+    private String game;
+
+    public Booking(User user, Station station, LocalDate date, boolean open, boolean confirmed, int guests, int seatsAvailable, String game){
         this.user=user;
         this.station=station;
         this.date=date;
@@ -49,5 +52,6 @@ public class Booking {
         this.confirmed=confirmed;
         this.guests=guests;
         this.seatsAvailable=seatsAvailable;
+        this.game=game;
     }
 }

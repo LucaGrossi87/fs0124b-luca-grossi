@@ -16,4 +16,5 @@ public class BookingResponse {
     private boolean confirmed;
     private int guests;
     private int seatsAvailable;
+    private String game;
 }

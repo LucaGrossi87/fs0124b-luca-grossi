@@ -3,8 +3,10 @@ package it.epicode.valhallagaming.service;
 import it.epicode.valhallagaming.entity.Booking;
 import it.epicode.valhallagaming.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 
+import java.awt.print.Book;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -33,6 +35,10 @@ public class BookingService {
 
     public List<Booking> getByDate(LocalDate date){
         return bookingRepository.findBookingsByDate(date);
+    }
+
+    public List<Booking> findOpen(LocalDate date){
+        return bookingRepository.findByOpen(true);
     }
 
 }

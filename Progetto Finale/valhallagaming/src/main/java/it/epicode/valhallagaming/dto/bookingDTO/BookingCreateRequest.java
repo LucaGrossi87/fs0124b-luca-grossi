@@ -15,5 +15,6 @@ public class BookingCreateRequest {
     private boolean confirmed;
     private int guests;
     private int seatsAvailable;
+    private String game;
     private final String method = "create";
 }

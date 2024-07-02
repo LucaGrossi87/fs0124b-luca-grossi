@@ -41,21 +41,25 @@ public class StationService {
         return stationRepository.findByStationType(StationType.LAN);
     }
 
-    public List<Station> findAvailableBoards(LocalDate date){
+    public List<Station> findAvailableBoards(LocalDate date) {
         List<Station> allBoards = stationRepository.findByStationType(StationType.BOARD);
-        List<Station> availableBoards=new ArrayList<>();
-        for (Station board : allBoards){
-            boolean isAvailable=true;
-            for (Booking booking : board.getBookingList()){
+        List<Station> availableBoards = new ArrayList<>();
+
+        for (Station board : allBoards) {
+            boolean isAvailable = true;
+
+            for (Booking booking : board.getBookingList()) {
                 if (booking.getDate().equals(date)) {
                     isAvailable = false;
                     break;
                 }
             }
-        if (isAvailable) {
-            availableBoards.add(board);
+
+            if (isAvailable) {
+                availableBoards.add(board);
+            }
         }
-        }
+
         return availableBoards;
     }
 
@@ -107,19 +111,20 @@ public class StationService {
                 }
             }
             }
+
         return openBoards;
         }
 
     public List<Station> findBySeatsTotal(LocalDate date, int seatsTotal) {
-        List<Station> availableBoards = this.findAvailableBoards(date);
+        List<Station> availableBoards = findAvailableBoards(date);
         List<Station> boardsBySeats = new ArrayList<>();
+
         for (Station board : availableBoards) {
-            for (Booking booking : board.getBookingList()) {
-                if (booking.getStation().getSeatsTotal()==seatsTotal) {
-                        boardsBySeats.add(board);
-                    }
-                }
+            if (board.getSeatsTotal() == seatsTotal) {
+                boardsBySeats.add(board);
             }
+        }
+
         return boardsBySeats;
     }
         }

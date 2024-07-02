@@ -15,9 +15,6 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.options a {
   display: block;
   margin: 10px 0;
   padding: 10px 20px;
@@ -33,9 +30,9 @@ html {
 
 @import 'bootstrap/scss/bootstrap';
 
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-.fa-anchor,.fa-coffee {font-size:200px}
+body,h1,h2,h3,h4,h5,h6,p, header, footer,.btn, .w3-bar,h1,button, span  {Font-family: "Bona Nova SC", serif;
+  font-weight: 600;
+  font-style: normal;}
 
 #date{
   border: 1px solid #c4c4c4;
@@ -191,5 +188,6 @@ $size-height: 250px;
   .vh-100 {
     height: 100vh;
   }
+
 
 }
