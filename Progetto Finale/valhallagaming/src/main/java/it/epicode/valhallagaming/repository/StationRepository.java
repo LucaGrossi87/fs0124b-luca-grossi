@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface StationRepository extends JpaRepository<Station, Long> {
     List<Station> findByStationType (StationType stationType);
-    List<Station> findBySeatsTotal (int seatsTotal);
+//    List<Station> findBySeatsTotal (int seatsTotal);
 }

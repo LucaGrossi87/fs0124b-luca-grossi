@@ -29,23 +29,26 @@ export class BookNewBoardService {
     return this.http.get<Station[]>(this.boardsBySeats, { params });
   }
 
-  newBoardBooking(date: string, guests: number, userId: number, open: boolean): Observable<any> {
+  newBoardBooking(date: string, guests: number, userId: number, open: boolean, game:string): Observable<any> {
     const params = new HttpParams()
       .set('date', date)
       .set('userId', userId.toString())
       .set('guests', guests)
+      .set('game', game)
       .set('open', open);
 
     return this.http.post(`${this.newBoardsBookingUrl}`, params);
   }
 
-  newBoardBookingById(date: string, guests: number, userId: number, open: boolean, boardId:number): Observable<any> {
+  newBoardBookingById(date: string, guests: number, userId: number, open: boolean, boardId:number, game:string): Observable<any> {
+
     const params = new HttpParams()
-      .set('date', date)
-      .set('userId', userId.toString())
-      .set('guests', guests)
-      .set('boardId', boardId)
-      .set('open', open);
+    .set('date', date)
+    .set('userId', userId.toString())
+    .set('guests', guests)
+    .set('boardId', boardId)
+    .set('game', game)
+    .set('open', open);
 
     return this.http.post(`${this.bookingById}`, params);
   }

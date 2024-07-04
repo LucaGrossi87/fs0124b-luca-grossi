@@ -41,4 +41,8 @@ public class BookingService {
         return bookingRepository.findByOpen(true);
     }
 
+    public List<Booking> findOpenBookingsByDate(LocalDate date) {
+        return bookingRepository.findOpenBookingsByDate(date);
+    }
+
 }

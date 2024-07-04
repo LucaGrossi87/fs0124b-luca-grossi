@@ -37,7 +37,6 @@ export class BookLanComponent implements OnInit {
       const newUser: User = {
         firstName: this.firstName,
         lastName: this.lastName,
-        username: this.username,
         email: this.email
       };
 

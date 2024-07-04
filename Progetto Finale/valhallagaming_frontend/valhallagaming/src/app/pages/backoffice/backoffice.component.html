@@ -1,9 +1,9 @@
-<p>backoffice works!</p>
-
-<div class="options">
-  <a routerLink="/backoffice/stations" type="button" class="btn btn-primary btn-lg px-4 me-md-2">tavoli</a>
-  <a routerLink="/backoffice/bookings" type="button" class="btn btn-primary btn-lg px-4 me-md-2">prenotazioni</a>
-</div>
-<div class="container">
-<router-outlet></router-outlet>
+<div class="container bg-filter rounded border border-warning mt-3 mb-5">
+  <div class="m-3 p-3 border-bottom border-black d-md-flex">
+    <a routerLink="/backoffice/stations" type="button" class="btn btn-warning btn-lg px-4 me-md-2 col-12 col-md-6">Tavoli</a>
+    <a routerLink="/backoffice/bookings" type="button" class="btn btn-warning btn-lg px-4 me-md-2 col-12 col-md-6">Prenotazioni</a>
+  </div>
+  <div class="container p-3 fw-semibold">
+    <router-outlet></router-outlet>
+  </div>
 </div>

@@ -1,13 +1,10 @@
 package it.epicode.valhallagaming.controller;
 
-import it.epicode.valhallagaming.dto.lanDTO.LanCreateRequest;
-import it.epicode.valhallagaming.dto.lanDTO.LanEditRequest;
 import it.epicode.valhallagaming.dto.stationDTO.StationCreateRequest;
 import it.epicode.valhallagaming.dto.stationDTO.StationDeleteResponse;
 import it.epicode.valhallagaming.dto.stationDTO.StationEditRequest;
 import it.epicode.valhallagaming.dto.stationDTO.StationResponse;
 import it.epicode.valhallagaming.entity.Station;
-import it.epicode.valhallagaming.entity.StationType;
 import it.epicode.valhallagaming.service.StationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -62,27 +59,12 @@ public class StationController {
         return station.map(this::convertToDTO).orElse(null);
     }
 
-//    @PostMapping("/lan/save")
-//    public StationResponse createLan(@RequestBody LanCreateRequest lanCreateRequest){
-//        Station station = convertToEntityLan(lanCreateRequest);
-//        Station savedLan = stationService.save(station);
-//        return convertToDTO(savedLan);
-//    }
-
     @PostMapping("/save")
     public StationResponse createBoard(@RequestBody StationCreateRequest stationCreateRequest){
         Station station = convertToEntity(stationCreateRequest);
         Station savedStation = stationService.save(station);
         return convertToDTO(savedStation);
     }
-
-//    @PutMapping("/lans/{id}")
-//    public StationResponse editLan (@PathVariable Long id, @RequestBody LanEditRequest lanEditRequest){
-//        Station station = convertToEntityLan(lanEditRequest);
-//        station.setId(id);
-//        Station updatedLan = stationService.save(station);
-//        return convertToDTO(updatedLan);
-//    }
 
     @PutMapping("/boards/{id}")
     public StationResponse editBoard (@PathVariable Long id, @RequestBody StationEditRequest stationEditRequest){
@@ -113,14 +95,6 @@ public class StationController {
     private Station convertToEntity (StationCreateRequest dto){
         return new Station(dto.getBookingList(),dto.getStationType(),dto.getSeatsTotal());
     }
-
-//    private Station convertToEntityLan (LanCreateRequest dto){
-//        return new Station(dto.getBookingList(), StationType.LAN,1);
-//    }
-//
-//    private Station convertToEntityLan (LanEditRequest dto){
-//        return new Station(dto.getBookingList(), StationType.LAN,1);
-//    }
 
     private Station convertToEntity (StationEditRequest dto){
         return new Station(dto.getBookingList(),dto.getStationType(),dto.getSeatsTotal());

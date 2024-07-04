@@ -156,38 +156,38 @@ public class BookingController {
         }
     }
 
-    @PutMapping("/{id}/boardbookingopen")
-    public BookingResponse boardBookingOpen(@PathVariable Long id,
-                                            @RequestParam("date") int guests,
-                                            @RequestParam("user") User user,
-                                            @RequestParam("date") String dateParam) {
-        LocalDate date = LocalDate.parse(dateParam);
-
-        Optional<Station> optionalBoard = stationService.findById(id);
-
-        if (optionalBoard.isPresent()) {
-            Station board = optionalBoard.get();
-            List<Booking> bookingList = board.getBookingList();
-
-            for (Booking booking : bookingList) {
-                if (booking.getDate().equals(date) && booking.getSeatsAvailable() >= guests) {
-                    booking.setSeatsAvailable(booking.getSeatsAvailable() - guests);
-                    if (booking.getSeatsAvailable() == 0) {
-                        booking.setOpen(false);
-                    }
-
-
-                    Booking updatedBooking = bookingService.save(booking);
-                    return convertToDTO(updatedBooking);
-                }
-            }
-
-            throw new EntityNotFoundException("Prenotazione non trovata per la data specificata o posti non disponibili.");
-
-        } else {
-            throw new EntityNotFoundException("Postazione non trovata");
-        }
-    }
+//    @PutMapping("/{id}/boardbookingopen")
+//    public BookingResponse boardBookingOpen(@PathVariable Long id,
+//                                            @RequestParam("date") int guests,
+//                                            @RequestParam("user") User user,
+//                                            @RequestParam("date") String dateParam) {
+//        LocalDate date = LocalDate.parse(dateParam);
+//
+//        Optional<Station> optionalBoard = stationService.findById(id);
+//
+//        if (optionalBoard.isPresent()) {
+//            Station board = optionalBoard.get();
+//            List<Booking> bookingList = board.getBookingList();
+//
+//            for (Booking booking : bookingList) {
+//                if (booking.getDate().equals(date) && booking.getSeatsAvailable() >= guests) {
+//                    booking.setSeatsAvailable(booking.getSeatsAvailable() - guests);
+//                    if (booking.getSeatsAvailable() == 0) {
+//                        booking.setOpen(false);
+//                    }
+//
+//
+//                    Booking updatedBooking = bookingService.save(booking);
+//                    return convertToDTO(updatedBooking);
+//                }
+//            }
+//
+//            throw new EntityNotFoundException("Prenotazione non trovata per la data specificata o posti non disponibili.");
+//
+//        } else {
+//            throw new EntityNotFoundException("Postazione non trovata");
+//        }
+//    }
 
     @PostMapping("/lanbooking")
     public BookingResponse lanBooking(@RequestParam("date") String dateParam, @RequestParam("userId") Long userId) {
@@ -232,6 +232,8 @@ public class BookingController {
             }
             Station chosenBoard = optionalStation.get();
 
+            System.out.println(chosenBoard.getId());
+
             Booking newClosedBooking = new Booking(user, chosenBoard, date, open, false, guests, chosenBoard.getSeatsTotal() - guests, game);
             Booking newBooking = bookingService.save(newClosedBooking);
             System.out.println(newBooking.getGame());
@@ -244,17 +246,10 @@ public class BookingController {
     }}
 
     @GetMapping("/openbookings")
-    public List<BookingResponse> getOpenBookingsByDate(@RequestParam("date") String dateParam){
+    public List<BookingResponse> getOpenBookingsByDate(@RequestParam("date") String dateParam) {
         LocalDate date = LocalDate.parse(dateParam);
-        List<BookingResponse> allOpens =bookingService.findOpen(date).stream()
-                .map(this::convertToDTO).collect(Collectors.toList());
-        List<BookingResponse> opensByDate=new ArrayList<>();
-        for (BookingResponse booking : allOpens){
-            if (booking.getDate().isEqual(date)){
-        System.out.println(booking.isOpen());
-                opensByDate.add(booking);
-            }
-        }
-        return opensByDate;
+        return bookingService.findOpenBookingsByDate(date).stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
     }
 }

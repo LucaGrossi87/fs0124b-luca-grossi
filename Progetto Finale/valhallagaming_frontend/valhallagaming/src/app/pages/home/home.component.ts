@@ -10,6 +10,7 @@ import { filter } from 'rxjs/operators';
 })
 export class HomeComponent implements OnInit {
   selectedDate: string = '';
+  showAlert: boolean = false;
 
   constructor(private dateService: DateService, private router: Router) { }
 
@@ -37,7 +38,8 @@ export class HomeComponent implements OnInit {
     if (this.selectedDate) {
       this.router.navigate([path], { queryParams: { date: this.selectedDate } });
     } else {
-      alert('Per favore seleziona una data prima di procedere.');
+      this.showAlert = true;
     }
   }
+
 }

@@ -11,7 +11,7 @@ const routes: Routes = [
     children: [
       { path: 'stations', component: ManageStationsComponent },
       { path: 'bookings', component: ManageBookingsComponent }
-    ]
+    ],
   }
 ];
 

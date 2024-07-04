@@ -4,8 +4,8 @@ export const environment = {
   boardsUrl:'http://localhost:8080/api/boards',
   newBoardsUrl:'http://localhost:8080/api/boards/available',
   newBoardsBookingUrl:'http://localhost:8080/api/bookings/boardbookingclose',
-  openBoardsUrl:'http://localhost:8080/api/boards/open',
-  openBoardsBookingUrl:'http://localhost:8080/api/bookings/boardbookingopen',
+  openBoardsUrl:'http://localhost:8080/api/bookings/openbookings',
+  // openBoardsBookingUrl:'http://localhost:8080/api/bookings/boardbookingopen',
   lanBookingUrl: 'http://localhost:8080/api/bookings/lanbooking',
   bookingsByDateUrl: 'http://localhost:8080/api/bookings/bookingsbydate',
   bookingsById: 'http://localhost:8080/api/bookings/bookingbyid',
@@ -16,4 +16,5 @@ export const environment = {
   deleteStationUrl: 'http://localhost:8080/api',
   updateBoardUrl: 'http://localhost:8080/api/boards',
   postStationUrl: 'http://localhost:8080/api/save',
+  editBookingUrl:'http://localhost:8080/api/bookings'
 };

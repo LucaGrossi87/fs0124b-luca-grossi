@@ -1,25 +1,31 @@
-<p>Ci sono ancora {{boards.length}} tavoli disponibili</p>
+<div class="container bg-filter fw-semibold text-center my-5 rounded p-3 border border-warning">
+
+<p class="fs-4">Ci sono ancora {{boards.length}} tavoli disponibili</p>
 
 <div>
-  <label for="firstName">Nome:</label>
+  <label for="firstName" class="mx-3">Nome:</label>
   <input id="firstName" [(ngModel)]="firstName" placeholder="Inserisci il tuo nome" />
 </div>
 <div>
-  <label for="lastName">Cognome:</label>
+  <label for="lastName" class="mx-3 my-3">Cognome:</label>
   <input id="lastName" [(ngModel)]="lastName" placeholder="Inserisci il tuo cognome" />
 </div>
 <div>
-  <label for="email">Email:</label>
+  <label for="email" class="mx-3">Email:</label>
   <input id="email" [(ngModel)]="email" placeholder="Inserisci email" />
 </div>
 <div>
-  <p>Quanti siete?</p>
+  <label for="game" class="me-3">Gioco:</label>
+  <input id="game" [(ngModel)]="game" name="game" required class="rounded">
+</div>
+<div class="border-top border-bottom border-black my-3 pt-1 pb-3">
+  <p class="">Quanti siete?</p>
   <select id="guests" [(ngModel)]="guests">
-    <option *ngFor="let number of guestNumbers" [value]="number">{{number}}</option>
+    <option *ngFor="let number of guestNumbers" [value]="number" class="rounded">{{number}}</option>
   </select>
 </div>
-<div>
-  <label for="open">Vuoi lasciare la prenotazione aperta?</label>
+<div class="border-bottom border-black my-3 pb-3">
+  <label for="open" class="mx-1">Vuoi lasciare la prenotazione aperta?</label>
   <input type="checkbox" id="open" [(ngModel)]="open" />
 </div>
 <div *ngIf="open">
@@ -30,4 +36,5 @@
   </div>
 </div>
 
-<button (click)="prenota()" [routerLink]="['/wait-confirmation']">Prenota</button>
+<button (click)="prenota()" [routerLink]="['/wait-confirmation']" class="btn btn-outline-dark mt-1">Prenota</button>
+</div>

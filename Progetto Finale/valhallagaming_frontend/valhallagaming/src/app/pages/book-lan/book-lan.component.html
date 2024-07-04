@@ -1,18 +1,19 @@
-<p>book-lan works!</p>
+<div class="container bg-filter fw-semibold text-center my-5 rounded p-5 border border-warning">
 
-<p>Ci sono ancora {{lans.length}} LAN libere</p>
+<p class="fs-4">Ci sono ancora {{lans.length}} LAN libere</p>
 <p>Inserisci i tuoi dati per prenotare</p>
 
 <div>
-  <label for="firstName">Nome:</label>
+  <label for="firstName" class="mx-3">Nome:</label>
   <input id="firstName" [(ngModel)]="firstName" placeholder="Inserisci il tuo nome" />
 </div>
 <div>
-  <label for="lastName">Cognome:</label>
+  <label for="lastName" class="mx-3 my-3">Cognome:</label>
   <input id="lastName" [(ngModel)]="lastName" placeholder="Inserisci il tuo cognome" />
 </div>
 <div>
-  <label for="email">Email:</label>
+  <label for="email" class="mx-3">Email:</label>
   <input id="email" [(ngModel)]="email" placeholder="Inserisci email" />
 </div>
-<button (click)="prenota()" [routerLink]="['/wait-confirmation']">Prenota</button>
+<button (click)="prenota()" [routerLink]="['/wait-confirmation']" class="btn btn-outline-dark mt-3">Prenota</button>
+</div>
