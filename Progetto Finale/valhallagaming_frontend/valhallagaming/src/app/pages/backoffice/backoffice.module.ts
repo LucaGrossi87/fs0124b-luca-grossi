@@ -6,12 +6,14 @@ import { BackofficeRoutingModule } from './backoffice-routing.module';
 import { BackofficeComponent } from './backoffice.component';
 import { ManageBookingsComponent } from './manage-bookings/manage-bookings.component';
 import { ManageStationsComponent } from './manage-stations/manage-stations.component';
+import { CollabsComponent } from './collabs/collabs.component';
 
 @NgModule({
   declarations: [
     BackofficeComponent,
     ManageBookingsComponent,
-    ManageStationsComponent
+    ManageStationsComponent,
+    CollabsComponent
   ],
   imports: [
     CommonModule,

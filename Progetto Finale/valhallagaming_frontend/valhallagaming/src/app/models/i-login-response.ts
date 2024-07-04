@@ -1,5 +1,5 @@
-import { User } from './i-users';
+import { Admin } from './i-admins';
 export interface LoginResponse {
   jwt: string;
-  admin: User;
+  admin: Admin;
 }
