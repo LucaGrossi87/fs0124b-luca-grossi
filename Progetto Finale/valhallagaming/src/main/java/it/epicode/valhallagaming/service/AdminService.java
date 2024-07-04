@@ -1,6 +1,7 @@
 package it.epicode.valhallagaming.service;
 
 import it.epicode.valhallagaming.entity.Admin;
+import it.epicode.valhallagaming.entity.Role;
 import it.epicode.valhallagaming.repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,10 +24,6 @@ public class AdminService {
         return adminRepository.findById(id);
     }
 
-//    public Admin save (Admin admin){
-//        return adminRepository.save(admin);
-//    }
-
     public void deleteById(Long id){
         adminRepository.deleteById(id);
     }
@@ -45,7 +42,24 @@ public class AdminService {
     public Admin registerAdmin(Admin admin) {
         String encodedPassword = passwordEncoder.encode(admin.getPassword());
         System.out.println(encodedPassword);
-        Admin newAdmin = new Admin(admin.getFirstName(), admin.getLastName(), admin.getUserName(), admin.getEmail(), encodedPassword, admin.isLoggedin());
+        Admin newAdmin = new Admin(admin.getFirstName(), admin.getLastName(), admin.getUserName(), admin.getEmail(), encodedPassword, admin.isLoggedin(), admin.getRole());
         return adminRepository.save(newAdmin);
+    }
+
+    public List<Admin> findAllCollaborators() {
+        return adminRepository.findByRole(Role.COLLABORATOR);
+    }
+
+    public Optional<Admin> findCollaboratorById(Long id) {
+        return adminRepository.findById(id);
+    }
+
+    public Admin saveCollaborator(Admin admin) {
+        admin.setRole(Role.COLLABORATOR);
+        return adminRepository.save(admin);
+    }
+
+    public void deleteCollaborator(Long id) {
+        adminRepository.deleteById(id);
     }
 }

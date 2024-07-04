@@ -11,7 +11,6 @@ import { Booking } from '../../models/i-bookings';
 export class BookOpenBoardService {
 
   private openBoardsUrl=environment.openBoardsUrl
-  // private openBoardsBookingUrl=environment.openBoardsBookingUrl
   private bookingsByDateUrl=environment.bookingsByDateUrl
   private editBookingUrl = environment.editBookingUrl
 

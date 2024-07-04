@@ -16,7 +16,7 @@ public class Station {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToMany(mappedBy = "station")
+    @OneToMany(mappedBy = "station", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference("station-booking")
     private List<Booking> bookingList;
 

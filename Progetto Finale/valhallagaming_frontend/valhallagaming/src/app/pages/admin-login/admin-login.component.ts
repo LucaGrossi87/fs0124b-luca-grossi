@@ -11,7 +11,7 @@ import { Login } from '../../models/i-login';
 
 export class AdminLoginComponent {
   login: Login = {
-    username: 'admin5',
+    username: 'admin6',
     password: 'password'
   }
 

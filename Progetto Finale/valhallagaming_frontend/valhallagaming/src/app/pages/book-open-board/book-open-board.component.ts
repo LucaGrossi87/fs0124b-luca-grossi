@@ -7,6 +7,7 @@ import { BookOpenBoardService } from './book-open-board.service';
 import { DateService } from '../../service/date.service';
 import { User } from '../../models/i-users';
 import { UserService } from '../../service/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-open-board',
@@ -26,7 +27,7 @@ export class BookOpenBoardComponent implements OnInit {
   chosenBooking: Booking | undefined;
   showBookingForm: boolean = false;
 
-  constructor(private openBoardSvc: BookOpenBoardService, private dateSvc: DateService, private newBoardSvc: BookNewBoardService, private userSvc: UserService) { }
+  constructor(private router: Router, private openBoardSvc: BookOpenBoardService, private dateSvc: DateService, private newBoardSvc: BookNewBoardService, private userSvc: UserService) { }
 
   ngOnInit(): void {
     this.date = this.dateSvc.getSelectedDate();
@@ -73,6 +74,7 @@ export class BookOpenBoardComponent implements OnInit {
             this.openBoardSvc.editBooking(this.chosenBooking.id!, this.chosenBooking).subscribe(() => {
               console.log('Posti disponibili aggiornati con successo');
               this.showBookingForm = false;
+              this.router.navigate(['/wait-confirmation']);
             });
           }
         });

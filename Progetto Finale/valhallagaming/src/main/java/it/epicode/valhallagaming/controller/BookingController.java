@@ -122,6 +122,28 @@ public class BookingController {
         }
     }
 
+    @PutMapping("/{id}/delete")
+    public void sendEmailDelete(@PathVariable Long id) {
+        Optional<Booking> bookingOpt = bookingService.findById(id);
+        if (bookingOpt.isPresent()) {
+            Booking booking = bookingOpt.get();
+            User user = booking.getUser();
+
+            booking.setConfirmed(true);
+            bookingService.save(booking);
+
+            Optional<Admin> loggedAdminOpt = adminService.findLoggedin();
+            if (loggedAdminOpt.isPresent()) {
+                Admin loggedAdmin = loggedAdminOpt.get();
+                String userEmail = user.getEmail();
+                String adminName = loggedAdmin.getFirstName();
+                String adminEmail = loggedAdmin.getEmail();
+
+                emailService.sendDeleteEmail(userEmail);
+            }
+        }
+    }
+
     @PostMapping("/boardbookingclose")
     public BookingResponse boardBookingClose(@RequestParam("date") String dateParam, @RequestParam("guests") int guests, @RequestParam("userId") Long userId, @RequestParam("open") boolean open,@RequestParam("game") String game, @RequestParam("note") String note) {
         LocalDate date = LocalDate.parse(dateParam);
@@ -146,7 +168,7 @@ public class BookingController {
             }
 
             if (finalBoard != null) {
-                Booking newClosedBooking = new Booking(user, finalBoard, date, open, false, guests, finalBoard.getSeatsTotal() - guests, game, note);
+                Booking newClosedBooking = new Booking(user, finalBoard, date, open, false, guests, finalBoard.getSeatsTotal() - guests, game, "");
                 Booking newBooking = bookingService.save(newClosedBooking);
                 return convertToDTO(newBooking);
             } else {
@@ -218,8 +240,7 @@ public class BookingController {
                                             @RequestParam("userId") Long userId,
                                             @RequestParam("open") boolean open,
                                             @RequestParam("boardId") Long boardId,
-                                            @RequestParam("game") String game,
-                                           @RequestParam("note") String note) {
+                                            @RequestParam("game") String game) {
         try {
             LocalDate date = LocalDate.parse(dateParam);
 
@@ -236,7 +257,7 @@ public class BookingController {
 
             System.out.println(chosenBoard.getId());
 
-            Booking newClosedBooking = new Booking(user, chosenBoard, date, open, false, guests, chosenBoard.getSeatsTotal() - guests, game, note);
+            Booking newClosedBooking = new Booking(user, chosenBoard, date, open, false, guests, chosenBoard.getSeatsTotal() - guests, game, "");
             Booking newBooking = bookingService.save(newClosedBooking);
             System.out.println(newBooking.getGame());
 
@@ -261,5 +282,11 @@ public class BookingController {
         booking.setNote(note);
         Booking updatedBooking = bookingService.save(booking);
         return convertToDTO(updatedBooking);
+    }
+
+    @GetMapping("/{stationId}")
+    public ResponseEntity<List<Booking>> getBookingsByStationId(@PathVariable Long stationId) {
+        List<Booking> bookings = bookingService.getBookingsByStationId(stationId);
+        return new ResponseEntity<>(bookings, HttpStatus.OK);
     }
 }

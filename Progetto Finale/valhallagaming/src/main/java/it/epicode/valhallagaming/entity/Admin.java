@@ -39,13 +39,18 @@ public class Admin {
     @Column(nullable = false)
     private boolean loggedin = false;
 
-    public Admin (String firstName, String lastName, String userName, String email, String password, boolean loggedin){
-        this.firstName=firstName;
-        this.lastName=lastName;
-        this.userName=userName;
-        this.email=email;
-        this.password=password;
-        this.loggedin=loggedin;
-    }
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
 
+    public Admin(String firstName, String lastName, String userName, String email, String password, boolean loggedin, Role role) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+        this.loggedin = loggedin;
+        this.role = role;
+    }
 }
+

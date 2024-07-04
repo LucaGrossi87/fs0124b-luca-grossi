@@ -45,4 +45,8 @@ public class BookingService {
         return bookingRepository.findOpenBookingsByDate(date);
     }
 
+    public List<Booking> getBookingsByStationId(Long stationId) {
+        return bookingRepository.findByStationId(stationId);
+    }
+
 }

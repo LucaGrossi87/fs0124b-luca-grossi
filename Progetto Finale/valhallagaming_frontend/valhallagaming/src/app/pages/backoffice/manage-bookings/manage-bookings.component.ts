@@ -7,10 +7,11 @@ import { ManageBookingsService } from './manage-bookings.service';
   templateUrl: './manage-bookings.component.html',
   styleUrls: ['./manage-bookings.component.scss']
 })
-export class ManageBookingsComponent implements OnInit{
+export class ManageBookingsComponent implements OnInit {
 
   bookings: Booking[] = [];
   dates: string[] = [];
+  showNoteInput: { [key: number]: boolean } = {}; // Mappa per gestire la visualizzazione delle note per ciascuna prenotazione
 
   constructor(private bookingSvc: ManageBookingsService) {}
 
@@ -24,16 +25,19 @@ export class ManageBookingsComponent implements OnInit{
       }
 
       this.dates = Array.from(dateSet);
+      this.dates.sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
     });
   }
 
-  delete(id:any): void {
+  delete(id: any): void {
     this.bookingSvc.delete(id).subscribe(response => {
-      this.bookings=this.bookings.filter(booking => booking.id !== id)
-    })
+      this.bookings = this.bookings.filter(booking => booking.id !== id);
+    });
+    this.bookingSvc.deleteEmail(id).subscribe(() => {
+      const booking = this.bookings.find(b => b.id === id);})
   }
 
-  confirm(id:any): void {
+  confirm(id: any): void {
     this.bookingSvc.confirm(id).subscribe(() => {
       const booking = this.bookings.find(b => b.id === id);
       if (booking) {
@@ -42,4 +46,21 @@ export class ManageBookingsComponent implements OnInit{
     }, error => {
       console.error('Confirmation error:', error);
     });
-  }}
+  }
+
+  toggleNoteInput(id: number): void {
+    this.showNoteInput[id] = !this.showNoteInput[id];
+  }
+
+  saveNote(id: number, note: string): void {
+    this.bookingSvc.updateNote(id, note).subscribe(() => {
+      const booking = this.bookings.find(b => b.id === id);
+      if (booking) {
+        booking.note = note;
+        this.showNoteInput[id] = false;
+      }
+    }, error => {
+      console.error('Update note error:', error);
+    });
+  }
+}

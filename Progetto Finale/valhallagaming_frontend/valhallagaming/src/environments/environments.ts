@@ -5,7 +5,6 @@ export const environment = {
   newBoardsUrl:'http://localhost:8080/api/boards/available',
   newBoardsBookingUrl:'http://localhost:8080/api/bookings/boardbookingclose',
   openBoardsUrl:'http://localhost:8080/api/bookings/openbookings',
-  // openBoardsBookingUrl:'http://localhost:8080/api/bookings/boardbookingopen',
   lanBookingUrl: 'http://localhost:8080/api/bookings/lanbooking',
   bookingsByDateUrl: 'http://localhost:8080/api/bookings/bookingsbydate',
   bookingsById: 'http://localhost:8080/api/bookings/bookingbyid',
@@ -16,5 +15,9 @@ export const environment = {
   deleteStationUrl: 'http://localhost:8080/api',
   updateBoardUrl: 'http://localhost:8080/api/boards',
   postStationUrl: 'http://localhost:8080/api/save',
-  editBookingUrl:'http://localhost:8080/api/bookings'
+  editBookingUrl:'http://localhost:8080/api/bookings',
+  bookingsByStationUrl:'http://localhost:8080/api/bookings',
+  createCollabUrl:'http://localhost:8080/api/admins/collab',
+  getCollabsUrl:'http://localhost:8080/api/admins/collabs',
+  getCollabByIdUrl:'http://localhost:8080/api/admins'
 };
