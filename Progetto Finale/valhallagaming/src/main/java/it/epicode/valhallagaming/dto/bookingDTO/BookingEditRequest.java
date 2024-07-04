@@ -17,4 +17,5 @@ public class BookingEditRequest {
     private int seatsAvailable;
     private final String method = "edit";
     private String game;
+    private String note;
 }

@@ -33,7 +33,7 @@ public class Booking {
     private boolean open;
 
     @Column(nullable = false)
-    private boolean confirmed=false;
+    private boolean confirmed = false;
 
     @Column(nullable = false)
     private int guests;
@@ -44,14 +44,18 @@ public class Booking {
     @Column(nullable = false)
     private String game;
 
-    public Booking(User user, Station station, LocalDate date, boolean open, boolean confirmed, int guests, int seatsAvailable, String game){
-        this.user=user;
-        this.station=station;
-        this.date=date;
-        this.open=open;
-        this.confirmed=confirmed;
-        this.guests=guests;
-        this.seatsAvailable=seatsAvailable;
-        this.game=game;
+    @Column
+    private String note;
+
+    public Booking(User user, Station station, LocalDate date, boolean open, boolean confirmed, int guests, int seatsAvailable, String game, String note) {
+        this.user = user;
+        this.station = station;
+        this.date = date;
+        this.open = open;
+        this.confirmed = confirmed;
+        this.guests = guests;
+        this.seatsAvailable = seatsAvailable;
+        this.game = game;
+        this.note = note;
     }
 }

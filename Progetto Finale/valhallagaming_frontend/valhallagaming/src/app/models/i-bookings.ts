@@ -10,5 +10,6 @@ export interface Booking {
   confirmed: boolean;
   guests: number;
   seatsAvailable: number;
-  game:string;
+  game: string;
+  note?: string;
 }

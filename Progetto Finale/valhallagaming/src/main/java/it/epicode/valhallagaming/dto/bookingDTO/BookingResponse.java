@@ -17,4 +17,5 @@ public class BookingResponse {
     private int guests;
     private int seatsAvailable;
     private String game;
+    private String note;
 }

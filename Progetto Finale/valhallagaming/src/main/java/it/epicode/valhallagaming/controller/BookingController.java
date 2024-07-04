@@ -16,7 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -88,15 +88,16 @@ public class BookingController {
         dto.setSeatsAvailable(booking.getSeatsAvailable());
         dto.setOpen(booking.isOpen());
         dto.setGame(booking.getGame());
+        dto.setNote(booking.getNote());
         return dto;
     }
 
     private Booking convertToEntity(BookingCreateRequest dto) {
-        return new Booking(dto.getUser(), dto.getStation(), dto.getDate(), dto.isOpen(), dto.isConfirmed(), dto.getGuests(), dto.getSeatsAvailable(), dto.getGame());
+        return new Booking(dto.getUser(), dto.getStation(), dto.getDate(), dto.isOpen(), dto.isConfirmed(), dto.getGuests(), dto.getSeatsAvailable(), dto.getGame(),dto.getNote());
     }
 
     private Booking convertToEntity(BookingEditRequest dto) {
-        return new Booking(dto.getUser(), dto.getStation(), dto.getDate(), dto.isOpen(), dto.isConfirmed(), dto.getGuests(), dto.getSeatsAvailable(), dto.getGame());
+        return new Booking(dto.getUser(), dto.getStation(), dto.getDate(), dto.isOpen(), dto.isConfirmed(), dto.getGuests(), dto.getSeatsAvailable(), dto.getGame(), dto.getNote());
     }
 
     @PutMapping("/{id}/confirmation")
@@ -122,7 +123,7 @@ public class BookingController {
     }
 
     @PostMapping("/boardbookingclose")
-    public BookingResponse boardBookingClose(@RequestParam("date") String dateParam, @RequestParam("guests") int guests, @RequestParam("userId") Long userId, @RequestParam("open") boolean open,@RequestParam("game") String game) {
+    public BookingResponse boardBookingClose(@RequestParam("date") String dateParam, @RequestParam("guests") int guests, @RequestParam("userId") Long userId, @RequestParam("open") boolean open,@RequestParam("game") String game, @RequestParam("note") String note) {
         LocalDate date = LocalDate.parse(dateParam);
         User user = userService.findById(userId).orElseThrow(() -> new EntityNotFoundException("Utente non trovato"));
         Station finalBoard = null;
@@ -145,7 +146,7 @@ public class BookingController {
             }
 
             if (finalBoard != null) {
-                Booking newClosedBooking = new Booking(user, finalBoard, date, open, false, guests, finalBoard.getSeatsTotal() - guests, game);
+                Booking newClosedBooking = new Booking(user, finalBoard, date, open, false, guests, finalBoard.getSeatsTotal() - guests, game, note);
                 Booking newBooking = bookingService.save(newClosedBooking);
                 return convertToDTO(newBooking);
             } else {
@@ -196,7 +197,7 @@ public class BookingController {
         List<Station> lansList = stationService.findAvailableLans(date);
         if (!lansList.isEmpty()) {
             Station lan = lansList.get(0);
-            Booking newLanBooking = new Booking(user, lan, date, false, false, 1, 0,"LAN");
+            Booking newLanBooking = new Booking(user, lan, date, false, false, 1, 0,"LAN","");
             Booking newBooking = bookingService.save(newLanBooking);
             return convertToDTO(newBooking);
         } else {
@@ -217,7 +218,8 @@ public class BookingController {
                                             @RequestParam("userId") Long userId,
                                             @RequestParam("open") boolean open,
                                             @RequestParam("boardId") Long boardId,
-                                            @RequestParam("game") String game) {
+                                            @RequestParam("game") String game,
+                                           @RequestParam("note") String note) {
         try {
             LocalDate date = LocalDate.parse(dateParam);
 
@@ -234,7 +236,7 @@ public class BookingController {
 
             System.out.println(chosenBoard.getId());
 
-            Booking newClosedBooking = new Booking(user, chosenBoard, date, open, false, guests, chosenBoard.getSeatsTotal() - guests, game);
+            Booking newClosedBooking = new Booking(user, chosenBoard, date, open, false, guests, chosenBoard.getSeatsTotal() - guests, game, note);
             Booking newBooking = bookingService.save(newClosedBooking);
             System.out.println(newBooking.getGame());
 
@@ -251,5 +253,13 @@ public class BookingController {
         return bookingService.findOpenBookingsByDate(date).stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
+    }
+
+    @PutMapping("/{id}/note")
+    public BookingResponse updateBookingNote(@PathVariable Long id, @RequestBody String note) {
+        Booking booking = bookingService.findById(id).orElseThrow(() -> new EntityNotFoundException("Booking not found"));
+        booking.setNote(note);
+        Booking updatedBooking = bookingService.save(booking);
+        return convertToDTO(updatedBooking);
     }
 }
