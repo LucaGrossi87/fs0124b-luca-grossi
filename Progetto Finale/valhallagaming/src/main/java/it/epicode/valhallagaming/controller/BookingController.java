@@ -16,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-//import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -179,39 +178,6 @@ public class BookingController {
         }
     }
 
-//    @PutMapping("/{id}/boardbookingopen")
-//    public BookingResponse boardBookingOpen(@PathVariable Long id,
-//                                            @RequestParam("date") int guests,
-//                                            @RequestParam("user") User user,
-//                                            @RequestParam("date") String dateParam) {
-//        LocalDate date = LocalDate.parse(dateParam);
-//
-//        Optional<Station> optionalBoard = stationService.findById(id);
-//
-//        if (optionalBoard.isPresent()) {
-//            Station board = optionalBoard.get();
-//            List<Booking> bookingList = board.getBookingList();
-//
-//            for (Booking booking : bookingList) {
-//                if (booking.getDate().equals(date) && booking.getSeatsAvailable() >= guests) {
-//                    booking.setSeatsAvailable(booking.getSeatsAvailable() - guests);
-//                    if (booking.getSeatsAvailable() == 0) {
-//                        booking.setOpen(false);
-//                    }
-//
-//
-//                    Booking updatedBooking = bookingService.save(booking);
-//                    return convertToDTO(updatedBooking);
-//                }
-//            }
-//
-//            throw new EntityNotFoundException("Prenotazione non trovata per la data specificata o posti non disponibili.");
-//
-//        } else {
-//            throw new EntityNotFoundException("Postazione non trovata");
-//        }
-//    }
-
     @PostMapping("/lanbooking")
     public BookingResponse lanBooking(@RequestParam("date") String dateParam, @RequestParam("userId") Long userId) {
         LocalDate date = LocalDate.parse(dateParam);
@@ -284,7 +250,7 @@ public class BookingController {
         return convertToDTO(updatedBooking);
     }
 
-    @GetMapping("/{stationId}")
+    @GetMapping("/station/{stationId}")
     public ResponseEntity<List<Booking>> getBookingsByStationId(@PathVariable Long stationId) {
         List<Booking> bookings = bookingService.getBookingsByStationId(stationId);
         return new ResponseEntity<>(bookings, HttpStatus.OK);
