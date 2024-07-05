@@ -47,7 +47,11 @@ public class BookingController {
     @GetMapping("/{id}")
     public BookingResponse getBookingById(@PathVariable Long id) {
         Optional<Booking> booking = bookingService.findById(id);
-        return booking.map(this::convertToDTO).orElse(null);
+        if (booking.isPresent()) {
+            return convertToDTO(booking.get());
+        } else {
+            throw new EntityNotFoundException("Booking not found with id: " + id);
+        }
     }
 
     @PostMapping
@@ -101,22 +105,32 @@ public class BookingController {
 
     @PutMapping("/{id}/confirmation")
     public void sendEmailConfirmation(@PathVariable Long id) {
+        System.out.println("check");
         Optional<Booking> bookingOpt = bookingService.findById(id);
+        System.out.println("check");
         if (bookingOpt.isPresent()) {
+            System.out.println("check");
             Booking booking = bookingOpt.get();
             User user = booking.getUser();
+            System.out.println("check");
 
             booking.setConfirmed(true);
             bookingService.save(booking);
-
+            System.out.println("check");
             Optional<Admin> loggedAdminOpt = adminService.findLoggedin();
+            System.out.println(loggedAdminOpt);
             if (loggedAdminOpt.isPresent()) {
+                System.out.println("check");
                 Admin loggedAdmin = loggedAdminOpt.get();
                 String userEmail = user.getEmail();
+                System.out.println("check");
+                System.out.println(loggedAdmin.getFirstName());
                 String adminName = loggedAdmin.getFirstName();
+                System.out.println(adminName);
                 String adminEmail = loggedAdmin.getEmail();
-
+                System.out.println(adminEmail);
                 emailService.sendConfirmationEmail(userEmail, adminName, adminEmail);
+                System.out.println("check");
             }
         }
     }
@@ -155,10 +169,8 @@ public class BookingController {
 
             for (Station board : boardsList) {
                 int seatsTotal = board.getSeatsTotal();
-                System.out.println("Checking board with seats: " + seatsTotal);
                 if (seatsTotal >= guests) {
                     int diff = seatsTotal - guests;
-                    System.out.println("Board is suitable with diff: " + diff);
                     if (diff < closestDiff) {
                         closestDiff = diff;
                         finalBoard = board;

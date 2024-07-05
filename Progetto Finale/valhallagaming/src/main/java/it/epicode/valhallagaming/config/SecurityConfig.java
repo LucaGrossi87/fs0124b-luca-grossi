@@ -28,14 +28,11 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeHttpRequests(auth -> auth
                 .requestMatchers("/auth/login").permitAll()
-//                .requestMatchers(HttpMethod.GET, "/api/users").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/bookings/lanbooking").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/bookings/boardbookingclose").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/bookings/bookingbyid").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/users").permitAll()
                 .requestMatchers(HttpMethod.PUT, "/api/bookings/*").permitAll()
-//                .requestMatchers(HttpMethod.POST, "/api/admins").permitAll()
-//                .requestMatchers(HttpMethod.POST, "/api/board/save").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/lans").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/lans/available").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/boards").permitAll()

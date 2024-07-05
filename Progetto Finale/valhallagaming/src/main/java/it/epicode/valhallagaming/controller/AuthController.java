@@ -6,6 +6,7 @@ import it.epicode.valhallagaming.entity.Admin;
 import it.epicode.valhallagaming.repository.AdminRepository;
 import it.epicode.valhallagaming.service.AdminDetailsService;
 import it.epicode.valhallagaming.service.JwtUtil;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -33,26 +34,22 @@ public class AuthController {
     private AdminRepository adminRepository;
 
     @PostMapping("/login")
-    public ResponseEntity<AuthenticationResponse> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
+    public ResponseEntity<AuthenticationResponse> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) {
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword())
             );
         } catch (AuthenticationException e) {
-            throw new Exception("Incorrect username or password", e);
+            throw new IllegalArgumentException("Incorrect username or password", e);
         }
 
         final UserDetails userDetails = adminDetailsService.loadUserByUsername(authenticationRequest.getUsername());
-        System.out.println(userDetails.getUsername()+userDetails.getPassword());
         final String jwt = jwtUtil.generateToken(userDetails);
 
         Admin admin = adminRepository.findByUserName(authenticationRequest.getUsername())
-                .orElseThrow(() -> new Exception("Admin not found"));
+                .orElseThrow(() -> new EntityNotFoundException("Admin not found"));
         admin.setLoggedin(true);
-        System.out.println(admin.getUserName());
         adminRepository.save(admin);
-
-        System.out.println(ResponseEntity.ok(new AuthenticationResponse(jwt, admin)));
 
         return ResponseEntity.ok(new AuthenticationResponse(jwt, admin));
     }
@@ -64,7 +61,7 @@ public class AuthController {
             String username = ((UserDetails) authentication.getPrincipal()).getUsername();
 
             Admin admin = adminRepository.findByUserName(username)
-                    .orElseThrow(() -> new RuntimeException("Admin not found"));
+                    .orElseThrow(() -> new EntityNotFoundException("Admin not found"));
             admin.setLoggedin(false);
             adminRepository.save(admin);
 

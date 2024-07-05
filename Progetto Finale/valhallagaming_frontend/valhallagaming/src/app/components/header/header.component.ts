@@ -20,7 +20,14 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(): void {
-    this.authSvc.logout();
+    this.authSvc.logout().subscribe({
+      next: () => {
+        console.log('Logout completato');
+      },
+      error: error => {
+        console.error('Errore durante il logout:', error);
+      }
+    });
   }
 
   myFunction(): void {

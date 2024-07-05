@@ -11,7 +11,7 @@ export class ManageBookingsComponent implements OnInit {
 
   bookings: Booking[] = [];
   dates: string[] = [];
-  showNoteInput: { [key: number]: boolean } = {}; // Mappa per gestire la visualizzazione delle note per ciascuna prenotazione
+  showNoteInput: { [key: number]: boolean } = {};
 
   constructor(private bookingSvc: ManageBookingsService) {}
 
@@ -29,7 +29,7 @@ export class ManageBookingsComponent implements OnInit {
     });
   }
 
-  delete(id: any): void {
+  delete(id: number): void {
     this.bookingSvc.delete(id).subscribe(response => {
       this.bookings = this.bookings.filter(booking => booking.id !== id);
     });
@@ -37,9 +37,10 @@ export class ManageBookingsComponent implements OnInit {
       const booking = this.bookings.find(b => b.id === id);})
   }
 
-  confirm(id: any): void {
+  confirm(id: number): void {
     this.bookingSvc.confirm(id).subscribe(() => {
       const booking = this.bookings.find(b => b.id === id);
+
       if (booking) {
         booking.confirmed = true;
       }

@@ -1,6 +1,5 @@
 package it.epicode.valhallagaming.errors;
 
-
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.HashMap;
 import java.util.Map;
 
-@RestControllerAdvice // gestisce eccezioni tramite spring e verifica la presenza dei metodi che gestiscono gli errori
+@RestControllerAdvice
 public class ErrorHandler {
 
     @ExceptionHandler(EntityNotFoundException.class)
@@ -28,30 +27,26 @@ public class ErrorHandler {
         return new ResponseEntity<>(strError, HttpStatus.FOUND);
     }
 
-    // Handler dell'errore di validazione
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<String> handleIllegalArgument(IllegalArgumentException error) {
+        String strError = error.getMessage();
+        return new ResponseEntity<>(strError, HttpStatus.BAD_REQUEST);
+    }
 
-    /*
-    Restituisce una mappa cosi composta:
-       - nome del campo che e' andato in errore
-       - stringa che contiene l'errore generato
-      Il front end otterra' una cosa simile a quella che segue:
-       Json:
-       {
-       "nome" : "Il nome non puo essere vuoto",
-       "cognome" : "Il cognome non puo essere vuoto"
-       }
-     */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleValidationErrors(MethodArgumentNotValidException error){
-        Map errorResponse = new HashMap();
+        Map<String, String> errorResponse = new HashMap<>();
         error.getBindingResult().getAllErrors().forEach(
                 er->{
-                    FieldError frError = (FieldError) er; // recupera il nome del campo non valido
-                    String nomeCampo = frError.getField(); // recupera il nome del campo non valido
-                    String errorMessage = er.getDefaultMessage(); // recupera il messaggio dell'annotazione @NotEmpy dentro il nostro Dto
-                    errorResponse.put(nomeCampo, errorMessage);
-                }
-        );
+                    FieldError frError = (FieldError) er;
+                    errorResponse.put(frError.getField(), frError.getDefaultMessage());
+                });
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
- }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<String> handleGenericException(Exception error) {
+        String strError = error.getMessage();
+        return new ResponseEntity<>(strError, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+}

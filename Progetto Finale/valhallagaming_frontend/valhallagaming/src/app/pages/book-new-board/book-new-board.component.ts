@@ -21,11 +21,12 @@ export class BookNewBoardComponent implements OnInit {
   email: string = "email@email.email";
   guests: number = 0;
   open: boolean = false;
-  guestNumbers: number[] = [2, 3, 4, 5, 6, 7, 8, 9, 10];
+  guestNumbers: number[] = [];
   seats: number = 0;
   boardId: number | undefined;
   chosenBoard: Station | undefined;
   game: string = "gioco";
+  maxSeats:number=0
 
   constructor(private newBoardSvc: BookNewBoardService, private dateSvc: DateService, private userSvc: UserService) {}
 
@@ -38,6 +39,30 @@ export class BookNewBoardComponent implements OnInit {
 
     this.newBoardSvc.getNewBoards(this.date).subscribe(data => {
       this.boards = data;
+
+      this.boards.sort((a, b) => {
+        if (a.seatsTotal < b.seatsTotal) {
+            return -1;
+        }
+        if (a.seatsTotal > b.seatsTotal) {
+            return 1;
+        }
+        return 0;
+    });
+
+      for (let i = 0; i < this.boards.length; i++) {
+        const b = this.boards[i];
+
+        if (b.seatsTotal>this.maxSeats) {
+          this.maxSeats=b.seatsTotal
+        }
+      }
+
+      for (let i = 2; i <= this.maxSeats; i++) {
+        this.guestNumbers.push(i)
+      }
+
+
     });
   }
 

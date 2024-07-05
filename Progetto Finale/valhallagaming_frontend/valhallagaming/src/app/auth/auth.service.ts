@@ -39,6 +39,7 @@ export class AuthService {
 
 
   loginUrl:string = environment.loginUrl
+  logoutUrl:string = environment.logoutUrl
 
   login(loginData: Login): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(this.loginUrl, loginData)
@@ -57,10 +58,15 @@ export class AuthService {
   }
 
 
-  logout(){
-    this.authSubj.next(null)
-    localStorage.removeItem('accessData')
-    this.router.navigate(['/'])
+  logout(): Observable<any> {
+    return this.http.post<any>(this.logoutUrl, {})
+      .pipe(
+        tap(() => {
+          this.authSubj.next(null);
+          localStorage.removeItem('accessData');
+          this.router.navigate(['/']);
+        })
+      );
   }
 
     isLoggedIn(): boolean {

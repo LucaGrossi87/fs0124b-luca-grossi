@@ -14,18 +14,26 @@ public class EmailService {
     private JavaMailSender emailSender;
 
     public void sendConfirmationEmail(String userEmail, String adminName, String adminEmail){
+        System.out.println("check");
         MimeMessage message = emailSender.createMimeMessage();
+        System.out.println(message);
+        System.out.println("check");
         MimeMessageHelper helper = new MimeMessageHelper(message);
-
+        System.out.println("check");
+        System.out.println(helper);
         try {
+            System.out.println("check");
             helper.setTo(userEmail);
+            System.out.println(userEmail + adminEmail + adminName);
             helper.setSubject("Valhalla Gaming - Conferma Prenotazione");
             String text = "Gentile Utente,\n"
                     + "La sua prenotazione è stata confermata da " + adminName + ".\n"
                     + "Grazie per aver scelto Valhalla Gaming! \n"
-                    + "Se hai bisogno contatta" + adminEmail;
+                    + "Se hai bisogno contatta " + adminEmail;
             helper.setText(text);
+            System.out.println(text);
             emailSender.send(message);
+            System.out.println("check");
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }

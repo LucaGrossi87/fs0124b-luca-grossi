@@ -34,7 +34,6 @@ export class ManageBookingsService {
     return this.http.put<void>(`${this.bookingsUrl}/${id}/note`, note);
   }
 
-    // Metodo per ottenere le prenotazioni per una stazione specifica
     getBookingsByStationId(stationId: number): Observable<Booking[]> {
       return this.http.get<Booking[]>(`${this.bookingsByStationUrl}/${stationId}`);
     }

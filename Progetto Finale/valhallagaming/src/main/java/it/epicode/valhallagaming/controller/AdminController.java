@@ -7,6 +7,7 @@ import it.epicode.valhallagaming.dto.adminDTO.AdminResponse;
 import it.epicode.valhallagaming.entity.Admin;
 import it.epicode.valhallagaming.entity.Role;
 import it.epicode.valhallagaming.service.AdminService;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,7 +31,11 @@ public class AdminController {
     @GetMapping("/{id}")
     public AdminResponse getAdminById(@PathVariable Long id) {
         Optional<Admin> admin = adminService.findById(id);
-        return admin.map(this::convertToDTO).orElse(null);
+        if (admin.isPresent()) {
+            return convertToDTO(admin.get());
+        } else {
+            throw new EntityNotFoundException("Admin not found with id: " + id);
+        }
     }
 
     @PostMapping
@@ -60,8 +65,8 @@ public class AdminController {
 
     @PostMapping("/collab")
     public AdminResponse createCollaborator(@RequestBody AdminCreateRequest adminCreateRequest) {
-        if (adminCreateRequest.getRole() == Role.COLLABORATOR) {
-            throw new IllegalArgumentException("Solo gli admin possono creare admini");
+        if (adminCreateRequest.getRole() != Role.ADMIN) {
+            throw new IllegalArgumentException("Solo gli admin possono creare collaboratori");
         }
 
         Admin admin = convertToEntity(adminCreateRequest);
