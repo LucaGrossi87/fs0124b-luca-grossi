@@ -9,8 +9,9 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  selectedDate: string = '';
-  showAlert: boolean = false;
+  minDate: string = ''
+  selectedDate: string = ''
+  showAlert: boolean = false
 
   constructor(private dateService: DateService, private router: Router) { }
 
@@ -21,6 +22,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.selectedDate = '';
+
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    this.minDate = `${yyyy}-${mm}-${dd}`;
 
     this.router.events
       .pipe(

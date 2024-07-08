@@ -24,7 +24,6 @@ export class AdminLoginComponent {
     this.authSvc.login(this.login)
       .subscribe(data => {
         this.router.navigate(['/backoffice/bookings']);
-        console.log("check");
       }, error => {
         console.error('Errore durante il login:', error);
       });

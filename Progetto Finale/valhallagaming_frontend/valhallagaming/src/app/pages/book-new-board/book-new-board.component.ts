@@ -6,6 +6,7 @@ import { User } from '../../models/i-users';
 import { Station } from '../../models/i-stations';
 import { switchMap, catchError } from 'rxjs/operators';
 import { throwError, of } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-new-board',
@@ -15,6 +16,7 @@ import { throwError, of } from 'rxjs';
 export class BookNewBoardComponent implements OnInit {
 
   boards: Station[] = [];
+  settedBoards: Station[] = [];
   date: string = "";
   firstName: string = "nome";
   lastName: string = "cognome";
@@ -27,13 +29,13 @@ export class BookNewBoardComponent implements OnInit {
   chosenBoard: Station | undefined;
   game: string = "gioco";
   maxSeats:number=0
+  showAlert:boolean=false
 
-  constructor(private newBoardSvc: BookNewBoardService, private dateSvc: DateService, private userSvc: UserService) {}
+  constructor(private newBoardSvc: BookNewBoardService, private dateSvc: DateService, private userSvc: UserService, private router:Router ) {}
 
   ngOnInit(): void {
     this.date = this.dateSvc.getSelectedDate();
     if (!this.date) {
-      console.log("Data non selezionata");
       return;
     }
 
@@ -42,13 +44,19 @@ export class BookNewBoardComponent implements OnInit {
 
       this.boards.sort((a, b) => {
         if (a.seatsTotal < b.seatsTotal) {
-            return -1;
+          return -1;
         }
         if (a.seatsTotal > b.seatsTotal) {
-            return 1;
+          return 1;
         }
         return 0;
-    });
+      });
+
+      this.settedBoards = this.boards.filter((board, index, self) =>
+        index === self.findIndex((t) => (
+          t.seatsTotal === board.seatsTotal
+        ))
+      );
 
       for (let i = 0; i < this.boards.length; i++) {
         const b = this.boards[i];
@@ -71,6 +79,13 @@ export class BookNewBoardComponent implements OnInit {
   }
 
   prenota(): void {
+    const isValidEmail = (email: string) => {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    };
+    if (!this.firstName||!this.lastName||!this.email||!this.guests||!this.seats||!isValidEmail(this.email)) {
+      this.showAlert=true
+    }
     if (this.firstName && this.lastName && this.email && this.game) {
 
       const newUser: User = {
@@ -80,7 +95,6 @@ export class BookNewBoardComponent implements OnInit {
       };
 
       let userIdToUse: number | undefined;
-      console.log("check");
 
       this.userSvc.createUser(newUser).pipe(
         switchMap(user => {
@@ -99,7 +113,6 @@ export class BookNewBoardComponent implements OnInit {
                   if (boards.length > 0) {
                     this.chosenBoard = boards[0];
                     this.boardId = this.chosenBoard.id;
-                    console.log(this.boardId);
 
                     return this.newBoardSvc.newBoardBookingById(this.date, this.guests, userIdToUse || 0, this.open, this.boardId || 0, this.game).pipe(
                       catchError(error => {
@@ -128,15 +141,16 @@ export class BookNewBoardComponent implements OnInit {
           return throwError("Impossibile creare l'utente. Riprova più tardi.");
         })
       ).subscribe(() => {
+        this.router.navigate(['/wait-confirmation'])
         console.log(`Prenotazione effettuata per ${this.firstName} ${this.lastName} alla data ${this.date}`);
       }, error => {
         console.error("Errore durante la prenotazione:", error);
-        // Gestire l'errore e fornire feedback all'utente
       });
 
     } else {
       console.log("Inserisci nome, cognome, email e gioco per prenotare");
     }
+
   }
 
 }

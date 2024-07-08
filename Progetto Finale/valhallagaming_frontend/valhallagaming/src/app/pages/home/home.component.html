@@ -44,6 +44,7 @@
             required
             id="date"
             class="mb-3 border-bottom border-black max-width"
+            [min]="minDate"
           />
 
           <div *ngIf="showAlert"  class="alert alert-warning alert-dismissible fade show border-warning" role="alert">

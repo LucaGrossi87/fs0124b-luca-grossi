@@ -28,6 +28,7 @@
         <label for="email" class="me-3">Email:</label>
         <input id="email" [(ngModel)]="email" name="email" required type="email" class="rounded">
       </div>
+      <div *ngIf="showAlert" class="alert alert-warning alert-dismissible fade show border-warning mt-3" role="alert">Inserisci tutti i dati! <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
       <button type="submit" class="btn btn-outline-dark my-3 fw-semibold">Conferma Prenotazione</button>
     </form>
   </div>

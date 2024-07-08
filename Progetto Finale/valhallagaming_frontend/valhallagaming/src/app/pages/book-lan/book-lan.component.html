@@ -5,15 +5,16 @@
 
 <div>
   <label for="firstName" class="mx-3">Nome:</label>
-  <input id="firstName" [(ngModel)]="firstName" placeholder="Inserisci il tuo nome" />
+  <input id="firstName" [(ngModel)]="firstName" placeholder="Inserisci il tuo nome" required/>
 </div>
 <div>
   <label for="lastName" class="mx-3 my-3">Cognome:</label>
-  <input id="lastName" [(ngModel)]="lastName" placeholder="Inserisci il tuo cognome" />
+  <input id="lastName" [(ngModel)]="lastName" placeholder="Inserisci il tuo cognome" required/>
 </div>
 <div>
   <label for="email" class="mx-3">Email:</label>
-  <input id="email" [(ngModel)]="email" placeholder="Inserisci email" />
+  <input id="email" [(ngModel)]="email" placeholder="Inserisci email" required/>
 </div>
-<button (click)="prenota()" [routerLink]="['/wait-confirmation']" class="btn btn-outline-dark mt-3">Prenota</button>
+<div *ngIf="showAlert" class="alert alert-warning alert-dismissible fade show border-warning mt-3" role="alert">Inserisci tutti i dati! <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+<button (click)="prenota()" class="btn btn-outline-dark mt-3">Prenota</button>
 </div>

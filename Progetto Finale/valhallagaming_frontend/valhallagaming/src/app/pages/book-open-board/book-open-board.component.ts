@@ -26,6 +26,7 @@ export class BookOpenBoardComponent implements OnInit {
   email: string = "email";
   chosenBooking: Booking | undefined;
   showBookingForm: boolean = false;
+  showAlert: boolean=false;
 
   constructor(private router: Router, private openBoardSvc: BookOpenBoardService, private dateSvc: DateService, private newBoardSvc: BookNewBoardService, private userSvc: UserService) { }
 
@@ -39,7 +40,6 @@ export class BookOpenBoardComponent implements OnInit {
     this.openBoardSvc.getOpenBoards(this.date).subscribe(data => {
       this.boards = data;
       this.hasAvailableBookings = this.boards.length > 0 && this.boards.some(board => board.seatsAvailable > 0);
-      console.log(this.boards);
     });
 
 
@@ -55,20 +55,23 @@ export class BookOpenBoardComponent implements OnInit {
   }
 
   prenota(): void {
+    const isValidEmail = (email: string) => {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    };
+    if (!this.firstName||!this.lastName||!this.email||!isValidEmail(this.email)) {
+      this.showAlert=true
+    }
     const newUser: User = {
       firstName: this.firstName,
       lastName: this.lastName,
       email: this.email
     };
 
-    console.log("check");
-
     this.userSvc.createUser(newUser).subscribe(user => {
       if (user.id !== undefined) {
         this.newBoardSvc.newBoardBookingById(this.date, 1, user.id, false, this.chosenBooking?.station.id!, this.chosenBooking?.game!).subscribe(() => {
           console.log(`Prenotazione effettuata per ${this.firstName} ${this.lastName} alla data ${this.date}`);
-
-          // Decrementa seatsAvailable e aggiorna la prenotazione
           if (this.chosenBooking) {
             this.chosenBooking.seatsAvailable -= 1;
             this.openBoardSvc.editBooking(this.chosenBooking.id!, this.chosenBooking).subscribe(() => {

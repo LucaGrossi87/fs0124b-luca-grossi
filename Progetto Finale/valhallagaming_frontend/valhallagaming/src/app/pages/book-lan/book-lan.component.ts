@@ -4,6 +4,7 @@ import { BookLanService } from './book-lan.service';
 import { Station } from '../../models/i-stations';
 import { DateService } from '../../service/date.service';
 import { UserService } from '../../service/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-lan',
@@ -17,8 +18,10 @@ export class BookLanComponent implements OnInit {
   lastName: string = "";
   username: string = "";
   email: string = "email";
+  showAlert: boolean=false;
+  showAlertEmail: boolean=false;
 
-  constructor(private lansSvc: BookLanService, private dateSvc: DateService, private userSvc: UserService) { }
+  constructor(private lansSvc: BookLanService, private dateSvc: DateService, private userSvc: UserService, private router:Router) { }
 
   ngOnInit(): void {
     this.date = this.dateSvc.getSelectedDate();
@@ -33,6 +36,14 @@ export class BookLanComponent implements OnInit {
   }
 
   prenota(): void {
+    const isValidEmail = (email: string) => {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    };
+    if (!this.firstName||!this.lastName||!this.email||!isValidEmail(this.email)) {
+      this.showAlert=true
+    }
+
     if (this.firstName && this.lastName && this.email) {
       const newUser: User = {
         firstName: this.firstName,
@@ -44,6 +55,7 @@ export class BookLanComponent implements OnInit {
         if (user.id !== undefined) {
           this.lansSvc.lanBooking(this.date, user.id).subscribe(() => {
             console.log(`Prenotazione effettuata per ${this.firstName} ${this.lastName} alla data ${this.date}`);
+            this.router.navigate(['/wait-confirmation'])
           });
         } else {
           console.log("Errore nella creazione dell'utente: ID non definito");
