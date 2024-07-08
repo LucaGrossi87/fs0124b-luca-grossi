@@ -71,12 +71,10 @@ public class BookingController {
 
     @DeleteMapping("/{id}")
     public BookingDeleteResponse deleteBooking(@PathVariable Long id) {
-        System.out.println(id);
         bookingService.deleteById(id);
         BookingDeleteResponse response = new BookingDeleteResponse();
         response.setId(id);
         response.setMessage("Booking eliminato");
-        System.out.println(response);
         return response;
     }
 
@@ -105,32 +103,19 @@ public class BookingController {
 
     @PutMapping("/{id}/confirmation")
     public void sendEmailConfirmation(@PathVariable Long id) {
-        System.out.println("check");
         Optional<Booking> bookingOpt = bookingService.findById(id);
-        System.out.println("check");
         if (bookingOpt.isPresent()) {
-            System.out.println("check");
             Booking booking = bookingOpt.get();
             User user = booking.getUser();
-            System.out.println("check");
-
             booking.setConfirmed(true);
             bookingService.save(booking);
-            System.out.println("check");
             Optional<Admin> loggedAdminOpt = adminService.findLoggedin();
-            System.out.println(loggedAdminOpt);
             if (loggedAdminOpt.isPresent()) {
-                System.out.println("check");
                 Admin loggedAdmin = loggedAdminOpt.get();
                 String userEmail = user.getEmail();
-                System.out.println("check");
-                System.out.println(loggedAdmin.getFirstName());
                 String adminName = loggedAdmin.getFirstName();
-                System.out.println(adminName);
                 String adminEmail = loggedAdmin.getEmail();
-                System.out.println(adminEmail);
                 emailService.sendConfirmationEmail(userEmail, adminName, adminEmail);
-                System.out.println("check");
             }
         }
     }
@@ -158,7 +143,7 @@ public class BookingController {
     }
 
     @PostMapping("/boardbookingclose")
-    public BookingResponse boardBookingClose(@RequestParam("date") String dateParam, @RequestParam("guests") int guests, @RequestParam("userId") Long userId, @RequestParam("open") boolean open,@RequestParam("game") String game, @RequestParam("note") String note) {
+    public BookingResponse boardBookingClose(@RequestParam("date") String dateParam, @RequestParam("guests") int guests, @RequestParam("userId") Long userId, @RequestParam("open") boolean open,@RequestParam("game") String game, String note) {
         LocalDate date = LocalDate.parse(dateParam);
         User user = userService.findById(userId).orElseThrow(() -> new EntityNotFoundException("Utente non trovato"));
         Station finalBoard = null;
@@ -224,20 +209,14 @@ public class BookingController {
 
             User user = userService.findById(userId)
                     .orElseThrow(() -> new EntityNotFoundException("Utente non trovato"));
-            System.out.println(user);
-
-            System.out.println(boardId);
             Optional<Station> optionalStation = stationService.findById(boardId);
             if (optionalStation.isEmpty()) {
                 throw new EntityNotFoundException("Stazione non trovata con id: " + boardId);
             }
             Station chosenBoard = optionalStation.get();
 
-            System.out.println(chosenBoard.getId());
-
             Booking newClosedBooking = new Booking(user, chosenBoard, date, open, false, guests, chosenBoard.getSeatsTotal() - guests, game, "");
             Booking newBooking = bookingService.save(newClosedBooking);
-            System.out.println(newBooking.getGame());
 
             return ResponseEntity.ok(convertToDTO(newBooking));
         } catch (EntityNotFoundException e) {

@@ -5,10 +5,8 @@ import it.epicode.valhallagaming.entity.User;
 import it.epicode.valhallagaming.repository.BookingRepository;
 import it.epicode.valhallagaming.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 
-import java.awt.print.Book;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
