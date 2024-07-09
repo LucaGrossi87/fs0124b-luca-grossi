@@ -9,7 +9,6 @@ import { HomeComponent } from './pages/home/home.component';
 
 import { BookLanComponent } from './pages/book-lan/book-lan.component';
 import { AdminLoginComponent } from './pages/admin-login/admin-login.component';
-import { ConfirmBookingComponent } from './pages/confirm-booking/confirm-booking.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BookNewBoardComponent } from './pages/book-new-board/book-new-board.component';
 import { BookOpenBoardComponent } from './pages/book-open-board/book-open-board.component';
@@ -19,7 +18,6 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,24 +25,18 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
 
     BookLanComponent,
     AdminLoginComponent,
-    ConfirmBookingComponent,
     HeaderComponent,
     BookNewBoardComponent,
     BookOpenBoardComponent,
     WaitConfirmationComponent,
     FooterComponent,
     NavbarComponent,
-    ContactsComponent
+    ContactsComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

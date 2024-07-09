@@ -5,33 +5,33 @@ import { Observable } from 'rxjs';
 import { Station } from '../../../models/i-stations';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ManageStationsService {
-  private boardsUrl=environment.boardsUrl
-  private lansUrl=environment.lansUrl
-  private deleteStationUrl=environment.deleteStationUrl
-  private postStationUrl=environment.postStationUrl
-  private updateBoardUrl=environment.updateBoardUrl
+  private boardsUrl = environment.boardsUrl;
+  private lansUrl = environment.lansUrl;
+  private deleteStationUrl = environment.deleteStationUrl;
+  private postStationUrl = environment.postStationUrl;
+  private updateBoardUrl = environment.updateBoardUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getBoards(): Observable<Station[]> {
-    return this.http.get<Station[]>(this.boardsUrl)
-}
+    return this.http.get<Station[]>(this.boardsUrl);
+  }
   getLans(): Observable<Station[]> {
-    return this.http.get<Station[]>(this.lansUrl)
-}
+    return this.http.get<Station[]>(this.lansUrl);
+  }
 
-delete(id:number):Observable<Station> {
-return this.http.delete<Station>(`${this.deleteStationUrl}/${id}`)
-}
+  delete(id: number): Observable<Station> {
+    return this.http.delete<Station>(`${this.deleteStationUrl}/${id}`);
+  }
 
-update(id: number, data: Partial<Station>): Observable<Station> {
-  return this.http.put<Station>(`${this.updateBoardUrl}/${id}`, data);
-}
+  update(id: number, data: Partial<Station>): Observable<Station> {
+    return this.http.put<Station>(`${this.updateBoardUrl}/${id}`, data);
+  }
 
-post(station:Partial<Station>):Observable<Station>{
-  return this.http.post<Station>(this.postStationUrl, station)
-}
+  post(station: Partial<Station>): Observable<Station> {
+    return this.http.post<Station>(this.postStationUrl, station);
+  }
 }

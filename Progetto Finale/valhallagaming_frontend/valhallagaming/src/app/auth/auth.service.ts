@@ -9,76 +9,64 @@ import { Login } from '../models/i-login';
 import { LoginResponse } from '../models/i-login-response';
 
 type AccessData = {
-  accessToken:string,
-  user:User
-}
+  accessToken: string;
+  user: User;
+};
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  jwtHelper: JwtHelperService = new JwtHelperService();
 
-  jwtHelper:JwtHelperService = new JwtHelperService()
+  authSubj = new BehaviorSubject<User | null>(null);
 
-  authSubj = new BehaviorSubject<User|null>(null)
+  user$ = this.authSubj.asObservable();
+  isLoggedIn$ = this.user$.pipe(
+    map((user) => !!user)
+  );
 
-  user$ = this.authSubj.asObservable()
-    isLoggedIn$ = this.user$.pipe(
-      tap(user => {
-        console.log('User subject value:', user);
-      }),
-      map(user => !!user)
-    );
+  constructor(private http: HttpClient, private router: Router) {
+    this.restoreUser();
+  }
 
-  constructor(
-    private http:HttpClient,
-    private router:Router,
-    ) {
-      this.restoreUser()
-    }
-
-
-  loginUrl:string = environment.loginUrl
-  logoutUrl:string = environment.logoutUrl
+  loginUrl: string = environment.loginUrl;
+  logoutUrl: string = environment.logoutUrl;
 
   login(loginData: Login): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(this.loginUrl, loginData)
-      .pipe(
-        tap(response => {
-          const accessData: AccessData = {
-            accessToken: response.jwt,
-            user: response.admin
-          };
-          console.log('Access Data:', accessData);
-          this.authSubj.next(accessData.user);
-          localStorage.setItem('accessData', JSON.stringify(accessData));
-          this.autoLogout(accessData.accessToken);
-        })
-      );
+    return this.http.post<LoginResponse>(this.loginUrl, loginData).pipe(
+      tap((response) => {
+        const accessData: AccessData = {
+          accessToken: response.jwt,
+          user: response.admin,
+        };
+        this.authSubj.next(accessData.user);
+        localStorage.setItem('accessData', JSON.stringify(accessData));
+        this.autoLogout(accessData.accessToken);
+      })
+    );
   }
-
 
   logout(): Observable<any> {
-    return this.http.post<any>(this.logoutUrl, {})
-      .pipe(
-        tap(() => {
-          this.authSubj.next(null);
-          localStorage.removeItem('accessData');
-          this.router.navigate(['/']);
-        })
-      );
+    return this.http.post<any>(this.logoutUrl, {}).pipe(
+      tap(() => {
+        this.authSubj.next(null);
+        localStorage.removeItem('accessData');
+        this.router.navigate(['/']);
+      })
+    );
   }
 
-    isLoggedIn(): boolean {
+  isLoggedIn(): boolean {
     return !!this.authSubj.value;
   }
 
-  getAccessToken():string{
-    const userJson = localStorage.getItem('accessData')
-    if(!userJson) return ''
-    const accessData:AccessData = JSON.parse(userJson)
-    if(this.jwtHelper.isTokenExpired(accessData.accessToken)) return '';
-    return accessData.accessToken
+  getAccessToken(): string {
+    const userJson = localStorage.getItem('accessData');
+    if (!userJson) return '';
+    const accessData: AccessData = JSON.parse(userJson);
+    if (this.jwtHelper.isTokenExpired(accessData.accessToken)) return '';
+    return accessData.accessToken;
   }
 
   autoLogout(jwt: string): void {
@@ -93,12 +81,11 @@ export class AuthService {
     }
   }
 
+  restoreUser() {
+    const userJson = localStorage.getItem('accessData');
 
-  restoreUser(){
-    const userJson = localStorage.getItem('accessData')
-
-    if(!userJson) return;
-    const accessData:AccessData = JSON.parse(userJson)
+    if (!userJson) return;
+    const accessData: AccessData = JSON.parse(userJson);
     if (accessData.accessToken && accessData.user) {
       this.authSubj.next(accessData.user);
       this.autoLogout(accessData.accessToken);
@@ -107,21 +94,21 @@ export class AuthService {
 
   errors(err: any) {
     switch (err.error) {
-        case "Email and Password are required":
-            return new Error('Email e password obbligatorie');
-            break;
-        case "Email already exists":
-            return new Error('Utente esistente');
-            break;
-        case 'Email format is invalid':
-            return new Error('Email scritta male');
-            break;
-        case 'Cannot find user':
-            return new Error('utente inesistente');
-            break;
-            default:
+      case 'Email and Password are required':
+        return new Error('Email e password obbligatorie');
+        break;
+      case 'Email already exists':
+        return new Error('Utente esistente');
+        break;
+      case 'Email format is invalid':
+        return new Error('Email scritta male');
+        break;
+      case 'Cannot find user':
+        return new Error('utente inesistente');
+        break;
+      default:
         return new Error('Errore');
-            break;
+        break;
     }
   }
 }

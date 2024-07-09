@@ -6,7 +6,7 @@ import { Admin } from '../../../models/i-admins'; // Assicurati di importare cor
 @Component({
   selector: 'app-collabs',
   templateUrl: './collabs.component.html',
-  styleUrls: ['./collabs.component.scss']
+  styleUrls: ['./collabs.component.scss'],
 })
 export class CollabsComponent implements OnInit {
   select: boolean = false;
@@ -15,11 +15,14 @@ export class CollabsComponent implements OnInit {
   collaborators: any[] = [];
   isCollaborator: boolean = false;
 
-  constructor(private collabSvc: CollabsService, private authSvc: AuthService) {}
+  constructor(
+    private collabSvc: CollabsService,
+    private authSvc: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.loadCollaborators();
-    this.authSvc.user$.subscribe(user => {
+    this.authSvc.user$.subscribe((user) => {
       // Verifica se user è un oggetto Admin e se ha il ruolo 'COLLABORATOR'
       this.isCollaborator = (user as Admin)?.role === 'COLLABORATOR';
     });
@@ -47,7 +50,10 @@ export class CollabsComponent implements OnInit {
           this.loadCollaborators();
         },
         (error) => {
-          console.error('Errore durante la creazione del collaboratore:', error);
+          console.error(
+            'Errore durante la creazione del collaboratore:',
+            error
+          );
         }
       );
     }
@@ -72,7 +78,7 @@ export class CollabsComponent implements OnInit {
         lastName: collaborator.lastName,
         userName: collaborator.userName,
         email: collaborator.email,
-        password: collaborator.password
+        password: collaborator.password,
       };
 
       this.selectEdit = true;
@@ -81,17 +87,22 @@ export class CollabsComponent implements OnInit {
 
   updateCollaborator(): void {
     if (!this.isCollaborator) {
-      this.collabSvc.updateCollaborator(this.collaborator.id, this.collaborator).subscribe(
-        (data) => {
-          console.log('Collaboratore aggiornato con successo:', data);
-          this.collaborator = {};
-          this.select = false;
-          this.loadCollaborators();
-        },
-        (error) => {
-          console.error('Errore durante l\'aggiornamento del collaboratore:', error);
-        }
-      );
+      this.collabSvc
+        .updateCollaborator(this.collaborator.id, this.collaborator)
+        .subscribe(
+          (data) => {
+            console.log('Collaboratore aggiornato con successo:', data);
+            this.collaborator = {};
+            this.select = false;
+            this.loadCollaborators();
+          },
+          (error) => {
+            console.error(
+              "Errore durante l'aggiornamento del collaboratore:",
+              error
+            );
+          }
+        );
     }
   }
 
@@ -103,7 +114,10 @@ export class CollabsComponent implements OnInit {
           this.loadCollaborators();
         },
         (error) => {
-          console.error('Errore durante l\'eliminazione del collaboratore:', error);
+          console.error(
+            "Errore durante l'eliminazione del collaboratore:",
+            error
+          );
         }
       );
     }

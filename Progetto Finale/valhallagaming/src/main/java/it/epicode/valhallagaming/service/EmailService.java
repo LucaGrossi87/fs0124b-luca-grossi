@@ -18,11 +18,12 @@ public class EmailService {
         MimeMessageHelper helper = new MimeMessageHelper(message);
         try {
             helper.setTo(userEmail);
+            helper.setFrom("vladsophia@hotmail.it");
             helper.setSubject("Valhalla Gaming - Conferma Prenotazione");
             String text = "Gentile Utente,\n"
                     + "La sua prenotazione è stata confermata da " + adminName + ".\n"
                     + "Grazie per aver scelto Valhalla Gaming! \n"
-                    + "Se hai bisogno contatta " + adminEmail;
+                    + "Se ha bisogno di contattarci può scriverci a " + adminEmail;
             helper.setText(text);
             emailSender.send(message);
         } catch (MessagingException e) {
@@ -36,6 +37,7 @@ public class EmailService {
 
         try {
             helper.setTo(userEmail);
+            helper.setFrom("vladsophia@hotmail.it");
             helper.setSubject("Valhalla Gaming - Conferma Prenotazione");
             String text = "Gentile Utente,\n"
                     + "siamo spiacenti ma la sua prenotazione è stata annullata. \n"

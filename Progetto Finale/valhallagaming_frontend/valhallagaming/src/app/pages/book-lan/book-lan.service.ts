@@ -5,13 +5,13 @@ import { Observable } from 'rxjs';
 import { Station } from '../../models/i-stations';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BookLanService {
   private newLansUrl = environment.newLansUrl;
   private lanBookingUrl = environment.lanBookingUrl; // Assicurati che questo sia definito nel tuo environment.ts
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getLans(date: string): Observable<Station[]> {
     return this.http.get<Station[]>(`${this.newLansUrl}?date=${date}`);

@@ -24,64 +24,77 @@ html {
   border-radius: 5px;
 }
 
-.options a:hover {
-  background-color: #0056b3;
+@import "bootstrap/scss/bootstrap";
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+header,
+footer,
+.btn,
+.w3-bar,
+h1,
+button,
+span,
+label,
+option {
+  font-family: "Bona Nova SC", serif;
+  font-weight: 600;
+  font-style: normal;
 }
 
-@import 'bootstrap/scss/bootstrap';
-
-body,h1,h2,h3,h4,h5,h6,p, header, footer,.btn, .w3-bar,h1,button, span,label ,option {Font-family: "Bona Nova SC", serif;
-  font-weight: 600;
-  font-style: normal;}
-
-#date{
+#date {
   border: 1px solid #c4c4c4;
   border-radius: 5px;
   background-color: #fff;
   padding: 3px 5px;
-  box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
   width: 190px;
-  }
+}
 
-  .bg-custom {
-    background-image: url(./assets/photo-1650024520884-9cd80902ed53.avif);
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
+.bg-custom {
+  background-image: url(./assets/photo-1650024520884-9cd80902ed53.avif);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-  .bg-filter {
-    background-color: rgba(256,256,256,0.7);
-  }
+.bg-filter {
+  background-color: rgba(256, 256, 256, 0.7);
+}
 
-  .spacing-custom-3 {
-    letter-spacing: .3rem;
-  }
-  .spacing-custom-2 {
-    letter-spacing: .2rem;
-  }
-  .spacing-custom-1-5 {
-    letter-spacing: .15rem;
-  }
+.spacing-custom-3 {
+  letter-spacing: 0.3rem;
+}
+.spacing-custom-2 {
+  letter-spacing: 0.2rem;
+}
+.spacing-custom-1-5 {
+  letter-spacing: 0.15rem;
+}
 
-  .name-bg {
-    background-image: url(./assets/pexels-photo-5023698.jpeg);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-  }
+.name-bg {
+  background-image: url(./assets/pexels-photo-5023698.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
 
-  .bg-filter-dark {
-    background-color: rgba(0,0,0,0.7);
-  }
+.bg-filter-dark {
+  background-color: rgba(0, 0, 0, 0.7);
+}
 
-  .max-width{
-    max-width: 100%;
-  }
+.max-width {
+  max-width: 100%;
+}
 
-
-  $size-width: 400px;
+$size-width: 400px;
 $size-height: 250px;
 
 .carousel-wrapper {
@@ -188,6 +201,4 @@ $size-height: 250px;
   .vh-100 {
     height: 100vh;
   }
-
-
 }

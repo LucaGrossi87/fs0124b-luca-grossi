@@ -6,7 +6,7 @@ import { ManageBookingsService } from '../manage-bookings/manage-bookings.servic
 @Component({
   selector: 'app-manage-stations',
   templateUrl: './manage-stations.component.html',
-  styleUrls: ['./manage-stations.component.scss']
+  styleUrls: ['./manage-stations.component.scss'],
 })
 export class ManageStationsComponent implements OnInit {
   boards: Station[] = [];
@@ -24,10 +24,10 @@ export class ManageStationsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.stationSvc.getBoards().subscribe(data => {
+    this.stationSvc.getBoards().subscribe((data) => {
       this.boards = data.sort((a, b) => a.id! - b.id!);
     });
-    this.stationSvc.getLans().subscribe(data => {
+    this.stationSvc.getLans().subscribe((data) => {
       this.lans = data.sort((a, b) => a.id! - b.id!);
     });
   }
@@ -36,18 +36,26 @@ export class ManageStationsComponent implements OnInit {
     let deletedBookingIds: number[] = [];
 
     this.stationSvc.delete(id).subscribe(() => {
-      this.boards = this.boards.filter(board => board.id !== id);
-      this.lans = this.lans.filter(lan => lan.id !== id);
+      this.boards = this.boards.filter((board) => board.id !== id);
+      this.lans = this.lans.filter((lan) => lan.id !== id);
 
-      this.bookingsSvc.getBookingsByStationId(id).subscribe(bookings => {
-        deletedBookingIds = bookings.map(booking => booking.id!);
+      this.bookingsSvc.getBookingsByStationId(id).subscribe((bookings) => {
+        deletedBookingIds = bookings.map((booking) => booking.id!);
 
-        deletedBookingIds.forEach(bookingId => {
-          this.bookingsSvc.deleteEmail(bookingId).subscribe(() => {
-            console.log(`Email di cancellazione inviata per la prenotazione ${bookingId}`);
-          }, error => {
-            console.error(`Errore durante l'invio dell'email di cancellazione per la prenotazione ${bookingId}:`, error);
-          });
+        deletedBookingIds.forEach((bookingId) => {
+          this.bookingsSvc.deleteEmail(bookingId).subscribe(
+            () => {
+              console.log(
+                `Email di cancellazione inviata per la prenotazione ${bookingId}`
+              );
+            },
+            (error) => {
+              console.error(
+                `Errore durante l'invio dell'email di cancellazione per la prenotazione ${bookingId}:`,
+                error
+              );
+            }
+          );
         });
       });
     });
@@ -64,23 +72,33 @@ export class ManageStationsComponent implements OnInit {
   }
 
   submitEdit(): void {
-    if (this.editSeatsTotal !== null && this.editId !== null && this.editStationType !== null) {
+    if (
+      this.editSeatsTotal !== null &&
+      this.editId !== null &&
+      this.editStationType !== null
+    ) {
       const updatedStation: Partial<Station> = {
         seatsTotal: this.editSeatsTotal,
-        stationType: this.editStationType
+        stationType: this.editStationType,
       };
-      this.stationSvc.update(this.editId, updatedStation).subscribe(updatedData => {
-        const boardIndex = this.boards.findIndex(board => board.id === this.editId);
-        if (boardIndex !== -1) {
-          this.boards[boardIndex] = updatedData;
-        } else {
-          const lanIndex = this.lans.findIndex(lan => lan.id === this.editId);
-          if (lanIndex !== -1) {
-            this.lans[lanIndex] = updatedData;
+      this.stationSvc
+        .update(this.editId, updatedStation)
+        .subscribe((updatedData) => {
+          const boardIndex = this.boards.findIndex(
+            (board) => board.id === this.editId
+          );
+          if (boardIndex !== -1) {
+            this.boards[boardIndex] = updatedData;
+          } else {
+            const lanIndex = this.lans.findIndex(
+              (lan) => lan.id === this.editId
+            );
+            if (lanIndex !== -1) {
+              this.lans[lanIndex] = updatedData;
+            }
           }
-        }
-        this.editId = null;
-      });
+          this.editId = null;
+        });
     }
   }
 
@@ -88,24 +106,23 @@ export class ManageStationsComponent implements OnInit {
     if (type == 'LAN') {
       const postStation: Partial<Station> = {
         stationType: type,
-        seatsTotal: 1
-      }
-      this.stationSvc.post(postStation).subscribe(data => {
-        this.lans.push(data)
-      })
+        seatsTotal: 1,
+      };
+      this.stationSvc.post(postStation).subscribe((data) => {
+        this.lans.push(data);
+      });
     } else if (type == 'BOARD') {
       const postStation: Partial<Station> = {
         stationType: type,
-        seatsTotal: this.postSeatsTotal
-      }
-      this.stationSvc.post(postStation).subscribe(data => {
-        this.boards.push(data)
-      })
+        seatsTotal: this.postSeatsTotal,
+      };
+      this.stationSvc.post(postStation).subscribe((data) => {
+        this.boards.push(data);
+      });
     }
   }
 
   toggleSelect(): void {
     this.select = !this.select;
   }
-
 }

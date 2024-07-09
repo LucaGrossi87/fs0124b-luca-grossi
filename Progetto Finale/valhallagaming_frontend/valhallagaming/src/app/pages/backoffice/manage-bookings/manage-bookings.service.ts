@@ -5,15 +5,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ManageBookingsService {
-
   private bookingsUrl = environment.bookingsUrl;
   private deleteBookingUrl = environment.deleteBookingUrl;
-  private bookingsByStationUrl=environment.bookingsByStationUrl
+  private bookingsByStationUrl = environment.bookingsByStationUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getBookings(): Observable<Booking[]> {
     return this.http.get<Booking[]>(this.bookingsUrl);
@@ -34,7 +33,9 @@ export class ManageBookingsService {
     return this.http.put<void>(`${this.bookingsUrl}/${id}/note`, note);
   }
 
-    getBookingsByStationId(stationId: number): Observable<Booking[]> {
-      return this.http.get<Booking[]>(`${this.bookingsByStationUrl}/${stationId}`);
-    }
+  getBookingsByStationId(stationId: number): Observable<Booking[]> {
+    return this.http.get<Booking[]>(
+      `${this.bookingsByStationUrl}/${stationId}`
+    );
+  }
 }
