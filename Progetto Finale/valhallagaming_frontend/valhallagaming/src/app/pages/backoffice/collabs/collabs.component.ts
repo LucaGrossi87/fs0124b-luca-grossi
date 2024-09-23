@@ -1,3 +1,4 @@
+import { User } from './../../../models/i-users';
 import { Component, OnInit } from '@angular/core';
 import { CollabsService } from './collabs.service';
 import { AuthService } from '../../../auth/auth.service';
@@ -9,6 +10,9 @@ import { Admin } from '../../../models/i-admins'; // Assicurati di importare cor
   styleUrls: ['./collabs.component.scss'],
 })
 export class CollabsComponent implements OnInit {
+  selectedCollaborator: any = {};
+editId: number | null = null;
+
   select: boolean = false;
   selectEdit: boolean = false;
   collaborator: any = {};
@@ -23,9 +27,9 @@ export class CollabsComponent implements OnInit {
   ngOnInit(): void {
     this.loadCollaborators();
     this.authSvc.user$.subscribe((user) => {
-      // Verifica se user è un oggetto Admin e se ha il ruolo 'COLLABORATOR'
       this.isCollaborator = (user as Admin)?.role === 'COLLABORATOR';
     });
+
   }
 
   toggleSelect(): void {
@@ -70,9 +74,14 @@ export class CollabsComponent implements OnInit {
     );
   }
 
+  isEditing(collaborator: any): boolean {
+    return this.editId === collaborator.id;
+  }
+
+
   edit(collaborator: any): void {
     if (!this.isCollaborator) {
-      this.collaborator = {
+      this.selectedCollaborator = {
         id: collaborator.id,
         firstName: collaborator.firstName,
         lastName: collaborator.lastName,
@@ -81,7 +90,7 @@ export class CollabsComponent implements OnInit {
         password: collaborator.password,
       };
 
-      this.selectEdit = true;
+      this.editId = collaborator.id;
     }
   }
 

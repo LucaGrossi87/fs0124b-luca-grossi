@@ -30,7 +30,7 @@ export class AuthGuard {
           this.router.navigate(['']);
         }
       }),
-      map((isLoggedIn) => isLoggedIn) // Ritorna true o false
+      map((isLoggedIn) => isLoggedIn)
     );
   }
 

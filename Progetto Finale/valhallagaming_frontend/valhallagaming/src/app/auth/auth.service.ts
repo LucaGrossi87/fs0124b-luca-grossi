@@ -65,7 +65,10 @@ export class AuthService {
     const userJson = localStorage.getItem('accessData');
     if (!userJson) return '';
     const accessData: AccessData = JSON.parse(userJson);
-    if (this.jwtHelper.isTokenExpired(accessData.accessToken)) return '';
+    if (this.jwtHelper.isTokenExpired(accessData.accessToken)) {
+      this.logout().subscribe();
+      return '';
+    }
     return accessData.accessToken;
   }
 
@@ -76,7 +79,16 @@ export class AuthService {
       const expiresInMs = expirationDate.getTime() - new Date().getTime();
 
       setTimeout(() => {
-        this.logout();
+        const currentAccessToken = this.getAccessToken();
+        if (currentAccessToken) {
+          this.logout().subscribe({
+            error: () => {
+              this.authSubj.next(null);
+              localStorage.removeItem('accessData');
+              this.router.navigate(['/']);
+            }
+          });
+        }
       }, expiresInMs);
     }
   }
@@ -87,10 +99,21 @@ export class AuthService {
     if (!userJson) return;
     const accessData: AccessData = JSON.parse(userJson);
     if (accessData.accessToken && accessData.user) {
-      this.authSubj.next(accessData.user);
-      this.autoLogout(accessData.accessToken);
+      if (!this.jwtHelper.isTokenExpired(accessData.accessToken)) {
+        this.authSubj.next(accessData.user);
+        this.autoLogout(accessData.accessToken);
+      } else {
+        this.logout().subscribe({
+          error: () => {
+            this.authSubj.next(null);
+            localStorage.removeItem('accessData');
+            this.router.navigate(['/']);
+          }
+        });
+      }
     }
   }
+
 
   errors(err: any) {
     switch (err.error) {

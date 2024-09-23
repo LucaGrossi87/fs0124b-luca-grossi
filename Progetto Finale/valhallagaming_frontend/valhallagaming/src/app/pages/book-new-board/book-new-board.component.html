@@ -1,6 +1,9 @@
 <div
   class="container bg-filter fw-semibold text-center my-5 rounded p-3 border border-warning"
 >
+
+<div *ngIf="boards.length==0"><p class="fs-4">Purtroppo non ci sono tavoli disponibili per il {{date}}</p></div>
+<div *ngIf="boards.length>0">
   <p class="fs-4">Ci sono ancora {{ boards.length }} tavoli disponibili</p>
 
   <div>
@@ -32,7 +35,7 @@
   </div>
   <div>
     <label for="game" class="me-3 mt-3">Gioco:</label>
-    <input id="game" [(ngModel)]="game" name="game" required class="rounded" />
+    <input id="game" [(ngModel)]="game" name="game" required class="rounded" placeholder="A cosa giocherete?"/>
   </div>
   <div class="border-top border-bottom border-black my-3 pt-1 pb-3">
     <p class="">Quanti siete?</p>
@@ -74,7 +77,8 @@
     class="alert alert-warning alert-dismissible fade show border-warning"
     role="alert"
   >
-    Inserisci tutti i dati!
+  <p>Inserisci tutti i dati!</p>
+  <p>Assicurati che l'email abbia un formato valido.</p>
     <button
       type="button"
       class="btn-close"
@@ -84,4 +88,5 @@
   </div>
 
   <button (click)="prenota()" class="btn btn-outline-dark mt-1">Prenota</button>
+</div>
 </div>

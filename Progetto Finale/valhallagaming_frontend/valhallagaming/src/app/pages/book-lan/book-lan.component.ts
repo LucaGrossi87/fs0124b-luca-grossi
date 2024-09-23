@@ -16,8 +16,7 @@ export class BookLanComponent implements OnInit {
   date: string = '';
   firstName: string = '';
   lastName: string = '';
-  username: string = '';
-  email: string = 'email';
+  email: string = '';
   showAlert: boolean = false;
   showAlertEmail: boolean = false;
 

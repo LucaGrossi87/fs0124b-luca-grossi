@@ -20,5 +20,6 @@ export const environment = {
   bookingsByStationUrl:'http://localhost:8080/api/bookings/station',
   createCollabUrl:'http://localhost:8080/api/admins/collab',
   getCollabsUrl:'http://localhost:8080/api/admins/collabs',
-  getCollabByIdUrl:'http://localhost:8080/api/admins'
+  getCollabByIdUrl:'http://localhost:8080/api/admins',
+  createUsrUrl:'http://localhost:8080/api/users'
 };
